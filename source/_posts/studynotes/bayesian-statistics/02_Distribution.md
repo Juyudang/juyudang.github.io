@@ -152,7 +152,7 @@ Sample space가 continuous한 경우의 distribution을 말함.
 
 특정 일이 일어날 때 까지 걸린 시간 또는 기다린 시간의 분포는 exponential distribution을 따른다.
 $$
-\text{Exp}(\lambda) = \lambda e^{-\lambda x} \mathbb{I}_{\{ x \geq 0 \}}
+\text{Exp}(\lambda) = \lambda e^{-\lambda x} \mathbb{I}_{ x \geq 0 }
 $$
 여기서 $\lambda$는 어떤 시간 동안에 사건이 발생하는 횟수의 비율을 말한다. 예를 들어, 10분 동안 버스가 3대 오면 $\lambda = 0.3$이다(시간을 10분 단위로 했을 때).
 
@@ -163,7 +163,7 @@ $$
 버스가 올때까지 걸리는 시간을 측정하는 시행이 여러 번 있고, 그들의 총합 시간은 gamma distribution을 따른다. 쉽게 말해서, Gamma distribution을 따르는 $Y$는 exponential distribution을 따르는 $X_i$의 합과 같다.
 $$
 Y = \sum_i X_i \\
-p(y|\alpha,\beta) = \frac{\beta^{\alpha}}{\Gamma(\alpha)}y^{\alpha-1}e^{-\beta y} \mathbb{I}_{\{y \geq0\}}(y)
+p(y|\alpha,\beta) = \frac{\beta^{\alpha}}{\Gamma(\alpha)}y^{\alpha-1}e^{-\beta y} \mathbb{I}_{y \geq 0}(y)
 $$
 감마분포는 $\alpha$와 $\beta$를 파라미터로 삼으며, $\alpha = n$, $\beta = \lambda$가 된다.
 
@@ -191,7 +191,7 @@ $$
 
 모든 sample space범위의 단위 interval에서 확률이 같다.
 $$
-\text{Uni}(X) = \frac{1}{b-a}\mathbb{I}_{\{ a \leq x \leq b \}}
+\text{Uni}(X) = \frac{1}{b-a}\mathbb{I}_{ a \leq x \leq b }
 $$
 **Expected Value:**
 $$
