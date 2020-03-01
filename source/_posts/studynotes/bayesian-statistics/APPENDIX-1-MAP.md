@@ -24,25 +24,25 @@ Likelihood를 최대화하는 추정법(MLE - Maximum Likelihood Estimation)은 
 
 방법은 다음과 같다.
 
-1. 데이터에 대한 likelihood $$P(D|\theta)$$를 모델링한다.
+1. 데이터에 대한 likelihood $P(D|\theta)$를 모델링한다.
 
-2. Likelihood $$P(D|\theta)$$의 파라미터 $$\theta$$의 prior $$P(\theta)$$를 모델링한다.
+2. Likelihood $P(D|\theta)$의 파라미터 $\theta$의 prior $P(\theta)$를 모델링한다.
 
-3. Prior $$P(\theta)$$와 likelihood $$P(D|\theta)$$를 이용해서 posterior $$P(\theta|D)$$를 직접 계산할 수 있으면 계산하되, 불가능하다면, posterior와 비례하는 함수 $$g(\theta|D)$$를 계산한
+3. Prior $P(\theta)$와 likelihood $P(D|\theta)$를 이용해서 posterior $P(\theta|D)$를 직접 계산할 수 있으면 계산하되, 불가능하다면, posterior와 비례하는 함수 $g(\theta|D)$를 계산한
    $$
    P(\theta|D) = \frac{P(D|\theta)P(\theta)}{\sum_{\theta'}P(D|\theta')P(\theta')}
    $$
-   분모인 normalization constant가 계산 불가능할 수도 있다. 그럼, $$g(\theta|D)$$를 대신 구한다.
+   분모인 normalization constant가 계산 불가능할 수도 있다. 그럼, $g(\theta|D)$를 대신 구한다.
    $$
    P(\theta|D) \approx g(\theta|D) = P(D|\theta)P(\theta)
    $$
-   보통, 파라미터의 prior $$P(\theta)$$가 likelihood $$P(D|\theta)$$와 conjugate를 이루면, posterior를 직접 계산할 수 있을 것이다. 그렇지 못하면서 가능한 $$\theta$$의 개수가 많다면, $$g(\theta|D)$$를 계산해야 하는 경우가 많다.
+   보통, 파라미터의 prior $P(\theta)$가 likelihood $P(D|\theta)$와 conjugate를 이루면, posterior를 직접 계산할 수 있을 것이다. 그렇지 못하면서 가능한 $\theta$의 개수가 많다면, $g(\theta|D)$를 계산해야 하는 경우가 많다.
 
-4. Posterior $$P(\theta|D)$$가 가장 커지는 $$\theta$$를 구한다.
+4. Posterior $P(\theta|D)$가 가장 커지는 $\theta$를 구한다.
    $$
    \hat{\theta} = \underset{\theta}{\text{argmax}} ~ P(\theta|D)
    $$
-   또는 $$g(\theta|D)$$가 가장 커지는 $$\theta$$를 구한다.
+   또는 $g(\theta|D)$가 가장 커지는 $\theta$를 구한다.
    $$
    \hat{\theta} = \underset{\theta}{\text{argmax}} ~ g(\theta|D)
    $$
