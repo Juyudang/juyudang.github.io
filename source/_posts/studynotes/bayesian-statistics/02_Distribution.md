@@ -30,6 +30,7 @@ P(X|\theta) = \theta \cdot \mathbb{I}_{\text{head}} + (1 - \theta) \cdot \mathbb
 $$
 
 
+
 ### Expected Values
 
 **기댓값**이라고도 불리며, 확률적인 관점에서 본 **"평균"**이다.
