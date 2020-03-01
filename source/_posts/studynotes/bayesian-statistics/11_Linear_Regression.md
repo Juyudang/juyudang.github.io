@@ -1,3 +1,17 @@
+---
+title: 11. Linear Regression
+toc: true
+date: 2020-03-01 22:08:00
+tags:
+	- StudyNotes
+	- BayesianStatistics
+categories:
+	- Study Notes
+	- Bayesian Statistics
+---
+
+
+
 # Linear Regression
 
 

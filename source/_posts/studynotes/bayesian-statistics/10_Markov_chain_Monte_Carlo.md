@@ -8,7 +8,6 @@ tags:
 categories:
 	- Study Notes
 	- Bayesian Statistics
-
 ---
 
 
