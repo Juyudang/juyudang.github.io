@@ -262,7 +262,7 @@ $$
 $$
 이때, $\nu$는 자유도, degree of freedom이라고 부른다.
 
-**Expected Value:**
+**Expected Value: **
 $$
 E[X] = 0 ~~~\text{if } \nu \geq 1
 $$
