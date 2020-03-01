@@ -22,11 +22,11 @@ categories:
 
 어떤 조건이 만족했을때, 1을 반환하고, 만족하지 못하면 0을 반환하는 함수이다.
 $$
-\mathbb{I}_{\{\text{cond}(x)\}}(x) = \begin{cases} 1 & \text{if cond(x) is True} \\ 0 & \text{if cond(x) is False} \end{cases}
+\mathbb{I}_{\text{cond}(x)}(x) = \begin{cases} 1 & \text{if cond(x) is True} \\ 0 & \text{if cond(x) is False} \end{cases}
 $$
 Indicator function은 다음과 같이 동전 던지기에 대한 확률같은 것을 표현할 때 용이하다.
 $$
-P(X|\theta) = \theta \cdot \mathbb{I}_{head} + (1 - \theta) \cdot \mathbb{I}_{tail}
+P(X|\theta) = \theta \cdot \mathbb{I}_{\text{head}} + (1 - \theta) \cdot \mathbb{I}_{\text{tail}}
 $$
 
 
