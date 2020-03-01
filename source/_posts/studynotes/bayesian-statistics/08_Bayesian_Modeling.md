@@ -51,6 +51,6 @@ $$
 $$
 여기서 $\mathbb{IG}$는 inverse-gamma distribution을 뜻한다. 그리고 각 prior는 독립이라고 가정하면, $p(\mu,\sigma^2) = p(\mu)p(\sigma^2)$일 것이다. 모델로 그려보면 다음과 같다.
 
-![1566621163224](08_Bayesian_Modeling.assets/1566621163224.png)
+![1566621163224](../../../../../../Notes/note-images/08_Bayesian_Modeling/1566621163224.png)
 
 이렇게, 우선 데이터가 어떻게 생성되었을지에 대해 그 생성 과정을 모델링하는데, likelihood부터 적고, 아래 파라미터까지 노드를 뻗어 나간다.
