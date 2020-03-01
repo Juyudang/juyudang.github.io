@@ -26,7 +26,7 @@ $$
 $$
 Indicator function은 다음과 같이 동전 던지기에 대한 확률같은 것을 표현할 때 용이하다.
 $$
-P(X|\theta) = \theta \cdot \mathbb{I}_{\text{head}} + (1 - \theta) \cdot \mathbb{I}_{\text{tail}}
+P(X|\theta) = \theta \cdot \mathbb{I}_{head} + (1 - \theta) \cdot \mathbb{I}_{tail}
 $$
 
 
