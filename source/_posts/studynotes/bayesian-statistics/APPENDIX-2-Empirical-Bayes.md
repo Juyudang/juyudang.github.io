@@ -65,4 +65,4 @@ $$
 = \prod_i \frac{\text{beta}(a + x_i, b + N_i - x_i)}{\text{beta}(a, b)}
 $$
 
-(왜 저렇게 나오지??)
+(왜 저렇게 나오지??) 
