@@ -9,10 +9,14 @@ categories:
 ---
 
 ## Blog Init
-재영이 화이팅~~
+재영이 화이팅~~ 
 
 ![개장!](https://user-images.githubusercontent.com/26294469/74609940-0b6b0880-5132-11ea-9616-d6f8293cc8aa.gif)
 
 $$
+<<<<<<< HEAD
 x-y
+=======
+x- y
+>>>>>>> 8934ab945b03cc3311bac06b638bf387e56911d2
 $$
