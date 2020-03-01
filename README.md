@@ -3,13 +3,7 @@
 ### 클론
 
 ```bash
-git clone https://github.com/Jaeyoung-blog/Jaeyoung.github.io
-```
-
-### 브랜치 변경(writing)
-
-```bash
-git checkout -b writing
+git clone -b writing https://github.com/Jaeyoung-blog/Jaeyoung.github.io
 ```
 
 ### 설치
@@ -18,7 +12,7 @@ git checkout -b writing
 npm install
 ```
 
-### 문서 업로드
+### 문서(.md) 업로드
 
 `/source/_posts` 경로에 마크다운(`.md`) 파일 업로드
 
