@@ -1,3 +1,18 @@
+---
+title: 10. Markov Chain Monte Carlo
+toc: true
+date: 2020-03-01 22:08:00
+tags:
+	- StudyNotes
+	- BayesianStatistics
+categories:
+	- Study Notes
+	- Bayesian Statistics
+
+---
+
+
+
 # Markov Chain Monte Carlo
 
 
