@@ -10,8 +10,6 @@ categories:
 	- Bayesian Statistics
 ---
 
-
-
 # Prior Predictive Distribution
 
 
