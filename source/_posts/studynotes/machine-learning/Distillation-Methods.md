@@ -5,7 +5,7 @@ date: 2020-03-02 22:07:01
 tags:
 	- StudyNotes
 	- MachineLearning
-Categories
+categories
 	- Study Notes
 	- Machine Learning
 ---
