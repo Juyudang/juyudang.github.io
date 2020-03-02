@@ -50,6 +50,10 @@ highlight:
 ignore: [
   '**/studynotes/test/**',
   '**/studynotes/test'
+  '**/studynotes/research/**',
+  '**/studynotes/research'
+  '**/studynotes/paper-review/**',
+  '**/studynotes/paper-review'
 ]
 
 ## Markdown
