@@ -16,7 +16,7 @@ categories:
 
 
 
-다음을 참고했다.
+다음을 참고했다. 
 
 [Distillation as a Defense to Adversarial
 Perturbations against Deep Neural Networks](https://arxiv.org/pdf/1511.04508.pdf)
