@@ -53,7 +53,9 @@ ignore: [
   '**/studynotes/research/**',
   '**/studynotes/research',
   '**/studynotes/paper-review/**',
-  '**/studynotes/paper-review'
+  '**/studynotes/paper-review',
+  '**/studynotes/mediawiki/**',
+  '**/studynotes/mediawiki'
 ]
 
 ## Markdown
