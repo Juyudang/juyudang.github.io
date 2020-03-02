@@ -48,7 +48,8 @@ highlight:
   tab_replace:
 
 ignore: [
-  '**/studynotes/test/**'
+  '**/studynotes/test/**',
+  '**/studynotes/test'
 ]
 
 ## Markdown
