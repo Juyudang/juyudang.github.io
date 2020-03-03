@@ -78,12 +78,15 @@ marked:
 index_generator:
   path: ''
   per_page: 10
-  order_by: title
+  order_by: -date
   
 # Category & Tag
 default_category: uncategorized
 category_map:
 tag_map:
+
+category_generator:
+  order_by: title
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
