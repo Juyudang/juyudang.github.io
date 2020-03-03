@@ -1,6 +1,6 @@
 ---
 title: 04. Policies and Value Functions
-toc:true
+toc: true
 date: 2020-03-03 10:00:03
 tags:
 	- StudyNotes

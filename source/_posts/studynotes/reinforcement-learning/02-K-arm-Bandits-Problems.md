@@ -1,6 +1,6 @@
 ---
 title: 02. K-arm Bandits Problems
-toc:true
+toc: true
 date: 2020-03-03 10:00:01
 tags:
 	- StudyNotes
