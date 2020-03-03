@@ -57,13 +57,13 @@ $A_t$: 어떤 시간 $t$에서 취한 액션
 
 $R_t$: 어떤 시간 $t$에서 취한 액션으로 얻은 reward
 
-$q_*(a)$: 어떤 임의 액션 $a$를 취해서 얻는 reward의 기댓값 즉,
+$q_* (a)$: 어떤 임의 액션 $a$를 취해서 얻는 reward의 기댓값 즉,
 $$
-q_*(a) = \mathbb{E}(R_t|A_t=a)
+q_* (a) = \mathbb{E}(R_t|A_t=a)
 $$
-(당연히 $q_*(a)$는 인공지능이 알 수 없는 값이다. 이걸 알면 기댓값이 높은 길만 선택하면 된다.)
+(당연히 $q_* (a)$는 인공지능이 알 수 없는 값이다. 이걸 알면 기댓값이 높은 길만 선택하면 된다.)
 
-$Q_*(a)$: 인공지능이 exploitation, exploration을 바탕으로 추정해낸 분포로 계산한, 임의 액션 $a$를 취했을 때의 reward 기댓값. 인공지능은 적절한 exploration을 통해 $Q_*(a)$를 업데이트해서 $q_*(a)$와 가깝게 추정해야 한다.
+$Q_* (a)$: 인공지능이 exploitation, exploration을 바탕으로 추정해낸 분포로 계산한, 임의 액션 $a$를 취했을 때의 reward 기댓값. 인공지능은 적절한 exploration을 통해 $Q_* (a)$를 업데이트해서 $q_* (a)$와 가깝게 추정해야 한다.
 
 
 
@@ -73,7 +73,7 @@ Value function을 말하기 앞서서, exploitation과 exploration은 서로 균
 
 이것을 달성하는 방법으로 다음과 같은 것들이 있다.
 
-- $$\epsilon$$-greedy methods (Epsilon-greedy)
+- $\epsilon$-greedy methods (Epsilon-greedy)
 
 - Optimal Initial Values
 - UCB(Upper Confidence Bound) Methods
@@ -111,7 +111,7 @@ optimal에 수렴한 이후부터는 exploitation만 수행하게 되기 때문�
 
 다음을 만족하는 action을 선택한다.
 $$
-a^* = \underset{a}{\text{argmax}} ~ q^*(a)
+a^* = \underset{a}{\text{argmax}} ~ q^* (a)
 $$
 Initial value estimation이 높기 때문에 오직 greedy하게 액션을 선택한다.
 
@@ -121,7 +121,7 @@ Initial value estimation이 높기 때문에 오직 greedy하게 액션을 선�
 
 Confidence interval을 이용해서 액션을 선택하는 방법으로, 각 action의 value 기댓값을 추정한 후, 그 기댓값의 confidence interval를 계산한다. 그리고, 특정한 p-value에 대해 confidence interval의 upper bound를 구한 후, 가장 높은 upper bound를 가지는 action을 선택하는 방식이다. 
 
-이 방법의 장점은, 굳이 $$\epsilon$$의 확률을 정해놓고 exploration을 하게 하는 것이 아니라, exploration이 얼마 이루어지지 않아 불확실한 confidence boundary를 가지는 것을 알아서 선택하게 하고, 많이 exploration되어 확실하지만, 높은 기댓값으로 확실한 값을 선택하게 함으로써, exploration과 exploitation을 자동으로 조절해서 선택하게 한다.
+이 방법의 장점은, 굳이 $\epsilon$의 확률을 정해놓고 exploration을 하게 하는 것이 아니라, exploration이 얼마 이루어지지 않아 불확실한 confidence boundary를 가지는 것을 알아서 선택하게 하고, 많이 exploration되어 확실하지만, 높은 기댓값으로 확실한 값을 선택하게 함으로써, exploration과 exploitation을 자동으로 조절해서 선택하게 한다.
 
 시간이 지날수록 수렴하게 되면 exploration은 자동으로 줄어들게 된다.
 
@@ -131,7 +131,7 @@ Confidence interval을 이용해서 액션을 선택하는 방법으로, 각 act
 
 즉 ,다음을 만족하는 action을 선택한다.
 $$
-a^* = \underset{a}{\text{argmax}} [q^*(a) + c\sqrt{\frac{\text{ln}~N}{N_a}}]
+a^* = \underset{a}{\text{argmax} } [q^* (a) + c\sqrt{\frac{\text{ln} ~ N} {N_a} } ]
 $$
 이때, $\underset{a}{\text{argmax}} ~ q^* (a)$는 greedy 한 선택을 위한 term, 즉, exploitation을 위한 term이고, $a^* = \underset{a}{ \text{argmax} } ~ c \sqrt{ \frac{ \text{ln} N } {N_a} }$은 exploration을 위한 term이다. 즉, confidence interval인데, 다음 식을 이용해서 유도할 수 있다고 한다.
 $$
