@@ -39,24 +39,29 @@ Value function과 그 의미가 매우 유사해보인다. 하지만, Value func
 
 - Stochastic Policies
   $$
-  \pi(a|s) = \text{{Probability distribution matrix}}
+  \pi(a|s) = \text{ {Probability distribution matrix} }
   $$
   Stochastic policy는 한 state를 주게 되면, 그 state에서의 action probability distribution을 반환하는 함수이다. 따라서, 한 state를 주면, 여러 action이 나오게 된다.
 
   이때, action probability distribution matrix는 다음을 만족해야 한다.
   $$
-  \sum_a \pi(a|s) = 1 \\
-  \pi(a|s) \geq 0
+  \sum_a \pi(a|s) = 1
   $$
+  $$
+  \pi(a|s) \geq 0
+$$
+  
+  
+  
   즉, 행렬의 각 row가 적법한 probability distribution이어야 한다.
-
+  
   action probability distribution은 각 state마다 다르다.
 
 
 
 ### Valid & Invalid Policies
 
-MDP에서 policies는 반드시 현재 타임에서의 상태에 존재하는 정보를 이용해서 action을 결정해야 한다. 즉, policies의 인자는 반드시 time $$t$$에서는 $s_t$만이 되어야 하며, 따라서 다음과 같다.
+MDP에서 policies는 반드시 현재 타임에서의 상태에 존재하는 정보를 이용해서 action을 결정해야 한다. 즉, policies의 인자는 반드시 time $t$에서는 $s_t$만이 되어야 하며, 따라서 다음과 같다.
 $$
 \pi(s_t) \rightarrow a_t
 $$
