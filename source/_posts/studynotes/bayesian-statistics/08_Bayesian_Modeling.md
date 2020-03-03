@@ -1,7 +1,7 @@
 ---
 title: 08. Bayesian Modeling
 toc: true
-date: 2020-03-01 22:08:00
+date: 2020-03-01 22:08:08
 tags:
 	- StudyNotes
 	- BayesianStatistics

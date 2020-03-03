@@ -1,7 +1,7 @@
 ---
 title: 12. Prior Sensitivity Analysis
 toc: true
-date: 2020-03-01 22:08:00
+date: 2020-03-01 22:08:12
 tags:
 	- StudyNotes
 	- BayesianStatistics

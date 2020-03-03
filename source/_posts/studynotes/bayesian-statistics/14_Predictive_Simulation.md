@@ -1,7 +1,7 @@
 ---
 title: 14. Predictive Simulations
 toc: true
-date: 2020-03-01 22:08:00
+date: 2020-03-01 22:08:14
 tags:
 	- StudyNotes
 	- BayesianStatistics

@@ -1,7 +1,7 @@
 ---
 title: 03. Frequentist Inference
 toc: true
-date: 2020-03-01 21:08:00
+date: 2020-03-01 21:08:02
 tags:
 	- StudyNotes
 	- BayesianStatistics

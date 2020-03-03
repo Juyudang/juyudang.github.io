@@ -1,7 +1,7 @@
 ---
 title: 02. Distribution
 toc: true
-date: 2020-03-01 21:08:00
+date: 2020-03-01 21:08:01
 tags:
 	- StudyNotes
 	- BayesianStatistics

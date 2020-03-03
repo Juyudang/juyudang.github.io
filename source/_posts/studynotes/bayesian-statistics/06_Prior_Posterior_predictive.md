@@ -1,7 +1,7 @@
 ---
 title: 06. Prior Predictive Distribution
 toc: true
-date: 2020-03-01 21:08:00
+date: 2020-03-01 21:08:06
 tags:
 	- StudyNotes
 	- BayesianStatistics

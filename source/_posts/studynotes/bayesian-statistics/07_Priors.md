@@ -1,7 +1,7 @@
 ---
 title: 07. Priors
 toc: true
-date: 2020-03-01 21:08:00
+date: 2020-03-01 21:08:07
 tags:
 	- StudyNotes
 	- BayesianStatistics

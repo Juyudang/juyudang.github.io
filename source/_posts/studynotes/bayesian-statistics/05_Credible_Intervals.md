@@ -1,7 +1,7 @@
 ---
 title: 05. Credible Intervals
 toc: true
-date: 2020-03-01 21:08:00
+date: 2020-03-01 21:08:05
 tags:
 	- StudyNotes
 	- BayesianStatistics
