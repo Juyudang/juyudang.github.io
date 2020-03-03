@@ -86,7 +86,7 @@ category_map:
 tag_map:
 
 category_generator:
-  order_by: -title
+  order_by: +title
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
