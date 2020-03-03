@@ -34,11 +34,11 @@ Prior predictive distribution은 데이터 수집 전에, prior정보만을 이�
 
 데이터 $d_1$를 수집했다고 치자. 그럼 다음에 샘플링될 $d_2$의 확률분포는 다음과 같다.
 $$
-p(d_2|d_1) = \int_0^1 p(d_2|d_1,\theta)p(\theta|d_1)~d\theta
+p(d_2|d_1) = \int_0^1 p(d_2|d_1,\theta)p(\theta|d_1)d\theta
 $$
 이때, $d_1 \perp d_2$이므로, 다음과 같다.
 $$
-p(d_2|d_1) = \int_0^1 p(d_2|\theta)p(\theta|d_1)~d\theta
+p(d_2|d_1) = \int_0^1 p(d_2|\theta)p(\theta|d_1)d\theta
 $$
 Prior predictive distribution과 다른 점은 prior 자리에 posterior가 들어갔다는 점이다.
 
