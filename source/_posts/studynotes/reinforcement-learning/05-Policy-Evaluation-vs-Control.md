@@ -1,6 +1,6 @@
 ---
 title: 05. Policy Evaluation & Control
-toc:true
+toc: true
 date: 2020-03-03 10:00:04
 tags:
 	- StudyNotes

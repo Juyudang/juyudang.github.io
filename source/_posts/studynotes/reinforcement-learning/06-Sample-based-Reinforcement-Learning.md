@@ -1,6 +1,6 @@
 ---
 title: 06. Sample-based Reinforcement Learning
-toc:true
+toc: true
 date: 2020-03-03 10:00:05
 tags:
 	- StudyNotes
