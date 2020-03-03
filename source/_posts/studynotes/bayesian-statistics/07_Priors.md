@@ -34,11 +34,25 @@ Effective sample size란, 설정한 prior의 영향이 posterior에 영향을 50
 
 30%의 확률로 불량이 있다고 생각해서 불량률 $\theta$에 대해 $\theta \approx \text{beta}(6, 14)$으로 prior를 설정했다고 하자. 그리고 10번의 생산 후 6개의 불량이 나왔다. 이때, $\theta$의 posterior는 $\text{beta}(6+6, 14+4) = \text{beta}(12, 18)$이 된다. **$\alpha$는 불량인 것의 개수와 관련있고, $\beta$는 불량이 아닌 것과 관련이 있는 것이다.** 실제로 계산해봐도 그렇다.
 $$
-P(\theta) = \frac{\Gamma(6 + 20)}{\Gamma(6)\Gamma(14)}\theta^{6-1}(1-\theta)^{14 - 1} \\
-P(X|\theta) = \begin{pmatrix} 10 \\ 6 \end{pmatrix}\theta^6(1-\theta)^4 \\
-P(\theta|X) = P(X|\theta)P(\theta) = \frac{25!10!}{5!19!6!4!}\theta^{12-1}(1-\theta)^{18-1} \\
-\propto \text{beta}(12, 18)
+P(\theta) = \frac{\Gamma(6 + 20)}{\Gamma(6)\Gamma(14)}\theta^{6-1}(1-\theta)^{14 - 1} 
 $$
+$$
+P(X|\theta) = \begin{pmatrix} 10 \\ 6 \end{pmatrix}\theta^6(1-\theta)^4
+$$
+
+
+$$
+P(\theta|X) = P(X|\theta)P(\theta) = \frac{25!10!}{5!19!6!4!}\theta^{12-1}(1-\theta)^{18-1}
+$$
+
+$$
+P(\theta|X) \propto \text{beta}(12, 18)
+$$
+
+
+
+
+
 앞의 상수들은 다 상수일 뿐. 어쨌든 beta distribution에 근사된다.
 
 
@@ -87,8 +101,14 @@ Exponential distribution도 역시 $\lambda$를 파라미터로 하며, gamma di
 
 Gamma prior로 conjugate인 likelihood의 경우, posterior도 gamma distribution이다. 이런 경우, effective sample size는 $\beta$이다.
 $$
-\text{Posterior}(\lambda|X) = \text{Gamma}(\alpha + \sum_i^n x_i, \beta + n) \\
-\text{mean}(posterior) = \frac{\alpha + \sum_i^n x_i}{\beta + n} \\
+\text{Posterior}(\lambda|X) = \text{Gamma}(\alpha + \sum_i^n x_i, \beta + n)
+$$
+
+$$
+\text{mean}(posterior) = \frac{\alpha + \sum_i^n x_i}{\beta + n}
+$$
+
+$$
 \frac{\alpha + \sum_i^n x_i}{\beta + n} = \frac{\beta}{\beta + n} \cdot \frac{\alpha}{\beta} + \frac{n}{\beta + n} \cdot \frac{\sum_i^n x_i}{n}
 $$
 

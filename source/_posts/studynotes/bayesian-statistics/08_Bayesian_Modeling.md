@@ -46,9 +46,14 @@ f(y|\theta) = \mathbb{N}(\mu, \sigma^2)
 $$
 그리고 $\mu$, $\sigma^2$의 분포가 필요한데, 이들의 prior를 정한다.
 $$
-\mu \approx \mathbb{N}(\mu_0, \sigma_0^2) \\
+\mu \approx \mathbb{N}(\mu_0, \sigma_0^2)
+$$
+$$
 \sigma^2 \approx \mathbb{IG}(\nu_0, \beta_0)
 $$
+
+
+
 여기서 $\mathbb{IG}$는 inverse-gamma distribution을 뜻한다. 그리고 각 prior는 독립이라고 가정하면, $p(\mu,\sigma^2) = p(\mu)p(\sigma^2)$일 것이다. 모델로 그려보면 다음과 같다.
 
 ![1566621163224](../../../../../../Notes/note-images/08_Bayesian_Modeling/1566621163224.png)
