@@ -20,13 +20,13 @@ categories:
 
 예를 들어, 어떤 파라미터 $\theta$는 어떤 분포 $p(\theta)$를 따른다. 우리는 파라미터 $\theta$의 기댓값 $E[\theta]$를 계산하고 싶다. 이를 계산하기 위해서는 원래 $E[\theta] = \int p(\theta) \cdot \theta ~~ d\theta$를 계산해야 한다. 하지만, 이 계산은 불가능하거나 매우 힘들 수 있다.
 
-$E[\theta]$를 계산하는 대신 추정하는 방법으로 몬테 카를로 추정법을 이용한다. 우선, 컴퓨터로 $p(\theta)$로부터 $\theta^*$를 많이 샘플링한다. 그리고 그들의 평균 $\bar{\theta^*} = \frac{1}{m}\sum_i^m \theta^*_i$를 계산하고 $\bar{\theta^*}$를 $E[\theta]$로 추정하는 것이다.
+$E[\theta]$를 계산하는 대신 추정하는 방법으로 몬테 카를로 추정법을 이용한다. 우선, 컴퓨터로 $p(\theta)$로부터 $\theta$를 많이 샘플링한다. 그리고 그들의 평균 $\bar{\theta} = \frac{1}{m}\sum_i^m \theta_i$를 계산하고 $\bar{\theta}$를 $E[\theta]$로 추정하는 것이다.
 
-분포 $p(\theta)$로부터 높은 확률의 $\theta^*$가 많이 샘플링되고 낮은 확률의 $\theta^*$는 적게 샘플링 되었을 것이다. 따라서 이 추정법은 유효할 수 있다. 다른 방식으로 해석하면, central limit theorem에 의해 샘플평균 $\bar{\theta^*}$는 실제 평균인 $E[\theta]$를 평균으로 하고 $\frac{1}{m}Var[\theta]$를 분산으로 하는 normal distribution을 따른다. 특히, 샘플수가 많아질수록, 계산한 샘플평균은 실제 평균값과 매우 유사할 확률이 높다.
+분포 $p(\theta)$로부터 높은 확률의 $\theta$가 많이 샘플링되고 낮은 확률의 $\theta$는 적게 샘플링 되었을 것이다. 따라서 이 추정법은 유효할 수 있다. 다른 방식으로 해석하면, central limit theorem에 의해 샘플평균 $\bar{\theta}$는 실제 평균인 $E[\theta]$를 평균으로 하고 $\frac{1}{m}Var[\theta]$를 분산으로 하는 normal distribution을 따른다. 특히, 샘플수가 많아질수록, 계산한 샘플평균은 실제 평균값과 매우 유사할 확률이 높다.
 
 
 
-$h(\theta)$의 기댓값 $E[h(\theta)]$를 추정하고 싶다. 그러면, $\theta^*$를 많이 샘플링해서 각 샘플로 $h(\theta^*)$를 계산하고 평균을 내면 $E[h(\theta)]$의 추정값이 된다.
+$h(\theta)$의 기댓값 $E[h(\theta)]$를 추정하고 싶다. 그러면, $\theta$를 많이 샘플링해서 각 샘플로 $h(\theta)$를 계산하고 평균을 내면 $E[h(\theta)]$의 추정값이 된다.
 
 
 
@@ -34,9 +34,9 @@ $h(\theta)$의 기댓값 $E[h(\theta)]$를 추정하고 싶다. 그러면, $\the
 
 CLT(Central Limit Theorem)에 의해 파라미터 $\theta$에 대해 모은 샘플들은 $\mathbb{N}(E[\theta],\frac{Var[\theta]}{m})$를 따른다. $Var[\theta]$는 $\theta$의 분산으로, 다음으로 대체한다.
 $$
-Var[\theta] = \frac{1}{m}\sum_i (\bar{\theta^*} - \theta^*_i)^2
+Var[\theta] = \frac{1}{m}\sum_i (\bar{\theta} - \theta_i)^2
 $$
-그리고, $\frac{Var[\theta]}{m}$값을 **monte carlo error**라고 한다. Monte carlo estimation 값($E[\theta]$의 추정값인 $\bar{\theta^*}$)이 진짜 $E[\theta]$로부터 어느정도로 오차가 있을지에 대한 term이라고 볼 수 있다.
+그리고, $\frac{Var[\theta]}{m}$값을 **monte carlo error**라고 한다. Monte carlo estimation 값($E[\theta]$의 추정값인 $\bar{\theta}$)이 진짜 $E[\theta]$로부터 어느정도로 오차가 있을지에 대한 term이라고 볼 수 있다.
 
 
 
