@@ -1,7 +1,7 @@
 ---
-title: My Interpretation of Machine Learning
+title: Machine Learning
 toc: true
-date: 2020-03-03 08:51:55
+date: 2020-03-01 08:51:55
 tags:
 	- StudyNotes
 	- MachineLearning

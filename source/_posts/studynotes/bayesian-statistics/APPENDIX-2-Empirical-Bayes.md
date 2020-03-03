@@ -1,7 +1,7 @@
 ---
 title: Appendix 2. Empirical Bayes
 toc: true
-date: 2020-03-01 22:08:00
+date: 2020-03-01 22:08:16
 tags:
 	- StudyNotes
 	- BayesianStatistics

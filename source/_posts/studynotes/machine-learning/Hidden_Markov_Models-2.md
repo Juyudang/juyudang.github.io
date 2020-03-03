@@ -1,7 +1,7 @@
 ---
 title: Hidden Markov Models 2
 toc: true
-date: 2020-03-01 22:28:55
+date: 2020-03-03 22:28:57
 tags:
 	- StudyNotes
 	- MachineLearning

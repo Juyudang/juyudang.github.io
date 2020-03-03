@@ -1,7 +1,7 @@
 ---
 title: Distillation Methods
 toc: true
-date: 2020-03-02 22:07:01
+date: 2020-03-03 22:07:01
 tags:
 	- StudyNotes
 	- MachineLearning

@@ -1,7 +1,7 @@
 ---
 title: Appendix 1. Maximize a Posterior
 toc: true
-date: 2020-03-01 22:08:00
+date: 2020-03-01 22:08:15
 tags:
 	- StudyNotes
 	- BayesianStatistics
