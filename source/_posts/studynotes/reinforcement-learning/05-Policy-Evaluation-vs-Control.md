@@ -75,13 +75,13 @@ Policy control이란, 주어진 policy와 그것으로부터 만들어낸 value 
 
 Action value를 비교하는데, 현재 상태에서 액션을 원래 policy $\pi$에 따라 선택한 후, policy $\pi$를 따르는 action value를 $q_{\pi}(s, \pi(s))$라고 하자. 또, 같은 상태에서 액션을 다른 policy $\pi'$에 따라 선택한 후, 원래 policy $\pi$를 따르는 action value를 $q_{\pi}(s, \pi'(s))$라고 하자.
 
-$q_{\pi}(s, \pi'(s)) \geq q_{\pi}(s, \pi(s))$를 만족하면, 적어도 $\pi'$는 $\pi$보다는 좋다라는 이론이다. 만약, 두 action value가 같다면, 이미 optimal일 확률이 높다.
+$q_{\pi} (s, \pi'(s)) \geq q_{\pi} (s, \pi(s))$를 만족하면, 적어도 $\pi'$는 $\pi$보다는 좋다라는 이론이다. 만약, 두 action value가 같다면, 이미 optimal일 확률이 높다.
 
 
 
 위 이론에 따라, 현재 policy보다 좀 더 좋은 policy를 찾는 방법은, 주어진 value function에 따라 확률적으로 action을 선택하던 현재 policy를 greedy한 deterministic한 policy로 바꾸는 것이다.
 $$
-\pi' = \underset{a}{\text{argmax} } \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot v_{\pi}(s')] ~~~ \text{(for all state }s\text{)}
+\pi' = \underset{a}{\text{argmax} } \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot v_{\pi}(s')] ~~~ \text{(for all state } s\text{)}
 $$
 
 
