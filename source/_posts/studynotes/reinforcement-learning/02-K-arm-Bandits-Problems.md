@@ -87,7 +87,7 @@ Value function을 말하기 앞서서, exploitation과 exploration은 서로 균
 
 
 
-### $$\epsilon$$-greedy Methods
+### $\epsilon$-greedy Methods
 
 매번 action을 선택할 때, $\epsilon$의 확률로 exploration을 하고, $1-\epsilon$의 확률로 exploitation을 하게 구현한 방법이다. 이 방식의 단점은 충분히 수렴한 뒤에도 $\epsilon$의 확률로 exploration을 하게 된다는 것이다(하지만 non-stationary distribution인 환경에서는 이게 더 도움이 된다).
 
@@ -164,15 +164,15 @@ $$
 
 어떤 액션을 골라야 할 때, 지금 현재 가지고 있는 지식만으로 각 액션을 취했을 때의 얻어지는 기댓값을 각각 계산하고, 가장 높은 기댓값을 가지는 액션을 취하는 방식이다. 즉, value function을 "가장 큰 액션의 기댓값을 가지는 액션"이라고 정의하는 것이다.
 
-액션에 따른 reward의 기댓값 $Q_*(a)$을 계산하는 방법은, 다음과 같이 할 수도 있고, 다른 방법을 사용할 수도 있다.
+액션에 따른 reward의 기댓값 $Q_* (a)$을 계산하는 방법은, 다음과 같이 할 수도 있고, 다른 방법을 사용할 수도 있다.
 $$
-Q_*(a) \approx \frac{\sum_{i=1}^{t-1}R_i \cdot \mathbb{I}_{A_i=a}}{\sum_{i=1}^{t-1}\mathbb{I}_{A_i=a}}
+Q_* (a) \approx \frac{\sum_{i=1}^{t-1} R_i \cdot \mathbb{I}_{A_i=a} }{\sum_{i=1}^{t-1}\mathbb{I}_{A_i=a} }
 $$
 즉, 이때까지 $a$라는 액션을 취했을 때, 얻었던 reward들의 평균값으로 $a$의 reward 기댓값이라고 삼는 것이다.
 
 그리고, 다음을 만족하는 액션 $A_t$를 선택한다.
 $$
-A_t = \text{argmax}_a~~Q_t(a)
+A_t = \text{argmax}_a ~ Q_t(a)
 $$
 Action-value methods는 greedy한 방식으로, $\epsilon$-greedy와 함께 사용해서 exploration과의 균형을 맞추려고 시도해 볼 수 있다.
 
