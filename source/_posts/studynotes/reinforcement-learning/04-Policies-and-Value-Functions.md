@@ -125,22 +125,21 @@ Bellman equation의 가장 큰 장점은, value function을 매우 효율적으�
 
 다음 board를 생각해 보자.
 
-![image-20200119160231033](../../../../../../../GoogleDrive/Notes/note-images/04-Policies-and-Value-Functions/image-20200119160231033.png)
+![image-20200119160231033](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200119160231033.png)
 
 보드에는 $A,B,C,D$라는 4개의 공간이 있으며, 말 하나를 이 공간 내에서 움직이려 한다. 즉, 각 공간이 곧 state이며, 총 4개의 state가 있는 environment이다.
 
-Action은 상,하,좌,우 4개의 움직임이 존재한다. Policy는 총 4개의 움직임에 대해 uniform distribution이다. 말이 $B$$로 들어오거나 B$에 머무는 움직임에 대해서만 reward +5를 부여하고 나머지는 0을 부여한다. Discount factor는 0.7로 하자.
+Action은 상,하,좌,우 4개의 움직임이 존재한다. Policy는 총 4개의 움직임에 대해 uniform distribution이다. 말이 $B$로 들어오거나 $B$에 머무는 움직임에 대해서만 reward +5를 부여하고 나머지는 0을 부여한다. Discount factor는 0.7로 하자.
 
 State $A$에서의 value는 무한 수열식이지만, Bellman equation을 이용한다면, 다음 state의 value를 이용해서 계산이 가능하다.
 $$
-V(A) = \sum_{a} \pi(a|A) \sum_{s',r} p(s',r|a,A)[r + \gamma \cdot V(s')]
+V(A) = \sum_{a} \pi(a|A) \sum_{s',r} p(s',r|a,A)[r + \gamma \cdot V(s')] 
 $$
 그런데, action이 정해지면, state는 확정(deterministic)이므로, 위 Bellman equation을 다음처럼 변경할 수 있다.
 $$
-V(A) = \sum_a \pi(a|A) [0 + 0.7 \cdot V(s')]
+V(A) = \sum_a \pi (a|A) [0 + 0.7 \cdot V(s')]
 $$
 $$
-
 V(A) = \frac{1}{4} \cdot 0.7 \cdot V(C) + \frac{1}{2} \cdot 0.7 \cdot V(A) + \frac{1}{4} \cdot (5 + 0.7 \cdot V(B)))
 $$
 
@@ -162,7 +161,7 @@ Reinforcement learning의 목적은 단순히 value function과 policy를 계산
 
 Optimal policy란, 모든 state에서 가장 높은 value를 반환하게 하는 policy를 말한다. 즉, 다음 그림처럼 어떤 여러개의 policies들보다 항상 큰 value를 반환하게 하는 policy는 항상 존재한다.
 
-![image-20200119163026023](../../../../../../../GoogleDrive/Notes/note-images/04-Policies-and-Value-Functions/image-20200119163026023.png)
+![image-20200119163026023](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200119163026023.png)
 
 즉, $\pi_1, \pi_2$보다 항상 크거나 같은 value를 반환하는 policy는 항상 존재한다는 건데, 방법은 간단하다. $\pi_1 \leq \pi_2$인 state에서는 $\pi_2$의 policy를 따르고, $\pi_1 > \pi_2$인 state에서는 policy $\pi_1$을 따르도록 하는 새로운 policy $\pi_3$를 만들면 된다.
 
