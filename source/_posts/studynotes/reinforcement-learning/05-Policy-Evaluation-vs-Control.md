@@ -81,7 +81,7 @@ $q_{\pi} (s, \pi'(s)) \geq q_{\pi} (s, \pi(s))$를 만족하면, 적어도 $\pi'
 
 위 이론에 따라, 현재 policy보다 좀 더 좋은 policy를 찾는 방법은, 주어진 value function에 따라 확률적으로 action을 선택하던 현재 policy를 greedy한 deterministic한 policy로 바꾸는 것이다.
 $$
-\pi' = \underset{a}{\text{argmax} } \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot v_{\pi}(s')] ~~~ \text{(for all state } s\text{)}
+\pi' = \underset{a}{\text{argmax} } \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot v_{\pi}(s')] ~ \text{(for all state } s\text{)}
 $$
 
 

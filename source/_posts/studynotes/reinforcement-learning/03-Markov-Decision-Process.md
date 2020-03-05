@@ -91,7 +91,7 @@ G_t \leq R_{max}(1 + \gamma + \gamma^2 + \cdots)
 $$
 
 $$
-G_t \leq R_{max} \cdot \frac{1}{1 - \gamma} ~~~ \text{iff } 0 \leq \gamma < 1
+G_t \leq R_{max} \cdot \frac{1}{1 - \gamma} ~ \text{iff } 0 \leq \gamma < 1
 $$
 
 

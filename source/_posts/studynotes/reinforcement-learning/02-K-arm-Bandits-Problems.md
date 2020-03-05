@@ -166,7 +166,7 @@ $$
 
 액션에 따른 reward의 기댓값 $Q_* (a)$을 계산하는 방법은, 다음과 같이 할 수도 있고, 다른 방법을 사용할 수도 있다.
 $$
-Q_* (a) \approx \frac{ \sum_{i=1}^{t-1} R_i \cdot \mathbb{I}_{A_i=a} } { \sum_{i=1}^{t-1} \mathbb{I}_{A_i=a} }
+ Q_* (a) \approx \frac{ \sum_{i=1}^{t-1} R_i \cdot \mathbb{I}_{A_i=a} }{ \sum_{i=1}^{t-1} \mathbb{I}_{A_i=a} } 
 $$
 즉, 이때까지 $a$라는 액션을 취했을 때, 얻었던 reward들의 평균값으로 $a$의 reward 기댓값이라고 삼는 것이다.
 
