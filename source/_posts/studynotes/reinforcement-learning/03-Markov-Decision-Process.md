@@ -62,9 +62,9 @@ $$
 
 ## Goals of MDP
 
-MDP의 목적은 당장 action을 선택했을 때의 reward를 최대화 하는 것이 아닌, 현재 어떤 action을 선택한 후, 미래의 모든 reward들 합의 기댓값을 최대하하도록 하는 action을 선택하는 것이다. 즉, 다음과 같은 action $a_t^*$를 선택한다.
+MDP의 목적은 당장 action을 선택했을 때의 reward를 최대화 하는 것이 아닌, 현재 어떤 action을 선택한 후, 미래의 모든 reward들 합의 기댓값을 최대하하도록 하는 action을 선택하는 것이다. 즉, 다음과 같은 action $a_t^* $를 선택한다.
 $$
-a_t^* = \underset{a}{\text{argmax}} ~ \mathbb{E}[G_t] = \underset{a}{\text{argmax}} ~ \mathbb{E}[R_{t+1} + \cdots + R_T]
+a_t^* = \underset{a}{\text{argmax} } ~ \mathbb{E}[G_t] = \underset{a}{\text{argmax}} ~ \mathbb{E}[R_{t+1} + \cdots + R_T]
 $$
 이때, $T$는 final state에서의 time 이다. 즉, 한 episode의 끝일때의 time이다.
 
@@ -76,7 +76,7 @@ $G_t$는 random variable인데, $R_t$들이 random variable이고, random variab
 
 위에서 소개한 action 선택법은 episodic task에만 적용이 가능하다. 미래의 모든 reward의 합의 기댓값이므로, terminal state가 존재해야 $\mathbb{E}[G_t]$가 finite($\infty$가 아님)하다. continuous task의 경우에는, $R_T$가 없고 무한히 더해지기 때문에, $\mathbb{E}[G_t] \approx \infty$가 된다. 따라서 **discounting**이라는 것을 통해 액션을 선택한다.
 $$
-a^*_t = \underset{a}{\text{argmax}} ~ G_t = \underset{a}{\text{argmax}} ~ [R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots] = \underset{a}{\text{argmax}} ~ [R_{t+1} + \gamma G_{t+1}]
+a_t^* = \underset{a}{\text{argmax} } ~ G_t = \underset{a}{\text{argmax} } ~ [R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots] = \underset{a}{\text{argmax} } ~ [R_{t+1} + \gamma G_{t+1} ]
 $$
 Discounting을 하는 이유는 $G_t$를 finite하게 만들기 위함이며, 다음과 같기 때문에 finite하다. 이때, $0 \leq \gamma < 1$이어야 한다. $R_{max}$를 agent가 한 액션을 취했을때 얻을 수 있는 액션의 최대치라고 하자.
 $$
@@ -95,5 +95,5 @@ $$
 
 MDP란, 현재 상태만을 바탕으로 action을 취하고 reward를 얻는 환경에서의 reinforcement learning 방법 또는 decision process중 하나이다. 액션은 다음과 같이 취한다.
 $$
-a^*(t) = \underset{a(t)}{\text{argmax}} ~ \mathbb{E}[G_t] = \underset{a(t)}{\text{argmax}} ~ \mathbb{E}[R_{t+1} + \gamma \cdot G_{t+1}]
+a^* (t) = \underset{a(t)}{\text{argmax} } ~ \mathbb{E}[G_t] = \underset{a(t)}{\text{argmax} } ~ \mathbb{E}[R_{t+1} + \gamma \cdot G_{t+1} ]
 $$
