@@ -49,13 +49,11 @@ Value function과 그 의미가 매우 유사해보인다. 하지만, Value func
   $$
   $$
   \pi(a|s) \geq 0
-$$
-  
-  
+  $$
   
   즉, 행렬의 각 row가 적법한 probability distribution이어야 한다.
-  
-  action probability distribution은 각 state마다 다르다.
+
+action probability distribution은 각 state마다 다르다.
 
 
 
@@ -75,18 +73,19 @@ $$
 
 - State Value Function $v_{\pi}(s_t)$
 
-  한 상태 $s_t$에서, 앞으로 어떤 policy $$\pi$$를 따른다고 했을 때, **앞으로 얻을 수 있는** reward 기댓값을 의미한다.
-  $$
-  v_{\pi}(s_t) = \sum_{a_{t}} \pi(a_t|s_t) \sum_{s_{t+1},r_{t+1}} p(s_{t+1},r_{t+1}|s_{t},a_t)[r_{t+1} + \gamma \cdot v_{\pi}(s_{t+1})]
-  $$
-  
+  한 상태 $s_t$에서, 앞으로 어떤 policy $\pi$를 따른다고 했을 때, **앞으로 얻을 수 있는** reward 기댓값을 의미한다.
+
+$$
+v_{\pi}(s_t) = \sum_{a_{t} } \pi(a_t|s_t) \sum_{s_{t+1},r_{t+1} } p(s_{t+1},r_{t+1}|s_{t},a_t)[r_{t+1} + \gamma \cdot v_{\pi}(s_{t+1})]
+$$
+
 - Action Value Function $q_{\pi}(s_t, a_t)$
 
   한 상태 $s_t$에서, 어떤 액션 $a_t$를 취하고 난 후, 앞으로 어떤 policy $\pi$를 따른다고 했을 때, **앞으로 얻을 수 있는** reward의 기댓값을 의미한다.
-  $$
-  q_{\pi}(s_t, a_t) = \sum_{s_{t+1}, r_{t+1}} p(s_{t+1}, r_{t+1}|s_t, a_t) [r_{t+1} + \gamma \cdot \sum_{a_{t+1}} \pi(a_{t+1}|s_{t+1})q_{\pi}(s_{t+1}, a_{t+1})]
-  $$
-  
+
+$$
+  q_{\pi} (s_t, a_t) = \sum_{s_{t+1}, r_{t+1}} p(s_{t+1}, r_{t+1}|s_t, a_t) [r_{t+1} + \gamma \cdot \sum_{a_{t+1} } \pi(a_{t+1}|s_{t+1})q_{\pi}(s_{t+1}, a_{t+1})]
+$$
 
 둘 다 현재 어떤 상황에서 앞으로 얻을 수 있는 reward의 기댓값을 의미한다.
 
@@ -106,9 +105,9 @@ $$
 
 ### State-value Bellman Equation
 
-State-value function에 대한 Bellman equation으로, state-value function입장에서, $t$​에서의 state value와 $t+1$에서의 state value와의 관계식이다.
+State-value function에 대한 Bellman equation으로, state-value function입장에서, $t$에서의 state value와 $t+1$에서의 state value와의 관계식이다.
 $$
-v_{\pi}(s_t) = \sum_a \pi(a|s_t) \sum_{s_{t+1},r} p(s_{t+1}, r|s_{t}, a)[r + \gamma \cdot v_{\pi}(s_{t+1})]
+v_{\pi} (s_t) = \sum_a \pi(a|s_t) \sum_{s_{t+1},r} p(s_{t+1}, r|s_{t}, a)[r + \gamma \cdot v_{\pi}(s_{t+1})]
 $$
 
 
@@ -116,7 +115,7 @@ $$
 
 Action-value function에 대한 Bellman equation으로, action-value funciton입장에서, $t$에서의 actionvalue와 $t+1$에서의 action value와의 관계식이다.
 $$
-q_{\pi}(s_{t}, a_{t}) = \sum_{s_{t+1}, r} p(s_{t+1}, r|s_t, a_t)[r + \gamma \cdot \sum_{a_{t+1}} \pi(a_{t+1}|s_{t+1}) \cdot q_{\pi}(s_{t+1}, a_{t+1})]
+q_{\pi} (s_{t}, a_{t}) = \sum_{s_{t+1}, r} p(s_{t+1}, r|s_t, a_t)[r + \gamma \cdot \sum_{a_{t+1} } \pi(a_{t+1}|s_{t+1}) \cdot q_{\pi}(s_{t+1}, a_{t+1})]
 $$
 
 
@@ -126,7 +125,7 @@ Bellman equation의 가장 큰 장점은, value function을 매우 효율적으�
 
 다음 board를 생각해 보자.
 
-![image-20200119160231033](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200119160231033.png)
+![image-20200119160231033](../../../../../../../GoogleDrive/Notes/note-images/04-Policies-and-Value-Functions/image-20200119160231033.png)
 
 보드에는 $A,B,C,D$라는 4개의 공간이 있으며, 말 하나를 이 공간 내에서 움직이려 한다. 즉, 각 공간이 곧 state이며, 총 4개의 state가 있는 environment이다.
 
@@ -138,9 +137,15 @@ V(A) = \sum_{a} \pi(a|A) \sum_{s',r} p(s',r|a,A)[r + \gamma \cdot V(s')]
 $$
 그런데, action이 정해지면, state는 확정(deterministic)이므로, 위 Bellman equation을 다음처럼 변경할 수 있다.
 $$
-V(A) = \sum_a \pi(a|A)[0 + 0.7 \cdot V(s')] \\
-= \frac{1}{4} \cdot 0.7 \cdot V(C) + \frac{1}{2} \cdot 0.7 \cdot V(A) + \frac{1}{4} \cdot (5 + 0.7 \cdot V(B)))
+V(A) = \sum_a \pi(a|A) [0 + 0.7 \cdot V(s')]
 $$
+$$
+
+V(A) = \frac{1}{4} \cdot 0.7 \cdot V(C) + \frac{1}{2} \cdot 0.7 \cdot V(A) + \frac{1}{4} \cdot (5 + 0.7 \cdot V(B)))
+$$
+
+
+
 $V(B), V(C), V(D)$도 유사하게 $V(A), V(B), V(C), V(D)$에 대한 식으로 표현이 가능하며, 일차 연립방정식으롤 표현이 가능하다. 즉, 무한 수열을 푸는 문제가 일차 연립 방정식을 푸는 문제로 바뀐 것이다.
 
 하지만, 현실에서는 approximation방법을 많이 이용한다. State개수가 많아서 그런가?
@@ -157,9 +162,9 @@ Reinforcement learning의 목적은 단순히 value function과 policy를 계산
 
 Optimal policy란, 모든 state에서 가장 높은 value를 반환하게 하는 policy를 말한다. 즉, 다음 그림처럼 어떤 여러개의 policies들보다 항상 큰 value를 반환하게 하는 policy는 항상 존재한다.
 
-![image-20200119163026023](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200119163026023.png)
+![image-20200119163026023](../../../../../../../GoogleDrive/Notes/note-images/04-Policies-and-Value-Functions/image-20200119163026023.png)
 
-즉, $$\pi_1, \pi_2$$보다 항상 크거나 같은 value를 반환하는 policy는 항상 존재한다는 건데, 방법은 간단하다. $$\pi_1 \leq \pi_2$$인 state에서는 $$\pi_2$$의 policy를 따르고, $$\pi_1 > \pi_2$$인 state에서는 policy $$\pi_1$$을 따르도록 하는 새로운 policy $$\pi_3$$를 만들면 된다.
+즉, $\pi_1, \pi_2$보다 항상 크거나 같은 value를 반환하는 policy는 항상 존재한다는 건데, 방법은 간단하다. $\pi_1 \leq \pi_2$인 state에서는 $\pi_2$의 policy를 따르고, $\pi_1 > \pi_2$인 state에서는 policy $\pi_1$을 따르도록 하는 새로운 policy $\pi_3$를 만들면 된다.
 
 이와 같은 방법으로, 언제나 모든 policy보다 크거나 같은 value를 반환하는 policy를 만들 수 있으며, 이런 policy는  unique할 수도 있고 여러개가 될 수도 있다(모든 state에 걸쳐서 똑같은 value를 반환하는 policy가 여러개일 수 있음).
 
@@ -175,19 +180,21 @@ Optimal policy란, 모든 state에서 가장 높은 value를 반환하게 하는
 
 Optimal value function이란, 현재 state에서 가능한 모든 액션과 그에 다른 다음 value를 보고, 다음 value가 가장 높은 action을 deterministic하게 선택했을 때의 value function을 의미한다.
 $$
-v_*(s) = \underset{a}{\text{max}} ~ \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot v_*(s')]
+v_* (s) = \underset{a}{\text{max} } ~ \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot v_*(s')]
 $$
-보다시피, action의 분포(policy)가 사라지고, 그냥 다음 state인 $s'$의 value $v_*(s')$가 가장 높은 action을 무조건(deterministically) 취하게 한다. 또한, 이 value $v_*(s')$만으로 $v_*(s)$를 계산하도록 한다.
+보다시피, action의 분포(policy)가 사라지고, 그냥 다음 state인 $s'$의 value $v_* (s')$가 가장 높은 action을 무조건(deterministically) 취하게 한다. 또한, 이 value $v_*(s')$만으로 $v_* (s)$를 계산하도록 한다.
 
 앞서, value function은 두 가지가 있고, 두 가지 value function 모두 Bellman equation 형태로 바꿀 수 있었다. Optimal value function도 마찬가지이며, optimal한 value function을 Bellman equation형태로 바꾼 것을 Bellman optimality equation이라고 부른다.
 
 - **Bellman optimality equation for state value function**
-  $$
-  v_*(s) = \underset{a}{\text{max}} ~ \sum_{s',r} p(s',r|s,a) [r + \gamma \cdot v_*(s')]
-  $$
 
+$$
+  v_* (s) = \underset{a}{\text{max} } ~ \sum_{s',r} p(s',r|s,a) [r + \gamma \cdot v_* (s')]
+$$
 - **Bellman optimality equation for action value function**
-  $$
-  q_*(s,a) = \underset{a}{\text{max}} \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot \underset{a'}{\text{max}} ~ q_*(s',a')]
-  $$
+
+$$
+  q_* (s,a) = \underset{a}{\text{max} } \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot \underset{a'}{\text{max} } ~ q_* (s',a')]
+$$
+
   
