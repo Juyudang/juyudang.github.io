@@ -80,11 +80,22 @@ a_t^* = \underset{a}{\text{argmax} } ~ G_t = \underset{a}{\text{argmax} } ~ [R_{
 $$
 Discounting을 하는 이유는 $G_t$를 finite하게 만들기 위함이며, 다음과 같기 때문에 finite하다. 이때, $0 \leq \gamma < 1$이어야 한다. $R_{max}$를 agent가 한 액션을 취했을때 얻을 수 있는 액션의 최대치라고 하자.
 $$
-G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots \\
-G_t \leq R_{max} + \gamma R_{max} + \gamma^2 R_{max} + \cdots \\
-G_t \leq R_{max}(1 + \gamma + \gamma^2 + \cdots) \\
+G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots
+$$
+$$
+G_t \leq R_{max} + \gamma R_{max} + \gamma^2 R_{max} + \cdots
+$$
+
+$$
+G_t \leq R_{max}(1 + \gamma + \gamma^2 + \cdots)
+$$
+
+$$
 G_t \leq R_{max} \cdot \frac{1}{1 - \gamma} ~~~ \text{iff } 0 \leq \gamma < 1
 $$
+
+
+
 따라서, $0 \leq \gamma < 1$을 만족하면, $G_t$는 $R_{max} \cdot \frac{1}{1 - \gamma}$보다 작다. 그리고, finite하다($\infty$가 아니다).
 
 굳이 episodic task라고 해서 discounting을 사용하지 말라는 법은 없다. discount rate $$\gamma$$를 통해 미래 reward 지향적일지, 즉각적인 reward 지향적일지 정할 수있기 때문에 discounting 방법은 episodic task에서도 많이 이용된다.
