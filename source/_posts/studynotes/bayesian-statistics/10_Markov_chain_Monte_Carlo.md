@@ -47,16 +47,16 @@ MCMC의 알고리즘으로 여러 개가 있다고 하는데, 대표적으로 Me
 
 2. $\theta$와 도메인이 같거나 최대한 비슷한 분포 아무거나 고른다. 이 분포는 마르코프 체인을 만족하면 좋다. 즉, $q(\theta^* |\theta_{i-1})$.
 
-3. 적당히 큰 수 $m$번을 반복하는데, $m$개의 $\theta^*$를 1개씩 샘플링할 것이다.
+3. 적당히 큰 수 $m$번을 반복하는데, $m$개의 $\theta^* $를 1개씩 샘플링할 것이다.
 
-   1. $\theta^*$를 $q(\theta^*|\theta_{i-1})$로부터 1개를 샘플링한다.
+   1. $\theta^* $를 $q(\theta^* |\theta_{i-1})$로부터 1개를 샘플링한다.
 
    2. 다음을 계산한다.
       $$
       \alpha = \frac{g(\theta^* )q(\theta^* |\theta_{i-1})}{g(\theta_{i-1})q(\theta_{i-1}|\theta^* )}
       $$
 
-   3. $\alpha \geq 1$이면, $\theta_i \leftarrow \theta*$로 accept한다. $0 \leq \alpha < 1$이면, $\alpha$의 확률로 $\theta_i \leftarrow \theta^*$로 accept하고, reject되면 $\theta_i \leftarrow \theta_{i-1}$한다.
+   3. $\alpha \geq 1$이면, $\theta_i \leftarrow \theta^*$로 accept한다. $0 \leq \alpha < 1$이면, $\alpha$의 확률로 $\theta_i \leftarrow \theta^*$로 accept하고, reject되면 $\theta_i \leftarrow \theta_{i-1}$한다.
 
 
 
