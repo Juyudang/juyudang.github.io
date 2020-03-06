@@ -56,7 +56,7 @@ MCMC의 알고리즘으로 여러 개가 있다고 하는데, 대표적으로 Me
       \alpha = \frac{g(\theta^* )q(\theta^* |\theta_{i-1})}{g(\theta_{i-1})q(\theta_{i-1}|\theta^* )}
       $$
 
-   3. $\alpha \geq 1$이면, $\theta_i \leftarrow \theta^*$로 accept한다. $0 \leq \alpha < 1$이면, $\alpha$의 확률로 $\theta_i \leftarrow \theta^*$로 accept하고, reject되면 $\theta_i \leftarrow \theta_{i-1}$한다.
+   3. $\alpha \geq 1$이면, $\theta_i \leftarrow \theta^* $로 accept한다. $0 \leq \alpha < 1$이면, $\alpha$의 확률로 $\theta_i \leftarrow \theta^* $로 accept하고, reject되면 $\theta_i \leftarrow \theta_{i-1}$한다.
 
 
 
