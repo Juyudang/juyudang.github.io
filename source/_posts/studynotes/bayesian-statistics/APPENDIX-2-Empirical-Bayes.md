@@ -20,7 +20,7 @@ categories:
 
 베이지안 모델링을 하게 되면, likelihood를 모델링하고, 그 파라미터를 prior로 모델링을 하게 된다.
 $$
-D \sim \text{Lieklihood} ( \theta ) ~~~ [ P(D|\theta) ]
+D \sim \text{Lieklihood} ( \theta ) ~ [ P(D|\theta) ]
 $$
 $$
 \theta \sim \text{prior} ( \lambda )
@@ -30,7 +30,7 @@ $$
 
 즉,
 $$
-\hat{\lambda} = \underset{\lambda}{\text{argmax}} ~ P(\lambda|D)
+\hat{\lambda} = \underset{\lambda}{ \text{argmax} } ~ P(\lambda|D)
 $$
 하이퍼파라미터의 posterior를 구하는 방법은 다음과 같다.
 $$
@@ -42,7 +42,7 @@ P(\lambda|D) \approx \int P(D|\theta)P(\theta|\lambda) d\theta \approx P(D|\lamb
 $$
  그리고, 이놈을 최대화하는 $\lambda$를 구하는 것이다.
 $$
-\hat{\lambda} = \underset{\lambda}{\text{argmax}} ~ \int P(D|\theta)P(\theta|\lambda) d\theta
+\hat{\lambda} = \underset{\lambda}{ \text{argmax} } ~ \int P(D|\theta)P(\theta|\lambda) d\theta
 $$
 
 
@@ -50,9 +50,12 @@ $$
 
 어떤 데이터에 대해 다음처럼 모델링했다 치자.
 $$
-x_i \sim \text{binom}(x_i|N_i, \theta_i) \\
+x_i \sim \text{binom}(x_i|N_i, \theta_i)
+$$
+$$
 \theta_i \sim \text{beta}(\theta_i|a, b)
 $$
+
 이때, 각 데이터 샘플이 서로 다른 binomial distribution에서 왔다는 것에 주목한다. 즉, $N_i, \theta_i$가 데이터마다 모두 다르다.
 
 따라서, likelihood는 다음과 같다.
