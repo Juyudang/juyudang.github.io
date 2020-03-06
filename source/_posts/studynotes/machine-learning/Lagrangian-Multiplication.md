@@ -102,7 +102,7 @@ $$
 
 어떤 objective function $F(x, y)$가 있고, constraint 함수인 $g(x, y)$가 있을 때, $g(x, y)$를 만족하면서 $F(x, y)$를 최대화하는 지점 $(x', y')$에서는, $F$의 gradient vector $\nabla F(x', y')$와 $g$의 gradient vector $\nabla g(x', y')$의 방향은 같거나 180도 방향이다.
 
-![image-20200206200220651](Lagrangian-Multiplication.assets/image-20200206200220651.png)
+![image-20200206200220651](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200206200220651.png)
 
 그리고, 그 외 지점에서는 이게 성립되지 않는다. 따라서, 다음을 만족하는 $(x', y')$은 maximum 또는 minimum point라고 볼 수 있다.
 $$
