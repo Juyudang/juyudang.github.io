@@ -94,9 +94,12 @@ $$
 
 그런데, $x'$는 column vector이므로, $()$안의 값은 $x'$의 covariance matrix와 같다는 것을 알 수 있다. 이를 $\Sigma$라고 하자.
 $$
-\underset{e}{ \text{max} } ~ e^T \Sigma e \\
+\underset{e}{ \text{max} } ~ e^T \Sigma e
+$$
+$$
 \text{s.t} ~ e^Te = 1
 $$
+
 이를 Lagrangian multiplier를 이용해서 식을 변형한다.
 $$
 \underset{e}{\text{max}} ~ e^T \Sigma e - \lambda (e^Te - 1) = \underset{e}{\text{max}} ~F(e)
@@ -146,12 +149,12 @@ $$
 
 두 번째 PC를 $e_2$라고 했을 때, $e_1^Te_2 = 0, e_2^Te_2 = 1$이라는 제약 조건을 만족시키면서 다음 variance를 최대화시켜야 한다. ($X$는 zero-centered 시켰다고 가정)
 $$
-\text{Var}(e_2) = (Xe_2)^T(Xe_2) \\
+\text{Var}(e_2) = (Xe_2)^T(Xe_2)
 = e_2^T \Sigma e_2
 $$
 Lagrangian multiplier에 의해,
 $$
-\underset{e_2}{\text{argmax}} ~ e_2^T \Sigma e_2 - c_1(e_2^Te_2 - 1) - c_2(e_1^Te_2)
+\underset{e_2}{ \text{argmax} } ~ e_2^T \Sigma e_2 - c_1(e_2^Te_2 - 1) - c_2(e_1^Te_2)
 $$
 이를 미분한 결과가 0이 나와야 하므로,
 $$
@@ -159,24 +162,27 @@ $$
 $$
 양변에 $e_1^T$를 곱하면,
 $$
-2 e_1^T \Sigma e_2 - 2 c_1 e_1^T e_2 - c_2 e_1^T e_1 = 0 \\
+2 e_1^T \Sigma e_2 - 2 c_1 e_1^T e_2 - c_2 e_1^T e_1 = 0
+$$
+$$
 2 e_1^T \Sigma e_2 - c_2 = 0
 $$
+
 그런데 이때, $\Sigma$는 eigen decomposition에 의해 다음과 같다. ($d$는 데이터의 차원이라고 하자)
 $$
 \Sigma = \begin{pmatrix}
 v_1 & v_2 & \cdots v_d
 \end{pmatrix}
 \begin{pmatrix}
-\lambda_1 & 0 & \cdots & 0 \\
-0 & \lambda_2 & \cdots & 0 \\
-\cdots \\
+\lambda_1 & 0 & \cdots & 0 \newline 
+0 & \lambda_2 & \cdots & 0 \newline 
+\cdots \newline 
 0 & 0 & \cdots & \lambda_d
 \end{pmatrix}
 \begin{pmatrix}
-v_1^T \\
-v_2^T \\
-\cdots \\
+v_1^T \newline 
+v_2^T \newline 
+\cdots \newline 
 v_d^T
 \end{pmatrix}
 $$
@@ -186,44 +192,50 @@ $$
 v_1 & v_2 & \cdots v_d
 \end{pmatrix}
 \begin{pmatrix}
-\lambda_1 & 0 & \cdots & 0 \\
-0 & \lambda_2 & \cdots & 0 \\
-\cdots \\
+\lambda_1 & 0 & \cdots & 0 \newline 
+0 & \lambda_2 & \cdots & 0 \newline 
+\cdots \newline 
 0 & 0 & \cdots & \lambda_d
 \end{pmatrix}
 \begin{pmatrix}
-v_1^T \\
-v_2^T \\
-\cdots \\
+v_1^T \newline 
+v_2^T \newline 
+\cdots \newline 
 v_d^T
-\end{pmatrix} e_2 - c_2 = 0 \\
-
+\end{pmatrix} e_2 - c_2 = 0
+$$
+$$
 2 \begin{pmatrix}
 1 & 0 & \cdots 0
 \end{pmatrix}
 \begin{pmatrix}
-\lambda_1 & 0 & \cdots & 0 \\
-0 & \lambda_2 & \cdots & 0 \\
-\cdots \\
+\lambda_1 & 0 & \cdots & 0 \newline 
+0 & \lambda_2 & \cdots & 0 \newline 
+\cdots \newline 
 0 & 0 & \cdots & \lambda_d
 \end{pmatrix}
 \begin{pmatrix}
-v_1^T \\
-v_2^T \\
-\cdots \\
+v_1^T \newline 
+v_2^T \newline 
+\cdots \newline 
 v_d^T
-\end{pmatrix} e_2 - c_2 = 0 \\
+\end{pmatrix} e_2 - c_2 = 0
+$$
 
+
+$$
 \begin{pmatrix}
 2 \lambda_1 & 0 & \cdots 0
 \end{pmatrix}
 \begin{pmatrix}
-v_1^T \\
-v_2^T \\
-\cdots \\
+v_1^T \newline 
+v_2^T \newline 
+\cdots \newline 
 v_d^T
-\end{pmatrix} e_2 - c_2 = 0 \\
+\end{pmatrix} e_2 - c_2 = 0
+$$
 
+$$
 2\lambda_1 v_1^T e_2 - c_2 = 0
 $$
 근데, $v_1$는 첫 번째 eigen vector로, $e_1$과 같다.
@@ -233,11 +245,11 @@ c_2 = 0
 $$
 다시 원래 최대화 식으로 돌아가보자.
 $$
-\underset{e_2}{\text{argmax}} ~ e_2^T \Sigma e_2 - c_1(e_2^Te_2 - 1) - c_2(e_1^Te_2)
+\underset{e_2}{ \text{argmax} } ~ e_2^T \Sigma e_2 - c_1(e_2^Te_2 - 1) - c_2(e_1^Te_2)
 $$
 이건 다음처럼 변경된다.
 $$
-\underset{e_2}{\text{argmax}} ~ e_2^T \Sigma e_2 - c_1(e_2^Te_2 - 1)
+\underset{e_2}{ \text{argmax} } ~ e_2^T \Sigma e_2 - c_1(e_2^Te_2 - 1)
 $$
 얘네를 미분하는 것? 첫 번째 PC를 구할때 지나왔던 길과 같다. 따라서, 다음처럼 유도될 것이다.
 $$
@@ -263,11 +275,20 @@ $$
 $$
 이때, $()$안에 있는 term들은 모두 scalar값이므로(내적이니까),
 $$
-(x_i^T e_1)e_1^T \cdot (x_i^T e_2) e_2 = 0 \\
-(x_i^T e_1)(x_i^T e_2)e_1^Te_2 = 0 \\
-(x_i^T e_1)(x_i^T e_2)0 = 0 \\
+(x_i^T e_1)e_1^T \cdot (x_i^T e_2) e_2 = 0
+$$
+$$
+(x_i^T e_1)(x_i^T e_2)e_1^Te_2 = 0
+$$
+
+$$
+(x_i^T e_1)(x_i^T e_2)0 = 0
+$$
+
+$$
 0 = 0
 $$
+
 Symmetric matrix의 eigen vector끼리는 orthogonal하므로 $e_1^Te_2 = 0$이다.
 
 따라서, 등식이 성립하고, 데이터 포인트에 대해 PC축들은 서로 covariance가 0이다. 그러니까, covariance matrix $\text{Cov}(i,j)$에서, $\text{Cov}(i,j) = 0 ~ \text{if} ~ i \not = j$라는 의미.
@@ -317,9 +338,9 @@ PCA의 구현은 다음과 같이 요약이 가능하다.
 방법은, PCA로 데이터를 rotation시킨 후(basis가 eigen vector들이 된다), 각 eigen vector축 방향을 그 방향의 standard deviation으로 나눠준다. PCA로 변환된(rotation된) 데이터들을 $Z$라고 했을 때,
 $$
 \begin{pmatrix}
-1 \over \sqrt{\lambda_1} & 0 & \cdots & 0 \\
-0 & 1 \over \sqrt{\lambda_2} & \cdots & 0 \\
-\cdots \\
+1 \over \sqrt{\lambda_1} & 0 & \cdots & 0 \newline 
+0 & 1 \over \sqrt{\lambda_2} & \cdots & 0 \newline 
+\cdots \newline 
 0 & 0 & \cdots & 1 \over \sqrt{\lambda_d}
 \end{pmatrix} Z
 $$
