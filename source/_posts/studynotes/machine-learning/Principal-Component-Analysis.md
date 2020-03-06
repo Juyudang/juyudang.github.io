@@ -67,23 +67,31 @@ PCA는 데이터 feature space안에서 데이터간의 관계를 건들지 않�
 
 ## PCA Derivation
 
-우리가 원하는 축의 **단위 벡터를 $$e$$라고 하자.** 기본적으로 transpose가 없으면 column vector로 간주한다. 데이터들을 $x$라고 한다.
+우리가 원하는 축의 **단위 벡터를 $e$라고 하자.** 기본적으로 transpose가 없으면 column vector로 간주한다. 데이터들을 $x$라고 한다.
 
 먼저, 데이터를 0-centerize시킨다.
 $$
-x'_i = x_i - \mu
+x_i'= x_i - \mu
 $$
 그리고 난 후, 데이터 $x'$를 축 $e$에 사영시킨 결과는, $e^Tx'$ 또는 $x'^Te$가 될 것이다. 이 사영시킨 결과로 나온 데이터들의 분포의 분산이 최대화되도록 하는 벡터 $e$를 찾아야 한다. 또한, 여기서, $e$는 단위 벡터로 제한하고자 한다. 즉,
 $$
-\underset{e}{\text{max}} \frac{1}{N} \sum_{i=1}^N (e^Tx_i')^2 = 
-\underset{e}{\text{max}} \frac{1}{N} \sum_{i=1}^N e^Tx_i'x_i'^Te \\
-\text{s.t} ~~~ e^Te = 1
+\underset{e}{ \text{max} } \frac{1}{N} \sum_{i=1}^N (e^Tx_i')^2 = 
+\underset{e}{ \text{max} } \frac{1}{N} \sum_{i=1}^N e^Tx_i'x_i'^Te
 $$
-참고로, $e^Tx' = x'^Te = \text{scalar value}$이므로, $(e^Tx'_i)^2$을 위 식처럼 표현이 가능하다. 여기서, $e$는 $\sum$에 영향을 받지 않는 변수이므로 밖으로 뺄 수 있다.
 $$
-\underset{e}{\text{max}} ~e^T (\frac{1}{N}\sum_{i=1}^N x'_i x_i'^T) e \\
-\text{s.t} ~~~ e^Te = 1
+\text{s.t} ~ e^Te = 1
 $$
+
+참고로, $e^Tx' = x'^Te = \text{scalar value}$이므로, $(e^T x_i')^2$을 위 식처럼 표현이 가능하다. 여기서, $e$는 $\sum$에 영향을 받지 않는 변수이므로 밖으로 뺄 수 있다.
+$$
+\underset{e}{\text{max}} ~e^T (\frac{1}{N}\sum_{i=1}^N x_i' x_i'^T) e
+$$
+$$
+\text{s.t} ~ e^T e = 1
+$$
+
+
+
 그런데, $x'$는 column vector이므로, $()$안의 값은 $x'$의 covariance matrix와 같다는 것을 알 수 있다. 이를 $\Sigma$라고 하자.
 $$
 \underset{e}{\text{max}} ~ e^T \Sigma e \\
