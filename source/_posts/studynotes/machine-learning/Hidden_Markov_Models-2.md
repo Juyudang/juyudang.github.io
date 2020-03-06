@@ -209,7 +209,7 @@ $$
 
 ### Problem 3: Training HMM
 
-다음을 만족하는 parameter $$\pi, A, B$$를 계산한다.
+다음을 만족하는 parameter $\pi, A, B$를 계산한다.
 $$
 A^* , B^* , \pi^* = \underset{A,B,\pi}{ \text{argmax} } ~ p(x|A,B,\pi)
 $$
