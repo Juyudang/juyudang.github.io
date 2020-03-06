@@ -95,7 +95,7 @@ $$
 그런데, $x'$는 column vector이므로, $()$안의 값은 $x'$의 covariance matrix와 같다는 것을 알 수 있다. 이를 $\Sigma$라고 하자.
 $$
 \underset{e}{ \text{max} } ~ e^T \Sigma e \\
-\text{s.t} ~~~ e^Te = 1
+\text{s.t} ~ e^Te = 1
 $$
 이를 Lagrangian multiplier를 이용해서 식을 변형한다.
 $$
