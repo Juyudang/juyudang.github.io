@@ -303,9 +303,9 @@ PCA의 구현은 다음과 같이 요약이 가능하다.
 
 1. 데이터를 0-centered 한다. $Z = X - \mu_X$
 
-2. $Z$의 covariate matrix를 계산한다. $\Sigma = Z^TZ$ 또는, ```np.cov(X)```로 바로 계산
+2. $Z$의 covariate matrix를 계산한다. $\Sigma = Z^TZ$ 또는, `np.cov(X)`로 바로 계산
 
-3. $\Sigma$의 eigen decomposition을 계산한다. $V\Lambda V^T$, ```np.linalg.eig(cov_mat)```로 계산
+3. $\Sigma$의 eigen decomposition을 계산한다. $V\Lambda V^T$, `np.linalg.eig(cov_mat)`로 계산
 
 4. Eigen value를 내림차순으로 정렬한다. 당연히 eigen vector들도 동반 정렬되어야 한다.
 
