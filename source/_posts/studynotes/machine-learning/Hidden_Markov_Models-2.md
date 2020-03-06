@@ -117,7 +117,7 @@ $$
 p(x) =
 $$
 $$
-\pi(1)B(1, x_1)[A(1, 1)B(1, x_2) + A(1, 2)B(2, x_2)]
+\pi(1)B(1, x_1)[A(1, 1)B(1, x_2) + A(1, 2)B(2, x_2)] +
 $$
 
 $$
@@ -182,7 +182,7 @@ $$
 z^* = \underset{z}{ \text{argmax} } ~ p(z|x)
 $$
 
-를 만족하는 hidden states $$z$$의 joint distribution을 계산할 수 있어야 한다.
+를 만족하는 hidden states $z$의 joint distribution을 계산할 수 있어야 한다.
 
 그런데, 이때, 위 식은 다음처럼 정리가 가능하다.
 $$
@@ -211,5 +211,5 @@ $$
 
 다음을 만족하는 parameter $$\pi, A, B$$를 계산한다.
 $$
-A^*, B^*, \pi^* = \underset{A,B,\pi}{ \text{argmax} } ~ p(x|A,B,\pi)
+A^* , B^* , \pi^* = \underset{A,B,\pi}{ \text{argmax} } ~ p(x|A,B,\pi)
 $$
