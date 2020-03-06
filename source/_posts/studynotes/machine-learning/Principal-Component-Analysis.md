@@ -354,9 +354,9 @@ $$
 
 1. 데이터를 0-centered 한다. $Z = X - \mu_X$
 
-2. $Z$의 covariate matrix를 계산한다. $\Sigma = Z^TZ$ 또는, ```np.cov(X)```로 바로 계산
+2. $Z$의 covariate matrix를 계산한다. $\Sigma = Z^TZ$ 또는, `np.cov(X)`로 바로 계산
 
-3. $\Sigma$의 eigen decomposition을 계산한다. $V\Lambda V^T$, ```np.linalg.eig(cov_mat)```로 계산
+3. $\Sigma$의 eigen decomposition을 계산한다. $V\Lambda V^T$, `np.linalg.eig(cov_mat)`로 계산
 
 4. 데이터 $X$를 eigen vector에 사영시킨다. (정렬은 해도되고 안해도되는데, dimensionality reduction까지 하려면 정렬하고 $k$개만 뽑고 거기에 사영시킨다)
 
