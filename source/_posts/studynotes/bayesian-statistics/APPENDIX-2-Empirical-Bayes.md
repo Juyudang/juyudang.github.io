@@ -20,9 +20,12 @@ categories:
 
 베이지안 모델링을 하게 되면, likelihood를 모델링하고, 그 파라미터를 prior로 모델링을 하게 된다.
 $$
-D \sim \text{Lieklihood}(\theta) ~~~ [P(D|\theta)]\\
-\theta \sim \text{prior}(\lambda)
+D \sim \text{Lieklihood} ( \theta ) ~~~ [ P(D|\theta) ]
 $$
+$$
+\theta \sim \text{prior} ( \lambda )
+$$
+
 그런데, 이때, prior의 파라미터(위에서는 $\lambda$)는 하이퍼파라미터로, 사용자가 직접 constant로 세팅해 주게 된다. Empirical bayes는 이 하이퍼파라미터를 사용자 대신, 데이터를 이용해서 MAP으로 추론하는 것을 말한다(point estimation).
 
 즉,
