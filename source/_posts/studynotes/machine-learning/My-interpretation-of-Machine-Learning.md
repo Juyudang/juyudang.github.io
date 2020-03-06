@@ -112,7 +112,7 @@ likelihood를 모델링했고, 극대점을 찾아야 한다는 것도 알았다
 
 4. 반대로, gradient가 (-)부호라는 것은 $\theta$를 감소시켜야 likelihood가 증가한다는 의미이다.
 
-   ![image-20200303084905099](../../../../../../Notes/note-images/Principle_of_Machine_Learning/image-20200303084905099-1583192979660.png)
+   ![image-20200303084905099](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303084905099.png)
 
 따라서 likelihood의 완전한 maximum 지점을 찾을 수는 없더라도 현재 위치에서 어느 방향으로 가야 likelihood를 증가시키는지 알 수 있다. gradient를 이용해서 likelihood 산을 오른다는 느낌으로, gradient ascent 라는 용어가 있을 수 있겠다. 하지만, 문제가 있다. Likelihood는 확률을 데이터 샘플 수만큼 곱한 것이다. 즉, 매우매우 0에 가까운 값으로, 일반적으로 데이터 샘플 수는 1만개, 10만개가 넘어가는 경우도 많다. 이들을 다 곱하면 컴퓨터에게는 그냥 0이다. 따라서 미분을 하기도 전에 이미 likelihood는 표현조차 불가능하다.
 
@@ -128,9 +128,9 @@ $$
 그런데, 정보 이론을 공부해보신 분이라면 어디서 많이 본 모양일 것이다. 정보 이론에서 entroy와 cross entropy라는 개념이 있다. 다음과 같다.
 
 $$
-\text{Entropy} = \mathbb{E}_p[-\text{log}~p], \\
+\text{Entropy} = E_p[-\text{log} ~ p], \\
 
-\text{Cross Entropy} = \mathbb{E}_p[-\text{log}~q]​
+\text{Cross Entropy} = E_p[-\text{log} ~ q]​
 $$
 **정보 이론에서 엔트로피란, 불확실성의 높고 낮음을 나타낸다.** (다른 의미로 정보량이 적고 많음을 의미한다) 즉, 확률 분포 p가 uniform distribution과 같이 뭐가 샘플링될지 전혀 알 수 없을수록, 엔트로피는 증가한다. 반대로, 어느 지점에서 확률이 매우 높은(분산이 매우 작은 normal distribution을 떠올리자) 분포는 우리가 어느 정도 뭐가 나올지 알고, 여러개 샘플링해보면 데이터의 다양성이 떨어진다. 따라서 엔트로피가 감소한다.
 
@@ -141,7 +141,7 @@ $$
 그렇게 되면 각 비중치 $\alpha$를 통해 다음과 같이 표현될 수 있다.
 
 $$
-\text{NLL} = \Sigma_i-\alpha\text{log}P(d_i|\theta) = [\text{예시}]: \Sigma_i[-0.1*\text{log}\theta] = -0.7*\text{log}\theta - 0.3*\text{log}(1-\theta)
+\text{NLL} = \Sigma_i-\alpha\text{log}P(d_i|\theta) = [\text{예시}]: \Sigma_i[-0.1 \cdot \text{log} \theta] = -0.7 \cdot \text{log} \theta - 0.3 \cdot \text{log}(1-\theta)
 $$
 각 비중치 위 모양은 cross entropy와 정확히 일치한다. 참고로 $\alpha$를 곱해준다고 해서 likelihood를 최대화시키는 $\hat{\theta}$값은 변하지 않는다. $-(x-1)^2$를 최대화 시키는 x나, $-0.1*(x-1)^2$을 최대화 시키는 x는 모두 1이다. 같은 이유이다.
 
