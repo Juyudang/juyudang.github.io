@@ -369,7 +369,7 @@ $$
 5. 얘네에다가 $\Lambda^{-\frac{1}{2}}$를 곱해준다. (Dimensionality reduction했으면 $k$개만 있는 diagonal matrix이다)
 
    ```python
-   LAMBDA = np.diag(evalues)
+   LAMBDA = np.sqrt(np.diag(evalues))
    X_whitened = np.matmul(LAMBDA, X_transformed)
    ```
 
