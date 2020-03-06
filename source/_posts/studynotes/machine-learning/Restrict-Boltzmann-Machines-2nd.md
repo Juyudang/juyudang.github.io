@@ -13,7 +13,7 @@ categories:
 
 
 
-# Restrict Boltzmann Machine
+# Restrict Boltzmann Machines
 
 
 
@@ -197,7 +197,7 @@ $h_j$는 베르누이 변수이므로, $\{0, 1\}$중 하나의 값을 가진다.
 
 근데, 만약, hidden unit 개수가 2개라고 해 보자(즉 $j=[0,1]$). 그럼 $\text{log}$안은 다음처럼 된다.
 $$
-e^{0u_0}e^{0u_1} + e^{0u_0}e^{1u_1} + e^{1u_0}e^{0u_1} + e^{1u_0}e^{1u_1}
+e^{0u_0}e^{0u_1} + e^{0u_0}e^{1u_1} + e^{1u_0}e^{0u_1} + e^{1u_0}e^{1u_1}
 $$
 $$
 = (e^{0u_0} + e^{1u_0})(e^{0u_1} + e^{1u_1})
@@ -217,7 +217,7 @@ $$
 
 즉, free energy는 다음처럼 정리가 가능하다.
 $$
-F(v) = -\sum_i b_i v_i - \text{log} \prod_j \sum_{h_j=\{0,1\}} \text{exp}\{ h_j(\sum_i W_{i,j} v_i + c_j) \}
+F(v) = -\sum_i b_i v_i - \text{log} \prod_j \sum_{h_j=\{0,1\}} \text{exp}\{ h_j(\sum_i W_{i,j} v_i + c_j) \}
 $$
 $$
 = -\sum_i b_i v_i - \sum_j \text{log} (1+ \text{exp} \{\sum_i W_{i,j} v_i + c_j\})
