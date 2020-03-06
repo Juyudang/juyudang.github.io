@@ -41,11 +41,11 @@ $$
 $$
 p(\lambda^* ) = \int p(\lambda^* |\alpha,\beta) p(\alpha) p(\beta) ~d\alpha ~d\beta
 $$
-위 확률 분포에 따라 $\lambda^*$를 샘플링하는 것을 prior predictive simulation이라고 부르고, 위 확률 분포를 prior predictive distribution이라고 부른다. 이 분포는 likelihood와 prior의 곱의 합으로 이루어진다.
+위 확률 분포에 따라 $\lambda^* $를 샘플링하는 것을 prior predictive simulation이라고 부르고, 위 확률 분포를 prior predictive distribution이라고 부른다. 이 분포는 likelihood와 prior의 곱의 합으로 이루어진다.
 
-$\lambda^*$를 샘플링했다면, $\lambda$와 마찬가지로 $y^*$를 샘플링할 수 있다. 일단 $\lambda^*$를 얻었다면, 다음 식에 의해 $y^*$를 샘플링할 수 있다.
+$\lambda^* $를 샘플링했다면, $\lambda$와 마찬가지로 $y^* $를 샘플링할 수 있다. 일단 $\lambda^* $를 얻었다면, 다음 식에 의해 $y^* $를 샘플링할 수 있다.
 $$
-p(y^*) = \int p(y^* |\lambda)p(\lambda) ~d\lambda
+p(y^* ) = \int p(y^* |\lambda)p(\lambda) ~d\lambda
 $$
 이렇게 계층을 올라가면서 각 파라미터와 예측값에 대해 prior predictive simulation을 할 수 있다.
 
@@ -63,4 +63,4 @@ $y$의 경우도 마찬가지.
 $$
 p(y|D) = \int p(y|D,\lambda)p(\lambda|D) ~p\lambda
 $$
-시뮬레이션할 때는, posterior로부터 $\alpha^*,\beta^*$를 샘플링하고, 그 $\alpha^*, \beta^*$를 이용해서 $\lambda^*$를 샘플링한다. 그리고 그 $\lambda^*$를 이용해서 $y^*$를 샘플링하면 된다.
+시뮬레이션할 때는, posterior로부터 $\alpha^* ,\beta^*$를 샘플링하고, 그 $\alpha^* , \beta^*$를 이용해서 $\lambda^*$를 샘플링한다. 그리고 그 $\lambda^*$를 이용해서 $y^*$를 샘플링하면 된다.
