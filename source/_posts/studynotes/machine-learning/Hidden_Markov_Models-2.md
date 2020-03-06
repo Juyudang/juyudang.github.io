@@ -30,7 +30,7 @@ $$
 
 ### Parameters of HMM
 
-Markov model에서의 parameter는 initial distribution vector $$\pi$$와 state transition matrix $A$였다. HMM에서는 state-to-observation matrix $B$가 추가된다. 즉, $\pi, A, B$가 학습 parameter가 된다.
+Markov model에서의 parameter는 initial distribution vector $\pi$와 state transition matrix $A$였다. HMM에서는 state-to-observation matrix $B$가 추가된다. 즉, $\pi, A, B$가 학습 parameter가 된다.
 
 - $\pi$
 
@@ -93,46 +93,81 @@ $$
 
 우선, $T=2, M=2$인 경우를 생각해본다.
 $$
-p(x) = \sum_{z_1} \sum_{z_2} \pi(z_1)B(z_1, x_1)\prod_{t=2}^T A(z_{t-1}, z_t)B(z_t, x_t) \\
+p(x) = \sum_{z_1} \sum_{z_2} \pi(z_1)B(z_1, x_1)\prod_{t=2}^T A(z_{t-1}, z_t)B(z_t, x_t)
+$$
 
-= \pi(1)B(1, x_1)A(1, 1)B(1, x_2) \\
-+ \pi(1)B(1, x_1)A(1, 2)B(2, x_2) \\
-+ \pi(2)B(2, x_1)A(2, 1)B(1, x_2) \\
-+ \pi(2)B(2, x_1)A(2, 2)B(2, x_2) \\
+$$
+= \pi(1)B(1, x_1)A(1, 1)B(1, x_2)
+$$
+
+$$
++ \pi(1)B(1, x_1)A(1, 2)B(2, x_2)
+$$
+
+$$
++ \pi(2)B(2, x_1)A(2, 1)B(1, x_2)
+$$
+
+$$
++ \pi(2)B(2, x_1)A(2, 2)B(2, x_2)
 $$
 
 그런데, 중복된 연산이 너무 많다. 따라서, factorize를 해 주자.
 $$
-p(x) = \\
-\pi(1)B(1, x_1)[A(1, 1)B(1, x_2) + A(1, 2)B(2, x_2)] \\
+p(x) =
+$$
+$$
+\pi(1)B(1, x_1)[A(1, 1)B(1, x_2) + A(1, 2)B(2, x_2)]
+$$
+
+$$
 \pi(2)B(2, x_1)[A(2, 1)B(1, x_2) + A(2, 2)B(2, x_2)]
 $$
+
 $T=3, M=2$인 경우도 마찬가지로 할 수 있다. 수식으로 보면 다음처럼 표현할 수 있다.
 $$
-p(x) = \sum_{z_1} \sum_{z_2} \sum_{z_3} p(z_1) p(x_1|z_1) \prod_{t=2}^3 p(z_t|z_{t-1})p(x_t|z_t) \\
-= \sum_{z_1} \sum_{z_2} \sum_{z_3} p(z_1)p(x_1|z_1)p(z_2|z_1)p(x_2|z_2)p(z_3|z_2)p(x_3|z_3) \\
+p(x) = \sum_{z_1} \sum_{z_2} \sum_{z_3} p(z_1) p(x_1|z_1) \prod_{t=2}^3 p(z_t|z_{t-1})p(x_t|z_t)
+$$
+$$
+= \sum_{z_1} \sum_{z_2} \sum_{z_3} p(z_1)p(x_1|z_1)p(z_2|z_1)p(x_2|z_2)p(z_3|z_2)p(x_3|z_3)
+$$
+
+$$
 = \sum_{z_3} p(x_3|z_3) \sum_{z_2} p(x_2|z_2)p(z_3|z_2) \sum_{z_1} p(z_1)p(x_1|z_1)p(z_2|z_1)
 $$
+
 위 식을 다음처럼 변형해본다.
 $$
 \sum_{z_3} p(x_3|z_3) \sum_{z_2} p(z_3|z_2) [p(x_2|z_2) \sum_{z_1} p(z_2|z_1)[p(x_1|z_1) p(z_1)]]
 $$
 여기서, $\alpha$라고 하는 놈을 정의한다.
 $$
-\alpha(3, z_3) = p(x_3|z_3) \sum_{z_2} p(z_3|z_2) \alpha(2, z_2) \\
-\alpha(2, z_2) = p(x_2|z_2) \sum_{z_1} p(z_2|z_1) \alpha(1, z_1) \\
+\alpha(3, z_3) = p(x_3|z_3) \sum_{z_2} p(z_3|z_2) \alpha(2, z_2)
+$$
+$$
+\alpha(2, z_2) = p(x_2|z_2) \sum_{z_1} p(z_2|z_1) \alpha(1, z_1)
+$$
+
+$$
 \alpha(1, z_1) = p(x_1|z_1)p(z_1)
 $$
+
 이때, $p(x)$는 다음처럼 된다.
 $$
 p(x) = \sum_{z_3}\alpha(3, z_3)
 $$
 즉, 다음처럼 일반화가 가능하다.
 $$
-p(x) = \sum_{z_T} \alpha(T, z_T) \\
-\alpha(t, z_t) = p(x_t|z_t) \sum_{z_{t-1}} p(z_t|z_{t-1}) \alpha(t-1, z_{t-1}) \\
+p(x) = \sum_{z_T} \alpha(T, z_T)
+$$
+$$
+\alpha(t, z_t) = p(x_t|z_t) \sum_{z_{t-1}} p(z_t|z_{t-1}) \alpha(t-1, z_{t-1})
+$$
+
+$$
 \alpha(1, z_1) = p(x_1|z_1)p(z_1)
 $$
+
 이렇게 되면, likelihood $p(x)$를 계산하는데, $O(MT)$면 끝이 난다.
 
 
@@ -144,14 +179,14 @@ $$
 
 Likelihood를 구했다면, 이번엔 가장 probable한 hidden states의 sequence를 찾을 수 있어야 한다. 즉,
 $$
-z^* = \underset{z}{\text{argmax}} ~ p(z|x)
+z^* = \underset{z}{ \text{argmax} } ~ p(z|x)
 $$
 
 를 만족하는 hidden states $$z$$의 joint distribution을 계산할 수 있어야 한다.
 
 그런데, 이때, 위 식은 다음처럼 정리가 가능하다.
 $$
-z^* = \underset{z}{\text{argmax}} ~ p(z|x) = \underset{z}{\text{argmax}} ~ \frac{p(x,z)}{p(x)} = \underset{z}{\text{argmax}} ~ p(x, z)
+z^* = \underset{z}{ \text{argmax} } ~ p(z|x) = \underset{z}{ \text{argmax} } ~ \frac{p(x,z)}{p(x)} = \underset{z}{ \text{argmax} } ~ p(x, z)
 $$
 그런데, 여기서, $p(x, z)$는 $p(x)$를 구하는 식에서 marginalization만 빼면 된다. 즉,
 $$
@@ -176,5 +211,5 @@ $$
 
 다음을 만족하는 parameter $$\pi, A, B$$를 계산한다.
 $$
-A^*, B^*, \pi^* = \underset{A,B,\pi}{\text{argmax}} ~ p(x|A,B,\pi)
+A^*, B^*, \pi^* = \underset{A,B,\pi}{ \text{argmax} } ~ p(x|A,B,\pi)
 $$
