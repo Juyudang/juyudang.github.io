@@ -28,7 +28,7 @@ MCMC라고도 불린다. 파라미터 $\theta$의 분포 $p(\theta)$를 추정�
 
 ### MCMC
 
-MCMC는 posterior의 분포 $p(\theta|y_1,...y_k)$를 추정하기 위해 마치 이 posterior로부터 샘플링됬을 법한 샘플 $\theta^*_1,...,\theta^*_m$을 생성해 준다. 이들은 posterior로부터 샘플링 되었을 거라고 가정하고 posterior를 monte carlo estimation으로 추정한다.
+MCMC는 posterior의 분포 $p(\theta|y_1,...y_k)$를 추정하기 위해 마치 이 posterior로부터 샘플링됬을 법한 샘플 $\theta^* _1,...,\theta^* _m$을 생성해 준다. 이들은 posterior로부터 샘플링 되었을 거라고 가정하고 posterior를 monte carlo estimation으로 추정한다.
 
 MCMC의 알고리즘으로 여러 개가 있다고 하는데, 대표적으로 Metropolis-Hastings 알고리즘이 있다.
 
@@ -45,7 +45,7 @@ MCMC의 알고리즘으로 여러 개가 있다고 하는데, 대표적으로 Me
    p(\theta|y_1,...,y_k) \propto g(\theta)
    $$
 
-2. $\theta$와 도메인이 같거나 최대한 비슷한 분포 아무거나 고른다. 이 분포는 마르코프 체인을 만족하면 좋다. 즉, $q(\theta^*|\theta_{i-1})$.
+2. $\theta$와 도메인이 같거나 최대한 비슷한 분포 아무거나 고른다. 이 분포는 마르코프 체인을 만족하면 좋다. 즉, $q(\theta^* |\theta_{i-1})$.
 
 3. 적당히 큰 수 $m$번을 반복하는데, $m$개의 $\theta^*$를 1개씩 샘플링할 것이다.
 
@@ -53,14 +53,14 @@ MCMC의 알고리즘으로 여러 개가 있다고 하는데, 대표적으로 Me
 
    2. 다음을 계산한다.
       $$
-      \alpha = \frac{g(\theta^*)q(\theta^*|\theta_{i-1})}{g(\theta_{i-1})q(\theta_{i-1}|\theta^*)}
+      \alpha = \frac{g(\theta^* )q(\theta^* |\theta_{i-1})}{g(\theta_{i-1})q(\theta_{i-1}|\theta^* )}
       $$
 
    3. $\alpha \geq 1$이면, $\theta_i \leftarrow \theta*$로 accept한다. $0 \leq \alpha < 1$이면, $\alpha$의 확률로 $\theta_i \leftarrow \theta^*$로 accept하고, reject되면 $\theta_i \leftarrow \theta_{i-1}$한다.
 
 
 
-분자에 $g(\theta^*)$가 있고, 분모에 $g(\theta_{i-1})$가 있어서, 이전에 뽑은 $\theta$보다 현재 뽑은 $\theta$가 더 $p(\theta|y_1,...,y_k)$에서 확률이 높다면, $\alpha \geq 1$이 되어서 accept된다. $g$가 $p$에 비례하기 때문에 그렇다.
+분자에 $g(\theta^* )$가 있고, 분모에 $g(\theta_{i-1})$가 있어서, 이전에 뽑은 $\theta$보다 현재 뽑은 $\theta$가 더 $p(\theta|y_1,...,y_k)$에서 확률이 높다면, $\alpha \geq 1$이 되어서 accept된다. $g$가 $p$에 비례하기 때문에 그렇다.
 
 
 
@@ -70,7 +70,7 @@ MCMC의 알고리즘으로 여러 개가 있다고 하는데, 대표적으로 Me
 
 ## Random Walk Algorithm
 
-Matropolis-hastings 알고리즘에서, proposal distribution $q(\theta^*|\theta_{i-1})$를 $\theta_{i-1}$을 평균으로 하는 normal distribution으로 놓은 것을 말한다. Normal distribution은 대칭 분포이기 때문에, $\alpha=\frac{g(\theta^*)}{g(\theta_{i-1})}$이 된다.
+Matropolis-hastings 알고리즘에서, proposal distribution $q(\theta^* |\theta_{i-1})$를 $\theta_{i-1}$을 평균으로 하는 normal distribution으로 놓은 것을 말한다. Normal distribution은 대칭 분포이기 때문에, $\alpha=\frac{g(\theta^* )}{g(\theta_{i-1})}$이 된다.
 
 
 
@@ -102,7 +102,7 @@ Matropolis-hastings 알고리즘에서, proposal distribution $q(\theta^*|\theta
 
 ## Assessing Convergence of MCMC
 
-MCMC알고리즘에서 샘플링한 샘플들 $\theta^*_1, ..., \theta^*_k$의 평균값 $\bar{\theta^*}$이 $\theta$의 posterior 분포 $p(\theta|Y)$를 잘 추정하려면, 마르코프 체인이 충분히 수렴해야 하고, 수렴한 체인으로부터 $\theta^*$가 충분히 샘플링되어야 한다. 하지만, 마르코프 체인이 언제 수렴할지를 모르기 때문에 몇 개의 샘플까지가 수렴이 안된 상태의 샘플인지, 몇 개가 유용한 샘플인지 알 수가 없다.
+MCMC알고리즘에서 샘플링한 샘플들 $\theta^* _1, ..., \theta^* _k$의 평균값 $\bar{\theta^* }$이 $\theta$의 posterior 분포 $p(\theta|Y)$를 잘 추정하려면, 마르코프 체인이 충분히 수렴해야 하고, 수렴한 체인으로부터 $\theta^*$가 충분히 샘플링되어야 한다. 하지만, 마르코프 체인이 언제 수렴할지를 모르기 때문에 몇 개의 샘플까지가 수렴이 안된 상태의 샘플인지, 몇 개가 유용한 샘플인지 알 수가 없다.
 
 
 
