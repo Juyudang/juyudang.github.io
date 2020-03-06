@@ -84,7 +84,7 @@ Gradient descent는 어떤 함수 $F(x, y)$가 있을 때, 이 함수의 최솟�
 
 다음과 같이, 어떤 함수 $F(x, y)$를 최소화 또는 최대화하는데, 파라미터 $x, y$의 범위에 조건이 걸린 경우를 말한다.
 $$
-\underset{x, y}{ \text{min} } [F(x, y) = x^2 + y^2] ~ \text{s.t} ~~~ x + y = 1
+\underset{x, y}{ \text{min} } [F(x, y) = x^2 + y^2] ~ \text{ s.t } ~ x + y = 1
 $$
 즉, $x + y = 1$을 만족하는 $x, y$중에서 $x^2+ y^2$를 최소화하는 $x, y$를 찾아야 한다는 것.
 
@@ -195,13 +195,13 @@ Neural network regularization도 해당 constraint ($l_1 norm, l_2 norm$) 에 �
 
 ### Multi-constraint Optimization
 
-만약, $$F(\vec{x})$$를 최적화하는데, constraint가 $$g_1(\vec{x}), g_2(\vec{x}), \cdots, g_k(\vec{x})$$ 등 $$k$$개가 있다고 해 보자. 이때, $$F(\vec{x})$$의 극점이면서, 위 constraint들을 만족시키는 $$\vec{x}$$를 구하는 것은 다음의 식을 푸는 것과 같다.
+만약, $F(\vec{x})$를 최적화하는데, constraint가 $g_1(\vec{x}), g_2(\vec{x}), \cdots, g_k(\vec{x})$ 등 $k$개가 있다고 해 보자. 이때, $F(\vec{x})$의 극점이면서, 위 constraint들을 만족시키는 $$\vec{x}$$를 구하는 것은 다음의 식을 푸는 것과 같다.
 $$
-\bigtriangledown (F(\vec{x}) - \lambda_1 g_1(\vec{x}) - \lambda_2 g_2(\vec{x}) - \cdots - \lambda_k g_k(\vec{x})) = 0
+\nabla (F(\vec{x}) - \lambda_1 g_1(\vec{x}) - \lambda_2 g_2 (\vec{x}) - \cdots - \lambda_k g_k (\vec{x})) = 0
 $$
-또는 $$Q(\vec{x}, \lambda) = F(\vec{x}) - \lambda_1 g_2(\vec{x}) - \cdots - \lambda_k g_k(\vec{x})$$의 극점을 구하는 것과 같다.
+또는 $Q(\vec{x}, \lambda) = F(\vec{x}) - \lambda_1 g_2(\vec{x}) - \cdots - \lambda_k g_k(\vec{x})$의 극점을 구하는 것과 같다.
 $$
-\bigtriangledown Q(\vec{x}, \lambda) = 0 ~~~ \text{w.r.t} ~~~ \vec{x}, \lambda
+\nabla Q(\vec{x}, \lambda) = 0 ~ \text{w.r.t} ~ \vec{x}, \lambda
 $$
 
 
