@@ -195,7 +195,7 @@ Neural network regularization도 해당 constraint ($l_1 norm, l_2 norm$) 에 �
 
 ### Multi-constraint Optimization
 
-만약, $F(\vec{x})$를 최적화하는데, constraint가 $g_1(\vec{x}), g_2(\vec{x}), \cdots, g_k(\vec{x})$ 등 $k$개가 있다고 해 보자. 이때, $F(\vec{x})$의 극점이면서, 위 constraint들을 만족시키는 $$\vec{x}$$를 구하는 것은 다음의 식을 푸는 것과 같다.
+만약, $F(\vec{x})$를 최적화하는데, constraint가 $g_1(\vec{x}), g_2(\vec{x}), \cdots, g_k(\vec{x})$ 등 $k$개가 있다고 해 보자. 이때, $F(\vec{x})$의 극점이면서, 위 constraint들을 만족시키는 $\vec{x}$를 구하는 것은 다음의 식을 푸는 것과 같다.
 $$
 \nabla (F(\vec{x}) - \lambda_1 g_1(\vec{x}) - \lambda_2 g_2 (\vec{x}) - \cdots - \lambda_k g_k (\vec{x})) = 0
 $$
