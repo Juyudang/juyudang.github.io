@@ -179,7 +179,7 @@ Optimal policy란, 모든 state에서 가장 높은 value를 반환하게 하는
 
 Optimal value function이란, 현재 state에서 가능한 모든 액션과 그에 다른 다음 value를 보고, 다음 value가 가장 높은 action을 deterministic하게 선택했을 때의 value function을 의미한다.
 $$
-v_* (s) = \underset{a} {\text{max} } ~ \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot v_*(s') ]
+v_* (s) = \underset{a}{ \text{max} } ~ \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot v_* (s') ]
 $$
 보다시피, action의 분포(policy)가 사라지고, 그냥 다음 state인 $s'$의 value $v_* (s')$가 가장 높은 action을 무조건(deterministically) 취하게 한다. 또한, 이 value $v_* (s')$만으로 $v_* (s)$를 계산하도록 한다.
 
