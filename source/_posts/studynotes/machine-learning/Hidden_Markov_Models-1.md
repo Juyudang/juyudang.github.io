@@ -202,7 +202,7 @@ Google의 페이지랭크 알고리즘은 각 페이지를 방문할 확률인 s
 
 Hidden markov model에서는 observable state $o_t$가 이전 observable state $o_{t-1}$에 영향을 받지 않는다. 대신 같은 시간의 hidden state인 $h_t$에 의해서만 영향을 받는다는 가정을 한다.
 
-Markov model은 initial distributoin $$\pi$$와 transition probability matrix $A$가 존재하지만, hidden markov model에서는 initial distribution $$\pi$$와 hidden state transition matrix $A$, hidden state로부터 visible state로의 변환을 의미하는 transition matrix $B$가 존재한다.
+Markov model은 initial distributoin $\pi$와 transition probability matrix $A$가 존재하지만, hidden markov model에서는 initial distribution $\pi$와 hidden state transition matrix $A$, hidden state로부터 visible state로의 변환을 의미하는 transition matrix $B$가 존재한다.
 
 
 
@@ -225,7 +225,7 @@ Markov model은 initial distributoin $$\pi$$와 transition probability matrix $A
 
 #### Stock Price Models
 
-HMM이 hidden time series($$z$$들)를 캐치할 수 있다는 것에 주목해서 stock price의 hidden factor를 HMM으로 캐치하게 한 모델을 말한다.
+HMM이 hidden time series($z$들)를 캐치할 수 있다는 것에 주목해서 stock price의 hidden factor를 HMM으로 캐치하게 한 모델을 말한다.
 
 ![image-20191201151728545](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191201151728545.png)
 
