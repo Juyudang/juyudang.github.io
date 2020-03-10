@@ -80,9 +80,9 @@ Episode를 무한히 만들 수 없고, 한정된 episode만 이용할 수 있�
 $$
 \text{increment} = \alpha(R_{t+1} + \gamma V(S_{t+1}) - V(S_t))
 $$
-episode 100개를 모두 한번씩 보는 것을 1 batch라고 하면, 1 batch를 모두 볼때까지 value function $V(S)$를 업데이트 하지 않는다. 100개를 모두 보고 난 후, 각 episode마다 계산된 $$\text{increment}$$를 state마다 모두 합해서 $V(S)$를 업데이트하게 된다. 그리고, 다시, 업데이트된 $V(S)$를 이용해서 episode 100개를 다시 반복해서 본다.
+episode 100개를 모두 한번씩 보는 것을 1 batch라고 하면, 1 batch를 모두 볼때까지 value function $V(S)$를 업데이트 하지 않는다. 100개를 모두 보고 난 후, 각 episode마다 계산된 $\text{increment}$를 state마다 모두 합해서 $V(S)$를 업데이트하게 된다. 그리고, 다시, 업데이트된 $V(S)$를 이용해서 episode 100개를 다시 반복해서 본다.
 
-일반적인 TD(0)는 1 episode 를 돌때도 즉시 value function을 업데이트하지만, batch TD(0)는 모든 episode를 본 후, 각각 $$\text{increment}$$를 계산하고 이들의 합으로 value function을 업데이트한다. 즉, 모든 episode를 본 후, 비로소 한 번의 업데이트가 이루어진다.
+일반적인 TD(0)는 1 episode 를 돌때도 즉시 value function을 업데이트하지만, batch TD(0)는 모든 episode를 본 후, 각각 $\text{increment}$를 계산하고 이들의 합으로 value function을 업데이트한다. 즉, 모든 episode를 본 후, 비로소 한 번의 업데이트가 이루어진다.
 
 
 
@@ -196,7 +196,7 @@ Sarsa 보다 low variance라고 한다.
 
 Expected Sarsa는 value function을 좀 더 일반적으로 고려하므로(episode 방향만 고려하는게 아니니까) 좀 더 안정적인 업데이트가 가능하다고 한다. Sarsa는 어찌됬든 많은 episode를 수행하다보면 value function의 추정이 정확해진다. 하지만, 각 episode에서 잘못된 액션이 있다할지라도, 그 방향으로 업데이트를 수행한다. 하지만, expected Sarsa는 잘못된 액션이든, 올바른 액션이든, 무조건 기댓값을 취하므로, 항상 안정적인 업데이트가 가능하다.
 
-Expected Sarsa에서는 큰 step size $$\alpha$$를 사용하기 쉽다. Sarsa에서는 $\alpha$가 크면 잘못된 방향으로도 큰 업데이트를 수행하겠지만, expected Sarsa에서는 그 정도가 작다. 기댓값으로 업데이트하기 때문. 이것은 심지어 optimal value function으로의 수렴 속도까지 expected Sarsa가 뛰어나게 만들기도 한다. (운이 좋다면, Sarsa가 빠를수도 있다)
+Expected Sarsa에서는 큰 step size $\alpha$를 사용하기 쉽다. Sarsa에서는 $\alpha$가 크면 잘못된 방향으로도 큰 업데이트를 수행하겠지만, expected Sarsa에서는 그 정도가 작다. 기댓값으로 업데이트하기 때문. 이것은 심지어 optimal value function으로의 수렴 속도까지 expected Sarsa가 뛰어나게 만들기도 한다. (운이 좋다면, Sarsa가 빠를수도 있다)
 
 또한, value function이 거의 다 수렴한 상태에서도, 큰 $\alpha$를 가진다면, Sarsa는 샘플링하는 대로 업데이트를 똑같이 큰 step으로 지속하게 된다. 어쩌다보면 발산 방향으로 갈 수도 있다. 반면, expected Sarsa에서는 샘플링이 계속되도, 기댓값은 크게 변하지 않으므로, value function또한 안정적으로 유지된다.
 
