@@ -39,21 +39,21 @@ Tabular method는 linear function approximation의 한 방법이다.
 state의 개수만큼 feature가 있고, feature는 각 state를 나타내는 indicator가 된다. 그러면, 각 state의 value는 그 state의 weight가 된다.
 $$
 V(s_i) = \begin{pmatrix}
-0 \\
-\cdots \\
-0 \\
-1 \\
-0 \\
-\cdots \\
+0 \newline 
+\cdots \newline 
+0 \newline 
+1 \newline 
+0 \newline 
+\cdots \newline 
 0
 \end{pmatrix} \cdot
 \begin{pmatrix}
-w_1 \\
-\cdots \\
-w_{i-1} \\
-w_i \\
-w_{i+1} \\
-\cdots \\
+w_1 \newline 
+\cdots \newline 
+w_{i-1} \newline 
+w_i \newline 
+w_{i+1} \newline 
+\cdots \newline 
 w_{16}
 \end{pmatrix} = w_i
 $$
@@ -212,7 +212,7 @@ x(s_i) = \begin{pmatrix}
 $$
 feature는 어떤 state인지 나타내는 indicator이고, weight가 각각 상응하는 state들의 value가 되는 셈. Feature $x$를 어떤 aggregation인지를 나타낸다고 하면, aggregation tabular TD(0)역시 linear TD의 모양이 되므로, aggregation tabular TD(0)역시, linear TD의 한 종류이다.
 
-만약, squared error를 사용하는 linear TD라면, 다음 식으로 $$w$$가 업데이트된다.
+만약, squared error를 사용하는 linear TD라면, 다음 식으로 $w$가 업데이트된다.
 $$
 w \leftarrow w + \alpha (R_{t+1} + \gamma \hat{v}(S_{t+1}, w) - \hat{v}(S_t, w)) X(S_t)
 $$
