@@ -85,7 +85,8 @@
                 } 
                 if(branch.articles && branch.articles.length) {
                     branch.articles.sort(function(post0, post1) {
-                        return new Date(post0.date) - new Date(post1.date)
+                        return ( ( post0.title == post1.title ) ? 0 : ( ( post0.title > post1.title ) ? 1 : -1 ) );
+                        <!-- return new Date(post0.date) - new Date(post1.date) -->
                     }).forEach(function(post){
                         %> <li class="file<%- (is_post() && post._id == page._id) ? ' active' : '' %>"><a href="<%- post.path %>"><%- post.title %></a></li> <%
                     });
