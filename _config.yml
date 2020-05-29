@@ -13,7 +13,7 @@ timezone: Asia/Seoul
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://jaeyoung-blog.github.io
+url: https://wayexists02.github.io
 root: /
 # permalink: :year/:month/:day/:title/
 permalink: wiki/:title/
@@ -132,5 +132,5 @@ sitemap:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/Jaeyoung-blog/jaeyoung-blog.github.io
+  repo: https://github.com/wayexists02/wayexists02.github.io
   branch: master
