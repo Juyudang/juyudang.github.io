@@ -18,7 +18,7 @@ categories:
 
 우리가 추정하고자 하는 parameter $\theta$에 대해 $\theta$가 어떻게 분포되어있는지 사전 지식 또는 정보가 있다면 그것을 이용하는게 좋을 것이다. 하지만, frequentist inference에서는 사전 정보를 이용하기 어렵다.
 
-사전 정보를 이용해서 $p(\theta)$를 초기화한후(prior), 데이터를 수집하면서 얻은 정보(posterior)를 이용해서 $p(\theta)$분포를 $p(\theta|D)$로 업데이트한다. 이렇게 $p(\theta)$을 추정해 가는 방식을 **bayesian inference**라고 한다. 그리고, 얻은 데이터를 바탕으로 $p(\theta|D)$를 최대화하는 $\hat{\theta}$를 선택하는 것을 **Maximize A Posterior(MAP)** 추정이라고 한다.
+사전 정보를 이용해서 $p(\theta)$를 초기화한후(prior), 데이터를 수집하면서 얻은 정보(posterior)를 이용해서 $p(\theta)$분포를 $p(\theta|D)$로 업데이트한다. 이렇게 $p(\theta)$을 추정해 가는 방식을 **Bayesian inference**라고 한다. 그리고, 얻은 데이터를 바탕으로 $p(\theta|D)$를 최대화하는 $\hat{\theta}$를 선택하는 것을 **Maximize A Posterior(MAP)** 추정이라고 한다.
 
 즉, 다음과 같다.
 $$
