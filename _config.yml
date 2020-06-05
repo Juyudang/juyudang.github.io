@@ -80,6 +80,7 @@ markdown:
     typographer: true
     quotes: '“”‘’'
   plugins:
+    - '@iktakahiro/markdown-it-katex'
     - markdown-it-abbr
     - markdown-it-container
     - markdown-it-deflist
@@ -92,7 +93,6 @@ markdown:
     - markdown-it-sub
     - markdown-it-sup
     - markdown-it-checkbox
-    - '@iktakahiro/markdown-it-katex'
   anchors:
     level: 1
     collisionSuffix: 'v'
