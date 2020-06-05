@@ -162,9 +162,12 @@ $$
 
 버스가 올때까지 걸리는 시간을 측정하는 시행이 여러 번 있고, 그들의 총합 시간은 gamma distribution을 따른다. 쉽게 말해서, Gamma distribution을 따르는 $Y$는 exponential distribution을 따르는 $X_i$의 합과 같다.
 $$
-Y = \sum_i X_i \\
+Y = \sum_i X_i
+$$
+$$
 p(y|\alpha,\beta) = \frac{\beta^{\alpha}}{\Gamma(\alpha)}y^{\alpha-1}e^{-\beta y} \mathbb{I}_{y \geq 0}(y)
 $$
+
 감마분포는 $\alpha$와 $\beta$를 파라미터로 삼으며, $\alpha = n$, $\beta = \lambda$가 된다.
 
 $$\alpha$$는 shape parameter로, $\alpha=1$이면, exponential distribution이 된다. 또한, $\alpha$가 0에 가까워질수록 right-skewed가 된다. $$\alpha$$가 커질수록 normal distribution에 가까워지면서 skewness가 줄어든다(한쪽으로 치우치지 않는다).
