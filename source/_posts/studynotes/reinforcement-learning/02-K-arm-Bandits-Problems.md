@@ -51,16 +51,18 @@ K-arm bandit problem은 reinforcement learning에서 다음과 같은 제약조�
 
 
 
-### Terminology
+### Terminology 
 
 $A_t$: 어떤 시간 $t$에서 취한 액션
 
 $R_t$: 어떤 시간 $t$에서 취한 액션으로 얻은 reward
 
 $q_* (a)$: 어떤 임의 액션 $a$를 취해서 얻는 reward의 기댓값 즉,
+
 $$
 q_* (a) = \mathbb{E}(R_t|A_t=a)
 $$
+
 (당연히 $q_* (a)$는 인공지능이 알 수 없는 값이다. 이걸 알면 기댓값이 높은 길만 선택하면 된다.)
 
 $Q_* (a)$: 인공지능이 exploitation, exploration을 바탕으로 추정해낸 분포로 계산한, 임의 액션 $a$를 취했을 때의 reward 기댓값. 인공지능은 적절한 exploration을 통해 $Q_* (a)$를 업데이트해서 $q_* (a)$와 가깝게 추정해야 한다.
@@ -110,9 +112,11 @@ $\epsilon$-greedy 방법에서, 각 액션의 초기 기댓값을 어떻게 정�
 optimal에 수렴한 이후부터는 exploitation만 수행하게 되기 때문에(이미 최적 expectation을 계산해서 낮은 기대치를 갖는 액션은 취하지 않는다.) 만약, optimal reward expectation이 변하는 환경, 즉, stationary distirbution이 변하는 환경에선 이 방법은 적합하지 않다. 시간이 지남에 따라 최적의 액션이 바뀌게 되면 이 방법이 소용이 없어진다.
 
 다음을 만족하는 action을 선택한다.
+
 $$
 a^* = \underset{a}{\text{argmax}} ~ q^* (a)
 $$
+
 Initial value estimation이 높기 때문에 오직 greedy하게 액션을 선택한다.
 
 
@@ -130,10 +134,13 @@ Confidence interval을 이용해서 액션을 선택하는 방법으로, 각 act
 ![image-20200105142946483](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200105142946483.png)
 
 즉 ,다음을 만족하는 action을 선택한다.
+
 $$
 a^* = \underset{a}{\text{argmax} } [q^* (a) + c\sqrt{\frac{\text{ln} ~ N} {N_a} } ]
 $$
+
 이때, $\underset{a}{\text{argmax}} ~ q^* (a)$는 greedy 한 선택을 위한 term, 즉, exploitation을 위한 term이고, $a^* = \underset{a}{ \text{argmax} } ~ c \sqrt{ \frac{ \text{ln} N } {N_a} }$은 exploration을 위한 term이다. 즉, confidence interval인데, 다음 식을 이용해서 유도할 수 있다고 한다.
+
 $$
 P(|\bar{X} - \mu| \geq \epsilon) \leq 2e^{-2 \epsilon^2 N}
 $$
@@ -142,9 +149,11 @@ $$
 ### Bayesian/Thompson Sampling
 
 UCB와 매우 유사하지만, value 기댓값의 confidence interval의 upper bound가 가장 큰 액션을 선택하는 것이 아니라, value의 posterior를 구하고 거기서 샘플링 한 후, 가장 큰 샘플을 가지는 액션을 선택하게 된다.
+
 $$
 a^* = \underset{a}{\text{argmax}} ~ [\bar{x} \sim \text{Posterior}(q^*(a))]
 $$
+
 이것은 UCB와 마찬가지로 confidence/credible interval과 관련되어 있는데, value 샘플링을 할 때, 가장 높은 value가 나온 경우는 두 가지로 생각할 수 있다.
 
 - 그 action에 대한 value estimation이 매우 불확실한 경우. 즉, credible interval이 매우 넓은 경우.
@@ -165,15 +174,19 @@ $$
 어떤 액션을 골라야 할 때, 지금 현재 가지고 있는 지식만으로 각 액션을 취했을 때의 얻어지는 기댓값을 각각 계산하고, 가장 높은 기댓값을 가지는 액션을 취하는 방식이다. 즉, value function을 "가장 큰 액션의 기댓값을 가지는 액션"이라고 정의하는 것이다.
 
 액션에 따른 reward의 기댓값 $Q_* (a)$을 계산하는 방법은, 다음과 같이 할 수도 있고, 다른 방법을 사용할 수도 있다.
+
 $$
  Q_* (a) \approx \frac{ \sum_{i=1}^{t-1} R_i \cdot I_{A_i=a} }{ \sum_{i=1}^{t-1} I_{A_i=a} } 
 $$
+
 즉, 이때까지 $a$라는 액션을 취했을 때, 얻었던 reward들의 평균값으로 $a$의 reward 기댓값이라고 삼는 것이다.
 
 그리고, 다음을 만족하는 액션 $A_t$를 선택한다.
+
 $$
 A_t = \text{argmax}_a ~ Q_t(a)
 $$
+
 Action-value methods는 greedy한 방식으로, $\epsilon$-greedy와 함께 사용해서 exploration과의 균형을 맞추려고 시도해 볼 수 있다.
 
 
