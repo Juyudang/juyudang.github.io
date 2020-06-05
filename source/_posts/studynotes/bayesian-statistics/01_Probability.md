@@ -140,7 +140,7 @@ $$
 
 
 
-### Bayes' Rule 
+### Bayes' Rule
 
 다음을 bayes' rule이라고 정의한다.
 $$
