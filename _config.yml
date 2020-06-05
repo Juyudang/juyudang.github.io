@@ -163,12 +163,6 @@ markdown_it_plus:
   typographer:
   quotes: “”‘’
   pre_class: highlight
-  anchors:
-    level: 1
-    collisionSuffix: 'v'
-    permalink: false
-    permalinkClass: header-anchor
-    permalinkSymbol: '# '
     
 ### Creat sitemap
 sitemap:
