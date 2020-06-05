@@ -12,14 +12,14 @@
 - [Hidden Markov Models 1](/wiki/studynotes/machine-learning/Hidden-Markov-Models-1)
 - [Hidden Markov Models 2](/wiki/studynotes/machine-learning/Hidden-Markov-Models-2)
 
-## **Bayesian Statistics**
-- [01. Probability](/wiki/studynotes/machine-learning/01_Probability)
-- [02. Distribution](/wiki/studynotes/machine-learning/02_Distribution)
-- [03. Frequentist Inference](/wiki/studynotes/machine-learning/03_Frequentist_Inference)
-- [04. Bayesian Inference](/wiki/studynotes/machine-learning/04_Bayesian_Inference)
-- [05. Credible Intervals](/wiki/studynotes/machine-learning/05_Credible_Intervals)
+## Bayesian Statistics
+- [01. Probability](/wiki/studynotes/bayesian-statistics/01_Probability)
+- [02. Distribution](/wiki/studynotes/bayesian-statistics/02_Distribution)
+- [03. Frequentist Inference](/wiki/studynotes/bayesian-statistics/03_Frequentist_Inference)
+- [04. Bayesian Inference](/wiki/studynotes/bayesian-statistics/04_Bayesian_Inference)
+- [05. Credible Intervals](/wiki/studynotes/bayesian-statistics/05_Credible_Intervals)
 
-# **Reinforcement Learning**
+## Reinforcement Learning
 
 # **Extra**
 
