@@ -86,7 +86,7 @@ $$
 
 ### Odds
 
-어떤 event a에 대한 odds는 $O(a) = \frac{P(a)}{P(a^C)}$라고 정의한다. 즉, 동전던지기에서 앞면이 나올 확률이 0.3이라면, 앞면이 나올 event에 대한 odds는 $O(X=h)=\frac{P(X=h)}{P(X \not = h)} = \frac{0.3}{0.7} = \frac{3}{7}$이다.
+어떤 event a에 대한 odds는 $O(a) = \frac{P(a)}{P(a^C)}$라고 정의한다. 즉, 동전던지기에서 앞면이 나올 확률이 0.3이라면, 앞면이 나올 event에 대한 odds는 $O(X=h)=\frac{P(X=h)}{P(X \not= h)} = \frac{0.3}{0.7} = \frac{3}{7}$이다.
 
 
 
