@@ -153,7 +153,7 @@ $$
 
 하지만, 보다시피, gradient descent 방법으로는 theta를 증가시킬지, 감소시킬지는 가르쳐주지만, 어느정도 감소시켜야 할지, 증가시켜야 할지는 알려주지 않는다. 따라서 theta를 조금씩 증감하면서 gradient가 0이 되는 극점을 찾는 것이 gradient descent optimization이고, 극점을 찾는 과정을 training/learning(학습)이라고 부른다.
 
-
+ 
 
 #### Machine Learning in Frequentist Statistics
 
