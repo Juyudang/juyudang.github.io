@@ -58,13 +58,13 @@ $$
 
 ### Scaling Random Variable vs Many Random Variables
 
-Random variable을 scaling 한다는 것은, 분포를 넓게 피는것을 의미한다. random variable $$X$$를 $$c$$배 scaling하는 것은 $$cX$$로 표기한다.
+Random variable을 scaling 한다는 것은, 분포를 넓게 피는것을 의미한다. random variable $X$를 $c$배 scaling하는 것은 $cX$로 표기한다.
 
-반면, random variable $$X$$를 여러번 시행하는 것은 $$\sum_i^n X_i$$로 표기한다. 둘이 분명히 다른데, $$cX$$의 경우, 1번 샘플링하는 것이고, $$\sum X$$는 여러번 샘플링 하는 것이다.
+반면, random variable $X$를 여러번 시행하는 것은 $\sum_i^n X_i$로 표기한다. 둘이 분명히 다른데, $cX$의 경우, 1번 샘플링하는 것이고, $\sum X$는 여러번 샘플링 하는 것이다.
 
-예를들어, $$X$$가 베르누이 분포를 따르고, 1일 확률이 0.7 이라면, $$10X$$는 0일 확률이 0.3, **10일 확률**이 0.7인 것이다.
+예를들어, $X$가 베르누이 분포를 따르고, 1일 확률이 0.7 이라면, $10X$는 0일 확률이 0.3, **10일 확률**이 0.7인 것이다.
 
-반면, $$\sum_i^{10} X_i$$는 1이 나올 확률이 0.7인 분포에서 10번 샘플링하는 것이다.
+반면, $\sum_i^{10} X_i$는 1이 나올 확률이 0.7인 분포에서 10번 샘플링하는 것이다.
 
 
 
