@@ -79,27 +79,25 @@ markdown:
     linkify: true
     typographer: true
     quotes: '“”‘’'
-
-# plugins:
-#     - markdown-it-abbr
-#     - markdown-it-container
-#     - markdown-it-deflist
-#     - markdown-it-emoji
-#     - markdown-it-footnote
-#     - markdown-it-imsize
-#     - markdown-it-ins
-#     - markdown-it-mark
-#     - markdown-it-regexp
-#     - markdown-it-sub
-#     - markdown-it-sup
-#     - markdown-it-checkbox
-
-anchors:
-  level: 1
-  collisionSuffix: 'v'
-  permalink: false
-  permalinkClass: header-anchor
-  permalinkSymbol: '# '
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-container
+    - markdown-it-deflist
+    - markdown-it-emoji
+    - markdown-it-footnote
+    - markdown-it-imsize
+    - markdown-it-ins
+    - markdown-it-mark
+    - markdown-it-regexp
+    - markdown-it-sub
+    - markdown-it-sup
+    - markdown-it-checkbox
+  anchors:
+    level: 1
+    collisionSuffix: 'v'
+    permalink: false
+    permalinkClass: header-anchor
+    permalinkSymbol: '# '
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
