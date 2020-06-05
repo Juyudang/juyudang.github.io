@@ -8,7 +8,6 @@ tags:
 categories:
 	- Study Notes
 	- Reinforcement Learning
-
 ---
 
 
@@ -32,21 +31,27 @@ RL에서의 학습이란, action을 결정하는 policy와 value function을 추
 Value function과 그 의미가 매우 유사해보인다. 하지만, Value function은 reward의 기댓값을 계산해주는 것일 뿐, action을 결정하는 것은 policy에게 달려 있다.
 
 - Deterministic Policies
+  
   $$
   \pi(s)= a
   $$
+  
   위 식처럼, deterministic policy란 state를 입력으로 받아서 action 1개를 반환하는 함수이다. 즉, state를 action으로 매핑하는 함수라고 볼 수 있다.
 
 - Stochastic Policies
+  
   $$
   \pi(a|s) = \text{ {Probability distribution matrix} }
   $$
+  
   Stochastic policy는 한 state를 주게 되면, 그 state에서의 action probability distribution을 반환하는 함수이다. 따라서, 한 state를 주면, 여러 action이 나오게 된다.
 
   이때, action probability distribution matrix는 다음을 만족해야 한다.
+  
   $$
   \sum_a \pi(a|s) = 1
   $$
+  
   $$
   \pi(a|s) \geq 0
   $$
@@ -60,9 +65,11 @@ action probability distribution은 각 state마다 다르다.
 ### Valid & Invalid Policies
 
 MDP에서 policies는 반드시 현재 타임에서의 상태에 존재하는 정보를 이용해서 action을 결정해야 한다. 즉, policies의 인자는 반드시 time $t$에서는 $s_t$만이 되어야 하며, 따라서 다음과 같다.
+
 $$
 \pi(s_t) \rightarrow a_t
 $$
+
 만약, policy가 이전 time의 state나 action을 이용해서 action을 결정한다면, 적법한 policy라고 부르지 않는다.
 
 
@@ -106,6 +113,7 @@ $$
 ### State-value Bellman Equation
 
 State-value function에 대한 Bellman equation으로, state-value function입장에서, $t$에서의 state value와 $t+1$에서의 state value와의 관계식이다.
+
 $$
 v_{\pi} (s_t) = \sum_a \pi(a|s_t) \sum_{s_{t+1},r} p(s_{t+1}, r|s_{t}, a)[r + \gamma \cdot v_{\pi}(s_{t+1})]
 $$
@@ -114,6 +122,7 @@ $$
 ### Action-value Bellman Equation
 
 Action-value function에 대한 Bellman equation으로, action-value funciton입장에서, $t$에서의 actionvalue와 $t+1$에서의 action value와의 관계식이다.
+
 $$
 q_{\pi} (s_{t}, a_{t}) = \sum_{s_{t+1}, r} p(s_{t+1}, r|s_t, a_t)[r + \gamma \cdot \sum_{a_{t+1} } \pi(a_{t+1}|s_{t+1}) \cdot q_{\pi}(s_{t+1}, a_{t+1})]
 $$
@@ -132,13 +141,17 @@ Bellman equation의 가장 큰 장점은, value function을 매우 효율적으�
 Action은 상,하,좌,우 4개의 움직임이 존재한다. Policy는 총 4개의 움직임에 대해 uniform distribution이다. 말이 $B$로 들어오거나 $B$에 머무는 움직임에 대해서만 reward +5를 부여하고 나머지는 0을 부여한다. Discount factor는 0.7로 하자.
 
 State $A$에서의 value는 무한 수열식이지만, Bellman equation을 이용한다면, 다음 state의 value를 이용해서 계산이 가능하다.
+
 $$
 V(A) = \sum_{a} \pi(a|A) \sum_{s',r} p(s',r|a,A)[r + \gamma \cdot V(s')] 
 $$
+
 그런데, action이 정해지면, state는 확정(deterministic)이므로, 위 Bellman equation을 다음처럼 변경할 수 있다.
+
 $$
 V(A) = \sum_a \pi (a|A) [0 + 0.7 \cdot V(s')]
 $$
+
 $$
 V(A) = \frac{1}{4} \cdot 0.7 \cdot V(C) + \frac{1}{2} \cdot 0.7 \cdot V(A) + \frac{1}{4} \cdot (5 + 0.7 \cdot V(B)))
 $$
@@ -178,9 +191,11 @@ Optimal policy란, 모든 state에서 가장 높은 value를 반환하게 하는
 보통 optimal policy는 unknown으로, 바로 계산할 수 없다. 애초에 reinforcement learning의 목적은 optimal policy를 찾는 것이다. Optimal policy를 계산할때는 opimal value function를 이용하게 된다.
 
 Optimal value function이란, 현재 state에서 가능한 모든 액션과 그에 다른 다음 value를 보고, 다음 value가 가장 높은 action을 deterministic하게 선택했을 때의 value function을 의미한다.
+
 $$
 v_* (s) = \underset{a}{ \text{max} } ~ \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot v_* (s') ]
 $$
+
 보다시피, action의 분포(policy)가 사라지고, 그냥 다음 state인 $s'$의 value $v_* (s')$가 가장 높은 action을 무조건(deterministically) 취하게 한다. 또한, 이 value $v_* (s')$만으로 $v_* (s)$를 계산하도록 한다.
 
 앞서, value function은 두 가지가 있고, 두 가지 value function 모두 Bellman equation 형태로 바꿀 수 있었다. Optimal value function도 마찬가지이며, optimal한 value function을 Bellman equation형태로 바꾼 것을 Bellman optimality equation이라고 부른다.
@@ -190,6 +205,7 @@ $$
 $$
 v_* (s) = \underset{a}{\text{max} } ~ \sum_{s',r} p(s',r|s,a) [r + \gamma \cdot v_* (s')]
 $$
+
 - **Bellman optimality equation for action value function**
 
 $$
