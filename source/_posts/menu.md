@@ -9,6 +9,10 @@
 - [Restrict Boltzmann Machine 1](/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st)
 - [Restrict Boltzmann Machine 2](/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd)
 
+# ** Bayesian Statistics**
+
+# **Reinforcement Learning**
+
 # **Extra**
 
 - [Blog Init](/wiki/Blog-Init)
