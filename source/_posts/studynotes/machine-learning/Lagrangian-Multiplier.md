@@ -13,19 +13,19 @@ categories:
 
 
 
-# Lagrangian Multiplication
+# Lagrangian Multiplier
 
 
 
 Constraint optimization.
 
-어떤 objective function을 파라미터에 대해 최대화하거나 loss function을 최소화하려고 하는데, 파라미터가 가질 수 있는 값에 제약조건이 있는 경우, Lagrangian multiplication을 사용할 수 있다.
+어떤 objective function을 파라미터에 대해 최대화하거나 loss function을 최소화하려고 하는데, 파라미터가 가질 수 있는 값에 제약조건이 있는 경우, Lagrangian multiplier을 사용할 수 있다.
 
 
 
 ## Background
 
-Lagrangian multiplication은 gradient vector의 방향 특성을 이용한, constraint optimization을 푸는 방법론중 하나이다. Lagrangian을 알기 위해서는 gradient vector의 특성을 파악해야 한다.
+Lagrangian multiplier은 gradient vector의 방향 특성을 이용한, constraint optimization을 푸는 방법론중 하나이다. Lagrangian을 알기 위해서는 gradient vector의 특성을 파악해야 한다.
 
 
 
@@ -80,7 +80,7 @@ Gradient descent는 어떤 함수 $F(x, y)$가 있을 때, 이 함수의 최솟�
 
 
 
-### Contraint Optmization
+### Constraint Optimization
 
 다음과 같이, 어떤 함수 $F(x, y)$를 최소화 또는 최대화하는데, 파라미터 $x, y$의 범위에 조건이 걸린 경우를 말한다.
 $$
@@ -88,13 +88,13 @@ $$
 $$
 즉, $x + y = 1$을 만족하는 $x, y$중에서 $x^2+ y^2$를 최소화하는 $x, y$를 찾아야 한다는 것.
 
-이 경우는 매우 간단하게 contraint 식을 $F(x, y)$에 대입해주면 된다.
+이 경우는 매우 간단하게 constraint 식을 $F(x, y)$에 대입해주면 된다.
 $$
 F(x, y) = (1 - y)^2 + y^2
 $$
 따라서, 이를 미분하고 gradient vector가 0이 되는 지점을 찾으면 될 것이다.
 
-하지만, $F(x, y)$가 복잡하고, constaint 식 역시 복잡하며, 심지어 contraint가 여러개일 경우, 이렇게 closed form으로 구하는게 불가능해진다. 이를 좀 더 보편적으로 해결하기 위한 방법이 Lagrangian multiplication을 이용하는 것이다.
+하지만, $F(x, y)$가 복잡하고, constraint 식 역시 복잡하며, 심지어 constraint가 여러개일 경우, 이렇게 closed form으로 구하는게 불가능해진다. 이를 좀 더 보편적으로 해결하기 위한 방법이 Lagrangian multiplication을 이용하는 것이다.
 
 
 
@@ -118,7 +118,7 @@ $$
 $$
 즉, $g(x, y) = x^2 + y^2 - 4 = 0$이다.
 
-이 수식은 대입법을 이용해서 closed form으로 바로 풀 수 있지만, lagrangian muliplication방법으로 풀어볼 수도 있다.
+이 수식은 대입법을 이용해서 closed form으로 바로 풀 수 있지만, Lagrangian multiplier방법으로 풀어볼 수도 있다.
 $$
 \nabla F(x, y) = \begin{bmatrix}
 \frac{\partial F(x, y)}{\partial x} \newline 
@@ -185,11 +185,11 @@ $Q(\vec{x}, \lambda) = F(\vec{x}) - \lambda g(\vec{x})$라고 정의해보면,
 $$
 \bigtriangledown Q(\vec{x}, \lambda) = 0
 $$
-으로 정리할 수 있다. 이것은, $Q(\vec{x},\lambda)$를 non-constaint optimization을 한 식이 된다.
+으로 정리할 수 있다. 이것은, $Q(\vec{x},\lambda)$를 non-constraint optimization을 한 식이 된다.
 
 즉, $F(\vec{x})$를 어떤 constraint $g(\vec{x})$에 맞게 optimization을 한다는 것은, $F(\vec{x}) - \lambda g(\vec{x})$를 non-constraint 환경에서 optimization하는 것과 같다.
 
-Neural network regularization도 해당 constraint ($l_1 norm, l_2 norm$) 에 맞게 $loss$함수를 최적화하는 것이라고 해석할 수도 있지 않을까. 다만, 차이점은, lagrangian 에선, $\lambda$도 파라미터이고, $\vec{x}$뿐 아니라 $\lambda$에 대해서도 최적화를 수행한다. Neural network regularization에서는 $\vec{x}$에 대해서만 최적화를 하며, $\lambda$는 하이퍼파라미터로 한다. 제약조건을 완전히 지키지는 않고, 약간의 제제만 가하는 것이라고 볼 수 있겠다.
+Neural network regularization도 해당 constraint ($l_1 norm, l_2 norm$) 에 맞게 $loss$함수를 최적화하는 것이라고 해석할 수도 있지 않을까. 다만, 차이점은, Lagrangian 에선, $\lambda$도 파라미터이고, $\vec{x}$뿐 아니라 $\lambda$에 대해서도 최적화를 수행한다. Neural network regularization에서는 $\vec{x}$에 대해서만 최적화를 하며, $\lambda$는 하이퍼파라미터로 한다. 제약조건을 완전히 지키지는 않고, 약간의 제제만 가하는 것이라고 볼 수 있겠다.
 
 
 
