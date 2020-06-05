@@ -13,6 +13,10 @@
 - [Hidden Markov Models 2](/wiki/studynotes/machine-learning/Hidden-Markov-Models-2)
 
 # **Bayesian Statistics**
+- [01. Probability](/wiki/studynotes/machine-learning/01_Probability)
+- [02. Distribution](/wiki/studynotes/machine-learning/02_Distribution)
+- [03. Frequentist Inference](/wiki/studynotes/machine-learning/03_Frequentist_Inference)
+- [04. Bayesian Inference](/wiki/studynotes/machine-learning/04_Bayesian_Inference)
 
 # **Reinforcement Learning**
 
