@@ -11,4 +11,4 @@
 
 # **Extra**
 
-- [Blog Init](/Blog-Init)
+- [Blog Init](/wiki/Blog-Init)
