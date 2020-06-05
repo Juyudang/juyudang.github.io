@@ -19,6 +19,7 @@
 - [04. Bayesian Inference](/wiki/studynotes/bayesian-statistics/04_Bayesian_Inference)
 - [05. Credible Intervals](/wiki/studynotes/bayesian-statistics/05_Credible_Intervals)
 - [06. Prior & Posterior Predictive](/wiki/studynotes/bayesian-statistics/06_Prior_Posterior_predictive)
+- [07. Priors](/wiki/studynotes/bayesian-statistics/07_Priors)
 
 ## Reinforcement Learning
 
