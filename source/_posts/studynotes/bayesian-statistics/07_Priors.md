@@ -79,7 +79,7 @@ Prior를 정의할때, $\alpha, \beta$를 크게 잡던, 작게 잡던, $\alpha$
 
 ## Priors in Poisson Distribution
 
-Poisson distribution을 likelihood로 취하는 experiment에 대해서는 parameter가 $\lambda$가 된다. 즉, $\lambda$에 대한 prior가 필요한데, 이때는 Gamma distribution으로 $\lambda$의 prior를 모델링한다. Poisson distribution으로 likelihood를 모델링 할 수 있는 경우, Gamma distribution이 conjugate한 distribution이다.
+Poisson distribution을 likelihood로 취하는 experiment에 대해서는 parameter가 $\lambda$가 된다. 즉, $\lambda$에 대한 prior가 필요한데, 이때는 Gamma distribution으로 $\lambda$의 prior를 모델링한다. Poisson distribution으로 likelihood를 모델링 할 수 있는 경우, Gamma distribution를 conjugate prior로 가지는 distribution이다.
 
 이때, Gamma distribution의 두 파라미터 $\alpha$와 $\beta$를 정할때, gamma distribution의 평균은 $\frac{\alpha}{\beta}$인 것을 생각하자. **~~$\alpha$는 event 발생 횟수, $\beta$는 총 시행 횟수와 관련이 있다.~~**
 
@@ -95,7 +95,7 @@ Beta distribution을 prior로 삼고, posterior도 역시 beta distribution이�
 
 ## Priors in Exponential Distribution
 
-Exponential distribution도 역시 $\lambda$를 파라미터로 하며, gamma distribution을 prior로 하면 conjugate인 prior를 만들 수 있다.
+Exponential distribution도 역시 $\lambda$를 파라미터로 하며, gamma distribution를 conjugate로 가진다.
 
 
 
@@ -119,7 +119,7 @@ $$
 
 ## Priors in Normal Distribution
 
-Normal distribution의 파라미터 $\mu$는 $\sigma$에 의존함과 동시에 normal distribution prior에서 conjugate한다. $\sigma$는 주어젔다고 가정하는 경우가 많으며, 그렇지 않을 경우, inverse-gamma distribution에서 conjugate한다.
+Normal distribution의 파라미터 $\mu$는 $\sigma$에 의존함과 동시에 normal distribution prior와 conjugate관계이다. $\sigma$는 주어젔다고 가정하는 경우가 많으며, 그렇지 않을 경우, inverse-gamma distribution와 conjugate관계이다.
 
 
 
