@@ -14,20 +14,15 @@ categories:
 
 # My Interpretation of Machine Learning
 
-통계학을 분류하는 방법으로는 여러 가지가 있지만, 다음과 같이 통계학을 분류할 수도 있다.
+기본적으로 통계학의 궁극적인 목표 중 하나는 우리가 모르는, sample space distribution을 최대한 추정하는 것이다.
 
-- **Frequentist Statistics**
-- **Bayesian Statistics**
-
-각 통계학에서 machine learning의 방법론은 약간씩 차이가 있는 듯 하다. 하지만, 기본적으로 각 통계학의 궁극적인 목표 중 하나는 우리가 모르는, sample space distribution을 최대한 추정하는 것이다.
-
-대충, 추정하는 방법은 먼저, 우리가 수집한 데이터셋 $D$의 likelihood를 최대화 하는 분포가 진짜 sample space를 가장 유사하게 추정하는 방법이라고 가정한다.
+추정하는 방법은 먼저, 우리가 수집한 데이터셋 $D$의 likelihood를 최대화 하는 분포가 진짜 sample space를 가장 유사하게 추정한 분포라고 가정한다.
 
 다시 한번 반복하자면, 통계학의 목표중 하나는 우리가 모르는, sample space의 분포를 추정하는 것이다.
 
 
 
-### Machine Learning in Frequentist Statistics
+### Machine Learning
 
 Frequentist statistics에서는 많은 데이터 샘플을 뽑는 시행을 한 후, 데이터를 이용해서 모분포를 추정하는 것이라는 목표가 있다. 이것을 하기 위해 데이터셋을 바탕으로 확률 분포가 대충 어떻게 생겼을지 모델링하게 되며, 이때, 확률 분포를 모델링하는데 쓰이는 것이 바로 **머신러닝**이다.
 
