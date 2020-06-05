@@ -18,6 +18,7 @@
 - [03. Frequentist Inference](/wiki/studynotes/bayesian-statistics/03_Frequentist_Inference)
 - [04. Bayesian Inference](/wiki/studynotes/bayesian-statistics/04_Bayesian_Inference)
 - [05. Credible Intervals](/wiki/studynotes/bayesian-statistics/05_Credible_Intervals)
+- [06. Prior & Posterior Predictive](/wiki/studynotes/bayesian-statistics/06_Prior_Posterior_predictive)
 
 ## Reinforcement Learning
 
