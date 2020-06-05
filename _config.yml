@@ -84,7 +84,7 @@ plugins:
 #   - markdown-it-abbr
 #   - markdown-it-container
 #   - markdown-it-deflist
-  - markdown-it-emoji
+  # - markdown-it-emoji
 #   - markdown-it-footnote
 #   - markdown-it-imsize
 #   - markdown-it-ins
@@ -92,7 +92,7 @@ plugins:
 #   - markdown-it-regexp
 #   - markdown-it-sub
 #   - markdown-it-sup
-  # - markdown-it-checkbox
+  - markdown-it-checkbox
 
 anchors:
   level: 1
