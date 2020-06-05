@@ -92,7 +92,7 @@ markdown:
     - markdown-it-sub
     - markdown-it-sup
     - markdown-it-checkbox
-    - markdown-it-latex
+    - markdown-it-katex
   anchors:
     level: 1
     collisionSuffix: 'v'
