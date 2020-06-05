@@ -88,7 +88,7 @@ plugins:
 #   - markdown-it-footnote
 #   - markdown-it-imsize
 #   - markdown-it-ins
-  - markdown-it-mark
+  # - markdown-it-mark
 #   - markdown-it-regexp
 #   - markdown-it-sub
 #   - markdown-it-sup
