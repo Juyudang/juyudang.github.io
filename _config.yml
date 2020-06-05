@@ -81,18 +81,18 @@ markdown:
     quotes: '“”‘’'
 
 plugins:
-#   - markdown-it-abbr
-#   - markdown-it-container
-#   - markdown-it-deflist
-  # - markdown-it-emoji
-#   - markdown-it-footnote
-#   - markdown-it-imsize
-#   - markdown-it-ins
-  # - markdown-it-mark
-#   - markdown-it-regexp
-#   - markdown-it-sub
-#   - markdown-it-sup
-  - markdown-it-checkbox
+    - markdown-it-abbr
+    - markdown-it-container
+    - markdown-it-deflist
+    - markdown-it-emoji
+    - markdown-it-footnote
+    - markdown-it-imsize
+    - markdown-it-ins
+    - markdown-it-mark
+    - markdown-it-regexp
+    - markdown-it-sub
+    - markdown-it-sup
+    - markdown-it-checkbox
 
 anchors:
   level: 1
