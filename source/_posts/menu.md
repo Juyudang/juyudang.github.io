@@ -17,6 +17,7 @@
 - [02. Distribution](/wiki/studynotes/machine-learning/02_Distribution)
 - [03. Frequentist Inference](/wiki/studynotes/machine-learning/03_Frequentist_Inference)
 - [04. Bayesian Inference](/wiki/studynotes/machine-learning/04_Bayesian_Inference)
+- [05. Credible Intervals](/wiki/studynotes/machine-learning/05_Credible_Intervals)
 
 # **Reinforcement Learning**
 
