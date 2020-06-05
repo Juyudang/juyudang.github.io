@@ -14,7 +14,7 @@ categories:
 
 # Bayesian Inference
 
-
+ 
 
 우리가 추정하고자 하는 parameter $\theta$에 대해 $\theta$가 어떻게 분포되어있는지 사전 지식 또는 정보가 있다면 그것을 이용하는게 좋을 것이다. 하지만, frequentist inference에서는 사전 정보를 이용하기 어렵다.
 

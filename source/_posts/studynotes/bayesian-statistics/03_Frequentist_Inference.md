@@ -45,7 +45,7 @@ $$
 $$
 로 $100p$에 대한 confidence interval을 계산할 수 있다.
 
-
+ 
 
 ## Maximum Likelihood Estimation
 
