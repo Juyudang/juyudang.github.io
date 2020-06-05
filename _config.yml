@@ -124,45 +124,51 @@ jsonContent:
   ignore:
     - 404.html
 
-markdown:
-  render:
-    html: true
-    xhtmlOut: false
-    breaks: true
-    linkify: true
-    typographer: true
-    quotes: '“”‘’'
-  plugins:
-    - markdown-it-abbr
-    - markdown-it-container
-    - markdown-it-deflist
-    - markdown-it-emoji
-    - markdown-it-footnote
-    - markdown-it-imsize
-    - markdown-it-ins
-    - markdown-it-mark
-    - markdown-it-regexp
-    - markdown-it-sub
-    - markdown-it-sup
-    - markdown-it-checkbox
-    - '@iktakahiro/markdown-it-katex'
+# markdown:
+#   render:
+#     html: true
+#     xhtmlOut: false
+#     breaks: true
+#     linkify: true
+#     typographer: true
+#     quotes: '“”‘’'
+#   plugins:
+#     - markdown-it-abbr
+#     - markdown-it-container
+#     - markdown-it-deflist
+#     - markdown-it-emoji
+#     - markdown-it-footnote
+#     - markdown-it-imsize
+#     - markdown-it-ins
+#     - markdown-it-mark
+#     - markdown-it-regexp
+#     - markdown-it-sub
+#     - markdown-it-sup
+#     - markdown-it-checkbox
+#     - '@iktakahiro/markdown-it-katex'
+#   anchors:
+#     level: 1
+#     collisionSuffix: 'v'
+#     permalink: false
+#     permalinkClass: header-anchor
+#     permalinkSymbol: '# '
+
+markdown_it_plus:
+  highlight: true
+  html: true
+  xhtmlOut: true
+  breaks: true
+  langPrefix:
+  linkify: true
+  typographer:
+  quotes: “”‘’
+  pre_class: highlight
   anchors:
     level: 1
     collisionSuffix: 'v'
     permalink: false
     permalinkClass: header-anchor
     permalinkSymbol: '# '
-
-# markdown_it_plus:
-#     highlight: true
-#     html: true
-#     xhtmlOut: true
-#     breaks: true
-#     langPrefix:
-#     linkify: true
-#     typographer:
-#     quotes: “”‘’
-#     pre_class: highlight
     
 ### Creat sitemap
 sitemap:
