@@ -1,6 +1,6 @@
-* [Home](/)
+* [**Home**](/)
 
-# Study Notes
+# **Study Notes**
 
 ## Machine Learning
 * [Machine Learning](/wiki/studynotes/machine-learning/My-Interpretation-of-Machine-Learning)
