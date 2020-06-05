@@ -24,6 +24,7 @@
 ## Reinforcement Learning
 - [01. Introduction](/wiki/studynotes/reinforcement-learning/01_Introduction)
 - [02. K-arm Bandits Problems](/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems)
+- [03. Markov Decision Process](/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process)
 
 # **Extra**
 
