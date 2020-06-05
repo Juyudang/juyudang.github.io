@@ -22,6 +22,7 @@
 - [07. Priors](/wiki/studynotes/bayesian-statistics/07_Priors)
 
 ## Reinforcement Learning
+- [01. Introduction](/wiki/studynotes/reinforcement-learning/01_Introduction)
 
 # **Extra**
 

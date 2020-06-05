@@ -20,7 +20,7 @@ categories:
 
 Bayesian modeling은 statistical modeling의 일종이다. Statistical modeling이란, 데이터가 생성/샘플링되는 프로세스를 모델링하는 것을 의미한다.
 
-Bayesian modeling은 이러한 모델링을 할때, 베이지안 방법론을 적용한 것을 말한다. 전체적인 모델링 프로세스는 bayesian modeling이나 frequentist modeling이나 같다.
+Bayesian modeling은 이러한 모델링을 할때, 베이지안 방법론을 적용한 것을 말한다. 전체적인 모델링 프로세스는 Bayesian modeling이나 Frequentist modeling이나 같다.
 
 1. 문제 이해
 2. 데이터 수집
@@ -32,7 +32,7 @@ Bayesian modeling은 이러한 모델링을 할때, 베이지안 방법론을 �
 8. 5~7번 반복
 9. 모델의 이용.
 
-이때, frequentist modeling과 bayesian modeling에서의 차이는 모델의 구현과 fit, 파라미터 추정에 있다.
+이때, Frequentist modeling과 Bayesian modeling에서의 차이는 모델의 구현과 fit, 파라미터 추정에 있다.
 
 
 
