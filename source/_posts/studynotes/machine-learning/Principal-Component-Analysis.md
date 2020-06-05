@@ -206,15 +206,15 @@ $$
 v_1 & v_2 & \cdots v_d
 \end{pmatrix}
 \begin{pmatrix}
-\lambda_1 & 0 & \cdots & 0 \newline 
-0 & \lambda_2 & \cdots & 0 \newline 
-\cdots \newline 
+\lambda_1 & 0 & \cdots & 0 \\ 
+0 & \lambda_2 & \cdots & 0 \\ 
+\cdots \\ 
 0 & 0 & \cdots & \lambda_d
 \end{pmatrix}
 \begin{pmatrix}
-v_1^T \newline 
-v_2^T \newline 
-\cdots \newline 
+v_1^T \\ 
+v_2^T \\ 
+\cdots \\ 
 v_d^T
 \end{pmatrix}
 $$
@@ -226,15 +226,15 @@ $$
 v_1 & v_2 & \cdots v_d
 \end{pmatrix}
 \begin{pmatrix}
-\lambda_1 & 0 & \cdots & 0 \newline 
-0 & \lambda_2 & \cdots & 0 \newline 
-\cdots \newline 
+\lambda_1 & 0 & \cdots & 0 \\ 
+0 & \lambda_2 & \cdots & 0 \\ 
+\cdots \\ 
 0 & 0 & \cdots & \lambda_d
 \end{pmatrix}
 \begin{pmatrix}
-v_1^T \newline 
-v_2^T \newline 
-\cdots \newline 
+v_1^T \\ 
+v_2^T \\ 
+\cdots \\ 
 v_d^T
 \end{pmatrix} e_2 - c_2 = 0
 $$
@@ -244,15 +244,15 @@ $$
 1 & 0 & \cdots 0
 \end{pmatrix}
 \begin{pmatrix}
-\lambda_1 & 0 & \cdots & 0 \newline 
-0 & \lambda_2 & \cdots & 0 \newline 
-\cdots \newline 
+\lambda_1 & 0 & \cdots & 0 \\ 
+0 & \lambda_2 & \cdots & 0 \\ 
+\cdots \\ 
 0 & 0 & \cdots & \lambda_d
 \end{pmatrix}
 \begin{pmatrix}
-v_1^T \newline 
-v_2^T \newline 
-\cdots \newline 
+v_1^T \\ 
+v_2^T \\ 
+\cdots \\ 
 v_d^T
 \end{pmatrix} e_2 - c_2 = 0
 $$
@@ -262,9 +262,9 @@ $$
 2 \lambda_1 & 0 & \cdots 0
 \end{pmatrix}
 \begin{pmatrix}
-v_1^T \newline 
-v_2^T \newline 
-\cdots \newline 
+v_1^T \\ 
+v_2^T \\ 
+\cdots \\ 
 v_d^T
 \end{pmatrix} e_2 - c_2 = 0
 $$
@@ -387,9 +387,9 @@ PCA의 구현은 다음과 같이 요약이 가능하다.
 
 $$
 \begin{pmatrix}
-1 \over \sqrt{\lambda_1} & 0 & \cdots & 0 \newline 
-0 & 1 \over \sqrt{\lambda_2} & \cdots & 0 \newline 
-\cdots \newline 
+1 \over \sqrt{\lambda_1} & 0 & \cdots & 0 \\ 
+0 & 1 \over \sqrt{\lambda_2} & \cdots & 0 \\ 
+\cdots \\ 
 0 & 0 & \cdots & 1 \over \sqrt{\lambda_d}
 \end{pmatrix} Z
 $$
