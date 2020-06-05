@@ -31,10 +31,10 @@ Reinforcement learning에선, 두 가지 중요한 특징이 있는데, 다음�
 
 Supervised learning과 unsupervised learning은 다음과 같은 특성을 지닌다.
 
-- 숫자로된 테이블 형태의 데이터가 존재한다. ($X: N × D$$, $$Y: N × 1$) 이 두가지 데이터를 모두 넣고 모델을 학습하게 된다.
+- 숫자로된 테이블 형태의 데이터가 존재한다. ($X: N × D$, $Y: N × 1$) 이 두가지 데이터를 모두 넣고 모델을 학습하게 된다.
 - Static한 학습만 가능하다. 데이터를 추가하려면, 기존 데이터도 모두 넣고 fine-tuning 해야 하는 경우가 많다. 따라서, online-learning에 매우 불리하다.
 - 시간이라는 개념이 없다(Sequence라는 개념은 있어도...). 그저 $X$를 받으면 $Y$를 줄 뿐. 
-- Supervised learning의 경우, $Y$$가 $$X$ 동시에 주어지기에, 즉각적인 피드백이 있다.
+- Supervised learning의 경우, $Y$가 $X$ 동시에 주어지기에, 즉각적인 피드백이 있다.
 
 
 
