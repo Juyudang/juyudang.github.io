@@ -41,13 +41,17 @@ Bayesian modeling은 이러한 모델링을 할때, 베이지안 방법론을 �
 모델의 구성은 계층적으로 적어 내려가면서 파악하는게 어느정도 쉽다. 일단, likelihood를 적고 likelihood에 영향을 미치는 random variable 또는 parameter를 찾는다.
 
 어느 학교의 학생들의 키(height)의 분포를 예로 들자. 키의 분포는 normal distribution을 따른다고 가정하고 likelihood를 만든다.
+
 $$
 f(y|\theta) = \mathbb{N}(\mu, \sigma^2)
 $$
+
 그리고 $\mu$, $\sigma^2$의 분포가 필요한데, 이들의 prior를 정한다.
+
 $$
 \mu \approx \mathbb{N}(\mu_0, \sigma_0^2)
 $$
+
 $$
 \sigma^2 \approx \mathbb{IG}(\nu_0, \beta_0)
 $$

@@ -22,6 +22,8 @@
 - [05. Credible Intervals](/studynotes/bayesian-statistics/05-Credible-Intervals)
 - [06. Prior & Posterior Predictive](/studynotes/bayesian-statistics/06_Prior_Posterior_predictive)
 - [07. Priors](/studynotes/bayesian-statistics/07_Priors)
+- [08. Bayesian Modeling](/studynotes/bayesian-statistics/08_Bayesian_Modeling)
+- [09. Monte Carlo Estimation](/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation)
 
 ## Reinforcement Learning
 - [01. Introduction](/studynotes/reinforcement-learning/01_Introduction)
