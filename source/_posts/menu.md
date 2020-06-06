@@ -28,3 +28,7 @@
 - [02. K-arm Bandits Problems](/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems)
 - [03. Markov Decision Process](/studynotes/reinforcement-learning/03-Markov-Decision-Process)
 - [04. Policies and Value Functions](/studynotes/reinforcement-learning/04-Policies-and-Value-Functions)
+- [05. Policy Evaluation & Control](/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control)
+- [06. Sample-based Reinforcement Learning](/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning)
+- [07. Off-Policy Learning](/studynotes/reinforcement-learning/07-Off-Policy-Learning)
+- [08. Temporal Difference Learning](/studynotes/reinforcement-learning/08-Temporal-Difference-Learning)
