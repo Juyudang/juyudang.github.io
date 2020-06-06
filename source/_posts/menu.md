@@ -1,4 +1,6 @@
-* [**Home**](/)
+# **Home**
+- [Home](/)
+- [블로그 개장](/wiki/Blog-Init)
 
 # **Study Notes**
 
@@ -26,7 +28,3 @@
 - [02. K-arm Bandits Problems](/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems)
 - [03. Markov Decision Process](/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process)
 - [04. Policies and Value Functions](/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions)
-
-# **Extra**
-
-- [Blog Init](/wiki/Blog-Init)
