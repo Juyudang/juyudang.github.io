@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 url: https://wayexists02.github.io
 root: /
 # permalink: :year/:month/:day/:title/
-permalink: wiki/:title/
+permalink: :title/
 permalink_defaults:
 
 # Directory
