@@ -8,7 +8,6 @@ tags:
 categories:
 	- Study Notes
 	- Reinforcement Learning
-
 ---
 
 
@@ -19,70 +18,58 @@ categories:
 
 참고: Coursera Reinforcement Learning (Alberta Univ.)
 
-현재 가지고있는 policy가 좋은지 평가하고(evaluation) 더 좋은 policy로 향상시키는 작업(control)을 의미한다. 현재 가지고 있는 policy $\pi$와 dynamics of environment를 표현하는 $p(s',r|s,a)$분포가 있으면, dynamic programming을 통해 value function을 계산해낼 수 있고, 그 value function을 이용해서 policy를 평가(evaluation)할 수 있다. 또한, dynamic programming을 통해 더 나은 policy를 찾을 수 있다(control).
+현재 가지고있는 policy가 좋은지 평가하고(evaluation) 더 좋은 policy로 향상시키는 작업(control)을 의미한다. 현재 가지고 있는 policy $\pi$와 dynamic environment를 표현하는 $p(s',r|s,a)$분포가 있으면, dynamic programming을 통해 value function을 계산해낼 수 있고, 그 value function을 이용해서 policy를 평가(evaluation)할 수 있다. 또한, dynamic programming을 통해 더 나은 policy를 찾을 수 있다(control).
 
-Optimal policy를 찾기 위해서 policy evaluation과 control을 이용하게 된다.
 
 
 
 ## Policy Evaluation
 
-어떤 policy가 좋은지 평가하는 방법은 value function를 보는 것이 있겠다. Policy evaluation이란, 주어진 policy에 대해 value function을 구하는 것을 말한다.
-
-임의의 policy를 하나 설정하고, 각 액션에 대해 immediate reward를 설정한 후에는 value function을 계산할 수 있을 것이다.
-
-**어찌됬든 요약하면, policy evaluation은 그 policy를 이용한 value function을 계산하는 것을 말한다.**
-
-주어진 policy에 대해 value function을 정확히 계산하기보단, approximation 방법을 이용한다.
+어떤 policy가 좋은지 평가하는 방법은 각 policy에 대해 value function을 계산하고, value function의 값을 비교하는 것이다. 이때, 주어진 policy에 대해 value function을 계산하는 과정을 **policy evaluation**이라고 한다.
 
 
 
 ### Iterative Policy Evaluation
 
-주어진 policy를 이용하여 value function을 approximation하는 한 가지 방법으로, dynamic programming을 통한 iterative 방법이다. 처음에 모든 state의 value를 0으로(또는 임의의 아무 숫자) 초기화시킨 후, state-Bellman equation을 통해 모든 state의 value를 수렴할때까지 업데이트하게 된다.
+주어진 policy를 이용하여 value function을 계산하는 한 가지 방법으로, dynamic programming을 통한 iterative 방법이다. 처음에 모든 state의 value를 0으로(또는 임의의 아무 숫자) 초기화시킨 후, state Bellman equation을 통해 모든 state의 value가 수렴할때까지 반복적으로 value function을 업데이트하게 된다.
 
-```python
-def iterative_policy_evaluation(policy, p, states, threshold=1e-3):
-    values_curr = np.zeros(states.shape)
-    max_diff = 1e6
-    
-    while True:
-        
-        values_curr = compute_state_bellman_equation(policy, p, values_curr)
-        max_diff = np.max(np.sqrt((values_next - values_curr)**2))
-        
-        if max_diff < threshold:
-            return values_curr
-```
+방법은 다음과 같다.
 
-일단 방법은 다음과 같다.
+1. Define threshold $\theta$
+2. initialize $V$, initialize uniform policy $\pi$
+3. while True:
+   1. $V' \leftarrow v_{\pi}(s|V,\pi)$
+   2. compute $\epsilon = \text{max}|V - V'|^2$
+   3. if $\epsilon < \theta$:
+      1. break
+   4. $V \leftarrow V'$
 
-1. 두 개의 value matrix $V, V'$를 만든다. $V$는 현재 value function을 저장할 matrix, $V'$는 value function을 계산한 결과를 저장할 matrix이다.
-2. State bellman equation $v_{\pi}(s)$을 통해 $V$만을 이용해서 $V'$를 계산한다.
-3. $\epsilon = max|V - V'|^2$를 계산한다. 즉, 가장 value가 크게 변한 state를 찾는다.
-4. 어떤 작은 수 $\theta$에 대해 $\epsilon \leq \theta$이라면, value function이 충분히 수렴되었다고 간주하고 $V'$를 반환한다.
-5. $\epsilon > \theta$이라면, $V \leftarrow V'$로 대입하고 2번으로 돌아간다.
+이 루프를 계산하고나면, 해당 policy에 대해 최적에 가까운 value function을 계산할 수 있다. 이때, policy는 바뀌지 않는다.
 
 
 
 ## Policy Control
 
-Policy control이란, 주어진 policy와 그것으로부터 만들어낸 value function을 가지고, optimal policy를 찾는 과정을 말한다.
+Policy control이란, 주어진 policy와 그것으로부터 계산해낸 value function을 가지고, 그 value function에서의 새로운 optimal policy를 찾는 과정을 말한다.
 
 
 
 ### Policy Improvement Theorem
 
-Action value를 비교하는데, 현재 상태에서 액션을 원래 policy $\pi$에 따라 선택한 후, policy $\pi$를 따르는 action value를 $q_{\pi}(s, \pi(s))$라고 하자. 또, 같은 상태에서 액션을 다른 policy $\pi'$에 따라 선택한 후, 원래 policy $\pi$를 따르는 action value를 $q_{\pi}(s, \pi'(s))$라고 하자.
-
-$q_{\pi} (s, \pi'(s)) \geq q_{\pi} (s, \pi(s))$를 만족하면, 적어도 $\pi'$는 $\pi$보다는 좋다라는 이론이다. 만약, 두 action value가 같다면, 이미 optimal일 확률이 높다.
-
-
-
-위 이론에 따라, 현재 policy보다 좀 더 좋은 policy를 찾는 방법은, 주어진 value function에 따라 확률적으로 action을 선택하던 현재 policy를 greedy한 deterministic한 policy로 바꾸는 것이다.
+Action value function $q(s, a)$가 존재하고, 두 policy $\pi_1, \pi_2$가 있고  각 policy에서 상태 $s$에서 취한 액션을 $a_1, a_2$라고 할 때, 다음을 만족하는 policy $\pi'$는 항상 $\pi_1, \pi_2$보다 항상 같거나 좋은 policy이다.
+$$
+\pi'(s) \leftarrow \underset{a}{\text{max }}(q(s, a_1), q(s, a_2))
+$$
+위 이론에 따라, 현재 policy보다 좀 더 좋은 policy를 찾는 방법은, 현재 policy를 바탕으로 계산한 value function에서 다시 greedy한 policy를 계산하는 것이다.
 $$
 \pi' = \underset{a}{\text{argmax} } \sum_{s',r} p(s',r|s,a)[r + \gamma \cdot v_{\pi}(s')] ~ \text{(for all state } s\text{)}
 $$
+
+한 가지 짚고 넘어가야 할 점은, 어떤 value function을 바탕으로 greedy한 policy를 선택했다고 해서, 그 policy로 다시 value function을 계산해보면, 그 value function에 대해서는 현재 policy가 greedy하지 않을 수 있다.
+
+Policy를 찾은 후, 다시 value function을 계산하면 이전의 value function과 같지 않을 수 있다. 그리고, 새로 계산한 value function에 대해 greedy한 policy를 다시 찾으면 그 policy는 이전 policy와 다를 수 있다.
+
+그래서, value function 계산과 policy 구하는 과정을 반복해서 수행하고 더 이상 달라지지 않으면, 수렴했다고 간주하고, 마지막 policy를 우리가 가지고 있는 environment에 대한 최종 optimal policy로 삼는다. 이렇게 value function과 policy 계산을 반복적으로 수행하는 것을 policy iteration이라고 부른다.
 
 
 
