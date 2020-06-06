@@ -17,9 +17,11 @@ categories:
 
 
 데이터 생성 프로세스를 계층적으로 모델링한 것을 의미한다. 즉, likelihood의 파라미터는 또 다른 파라미터를 갖는 분포를 가지는 형태. 예를들어 likelihood는 poisson 분포를 따른다고 모델링하고, 그 파라미터 $\lambda$는 또 다른 파라미터 $\alpha, \beta$를 가지는 gamma 분포를 따른다고 모델링했다고 하자. 이 경우가 계층적 모델링에 속한다.
+
 $$
 y_i|\lambda_{j} \sim \text{Pois}(\lambda_{j})
 $$
+
 $$
 \lambda_j|\alpha,\beta \sim \text{Gamma}(\alpha, \beta)
 $$

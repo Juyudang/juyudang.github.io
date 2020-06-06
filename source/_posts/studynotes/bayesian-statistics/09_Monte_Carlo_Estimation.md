@@ -54,3 +54,4 @@ Paremter가 hierarchical하게 연결된 경우도 있다. 예를들어, 데이�
 이 과정의 특징이, 샘플 ($Y,\phi$)가 자연스럽게 $P(Y,\phi)$의 joint distribution을 반영한다는 것이다.
 
 그런데, 위에서 샘플링한 $\phi$를 그냥 무시하고 $Y$만 취하면 그게 $\phi$에 대해 marginalization한 것과 같다. 즉, prior predictive distribution을 취한 것이다.
+

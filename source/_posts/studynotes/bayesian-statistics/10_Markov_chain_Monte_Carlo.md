@@ -41,6 +41,7 @@ MCMC의 알고리즘으로 여러 개가 있다고 하는데, 대표적으로 Me
 
 
 1. 시작하기에 앞서 posterior $p(\theta|y_1,...,y_k)$를 정확히 계산할 수는 없더라도, 이 posterior에 비례하는 어떤 함수는 알고 있어야 한다. 즉, 다음을 만족하는 $g(\theta)$는 알고 있어야 한다.
+   
    $$
    p(\theta|y_1,...,y_k) \propto g(\theta)
    $$
@@ -52,6 +53,7 @@ MCMC의 알고리즘으로 여러 개가 있다고 하는데, 대표적으로 Me
    1. $\theta^* $를 $q(\theta^* |\theta_{i-1})$로부터 1개를 샘플링한다.
 
    2. 다음을 계산한다.
+      
       $$
       \alpha = \frac{g(\theta^* )q(\theta^* |\theta_{i-1})}{g(\theta_{i-1})q(\theta_{i-1}|\theta^* )}
       $$
@@ -83,9 +85,11 @@ Matropolis-hastings 알고리즘에서, proposal distribution $q(\theta^* |\thet
 1. 일단, $p(\theta_1,...,\theta_k|y) \propto g(\theta_1,...,\theta_k)$를 만족하는 $g(\theta_1, ..., \theta_k)$를 알고 있어야 한다. $p(\theta_1,...,\theta_k|y) \propto p(y|\theta_1,...,\theta_k)p(\theta_1,...,\theta_k)$를 활용.
 
 2. 하나의 parameter에 대한 full conditional distribution의 proportion을 계산해야 하는데, 다음과 같이 posterior 분포에 비례하므로(Bayes' rule에 의해), $g$에 비례한다.
+   
    $$
    p(\theta_i|\theta_1,...,\theta_{i-1},\theta_{i+1},...,\theta_k,y) \propto p(\theta_1,...,\theta_k|y) \propto g(\theta_1,...,\theta_k)
    $$
+   
    그리고, 나머지 파라미터는 모두 주어진 것으로 가정한다. 나머지 파라미터는 초기값이거나 가장 최근에 업데이트한 값으로 들어간다.
 
 3. 그렇게 되면, $g$에서 $\theta_i$에 의해 parameterize되지 않는 항은 모두 constant로 취급할 수 있으며, proportion에서 제외할 수 있다. 그럼 $g$가 간소화된다.
