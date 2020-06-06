@@ -96,7 +96,7 @@ episode 100개를 모두 한번씩 보는 것을 1 batch라고 하면, 1 batch�
 
 ## Temporal Difference Learning for Control
 
-Control이라 함은, policy control을 의미한다.TD(0) 알고리즘은 policy evaluation 또는 prediction으로 이용해서 한 episode가 끝나지 않더라도, value function을 업데이트가 가능하게 해 주었다. 하지만, value function을 한번 업데이트했다면, policy또한 업데이트가 가능할 것이다.
+Control이라 함은, policy control을 의미한다. TD(0) 알고리즘은 policy evaluation 또는 prediction으로 이용해서 한 episode가 끝나지 않더라도, value function을 업데이트가 가능하게 해 주었다. 하지만, value function을 한번 업데이트했다면, policy또한 업데이트가 가능할 것이다.
 
 Policy control을 하려면, state value보단, action value가 편하다. State가 주어졌을 때, 큰 action value를 가지는 action을 선택하면 되기 때문.
 
