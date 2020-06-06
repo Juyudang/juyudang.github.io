@@ -8,7 +8,6 @@ tags:
 categories:
 	- Study Notes
 	- Reinforcement Learning
-
 ---
 
 
@@ -56,6 +55,7 @@ Episodic task로 예를 들려고 한다.
 2. 위 history를 $S_0, A_0, S_1, R_1, A_1, S_2, ..., S_{T-1}, R_{T-1}, A_{t-1}, S_T, R_T$라는 sequence로 표현했을 떄, $T$에서 backward방향으로 reward 기댓값, 즉, value를 계산한다.
 
    (Final state는 정의에 따라 value가 0이다)
+   
    $$
    G_T = 0
    $$
@@ -150,4 +150,4 @@ Exploring starts 방식은 deterministic policy 환경에서 출발점에서나�
 
 ![image-20200126105656485](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200126105656485.png)
 
-$$\epsilon$$-soft는 stochastic policy이다. 즉, optimal policy보다는 value 기댓값이 적다. 하지만, 적절히 greedy한 액션도 취해가면서 확률적으로 많은 state를 방문할 수 있게 해 준다.
+$\epsilon$-soft는 stochastic policy이다. 즉, optimal policy보다는 value 기댓값이 적다. 하지만, 적절히 greedy한 액션도 취해가면서 확률적으로 많은 state를 방문할 수 있게 해 준다.

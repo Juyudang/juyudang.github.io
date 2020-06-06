@@ -19,21 +19,27 @@ categories:
 참고: Coursera Reinforcement Learning (Alberta Univ.)
 
 지금까지 봐 왔던 RL 학습법은, 일단 한 episode를 다 플레이하고 value function을 업데이트했으나, TD(Temporal difference) learning 방식은, episode를 플레이함과 동시에 value function을 업데이트한다. $t-1$일때의 state $s_{t-1}$에서, 액션 $a_{t-1}$을 취해서 reward $R_{t}$를 얻었다면, $v(s_{t-1})$은 즉시 업데이트 가능하다. 결국, value function은 Bellman equation에서 보다시피 next state에서의 reward와  value에 의해서 계산될 수 있기 때문.
+
 $$
 v(s_{t}) = E[G_t|s=s_t]
 $$
+
 $$
 v(s_t) = E[R_t + \gamma G_{t+1}|s=s_t]
 $$
 
 또한, Monte Carlo estimation을 통해 기댓값을 추정한다면,
+
 $$
 v(s_t) \approx \frac{1}{n}\sum_{i} [R_t + \gamma G_t]
 $$
+
 일 것인데, 이러면, 모든 샘플을 저장하고 있어야 한다. 따라서, 샘플 하나 모으고 반영하고 하나 모으고 반영하기 위해, incremental 하게 구현하려면 다음과 같이 value function 식을 수정할 수 있다.
+
 $$
 v(s_t) = v(s_t) + \alpha(G_t - v(s_t))
 $$
+
 $$
 v(s_t) = v(s_t) + \alpha(R_{t+1} + \gamma G_{t+1} - v(s_t))
 $$
@@ -77,9 +83,11 @@ y축은 실제 value와 예측된 value의 RMS(Root mean squared) error이고, x
 Episode를 무한히 만들 수 없고, 한정된 episode만 이용할 수 있을 때, (즉, 데이터셋이 한정되어 있음) batch TD(0)를  사용하기도 한다.
 
 먼저 episode가 100개가 있다고 가정하면, 각 episode를 돌면서 다음을 계산한다.
+
 $$
 \text{increment} = \alpha(R_{t+1} + \gamma V(S_{t+1}) - V(S_t))
 $$
+
 episode 100개를 모두 한번씩 보는 것을 1 batch라고 하면, 1 batch를 모두 볼때까지 value function $V(S)$를 업데이트 하지 않는다. 100개를 모두 보고 난 후, 각 episode마다 계산된 $\text{increment}$를 state마다 모두 합해서 $V(S)$를 업데이트하게 된다. 그리고, 다시, 업데이트된 $V(S)$를 이용해서 episode 100개를 다시 반복해서 본다.
 
 일반적인 TD(0)는 1 episode 를 돌때도 즉시 value function을 업데이트하지만, batch TD(0)는 모든 episode를 본 후, 각각 $\text{increment}$를 계산하고 이들의 합으로 value function을 업데이트한다. 즉, 모든 episode를 본 후, 비로소 한 번의 업데이트가 이루어진다.
@@ -93,9 +101,11 @@ Control이라 함은, policy control을 의미한다.TD(0) 알고리즘은 polic
 Policy control을 하려면, state value보단, action value가 편하다. State가 주어졌을 때, 큰 action value를 가지는 action을 선택하면 되기 때문.
 
 Action value function을 TD(0)알고리즘에 이용하기 위해, increment하게 바꾼 형태는 다음과 같다.
+
 $$
 Q(S_t, A_t) = Q(S_t, A_t) + \alpha(R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t))
 $$
+
 (State value의 incremental 식이랑 똑같다)
 
 
@@ -109,9 +119,11 @@ $$
 이것은 한 episode가 모두 끝나고나서 업데이트하는 방식의 단점이라고 할 수 있으며, Sarsa algorithm은 이를 피하게 해 준다. 가는 도중에도 policy가 업데이트되어 수렴도 빠르다.
 
 Value function 업데이트 수식은 다음과 같다.(action value 이용)
+
 $$
 Q(S_t, A_t) = Q(S_t, A_t) + \alpha(R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t))
 $$
+
 Sarsa 알고리즘은 다음과 같은 특징이 있다.
 
 - **Action value Bellman equation**와 Monte Carlo estimation을 이용해서 policy evaluation을 수행한다.
@@ -123,9 +135,11 @@ Sarsa 알고리즘은 다음과 같은 특징이 있다.
 ### Q-Learning
 
 Sarsa 알고리즘은 기본적으로 on-policy를 기반으로 한다. (물론, off-policy로 구성할 수도 있을 것 같다.) Q-learning은 off policy TD control 방법으로, action value function은 다음처럼 업데이트한다.
+
 $$
 Q(S_t, A_t) = Q(S_t, A_t) + \alpha (R_{t+1} + \gamma \cdot \underset{a}{ \text{max} }~Q(S_{t+1}, a) - Q(S_t, A_t))
 $$
+
 Q-learning은 Sarsa와는 달리, 다음의 특징이 있다.
 
 - **Action value Bellman *optimality* equation**과  Monte Carlo estimation을 통해 policy evaluation을 수행한다.
@@ -165,6 +179,7 @@ Sarsa는 학습하는 policy와 액션을 취하는 policy가 같으니까 explo
 ### Expected Sarsa Algorithm
 
 Sarsa의 value function 업데이트 식은 다음과 같다.
+
 $$
 Q(S_t, A_t) = Q(S_t, A_t) + \alpha (R_{t+1} + \gamma \cdot Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t))
 $$
@@ -172,14 +187,17 @@ $$
 즉, 샘플링한 action을 기반으로 value function을 업데이트하게 된다.
 
 Expected Sarsa는 다음과 같이 식을 수정한다.
+
 $$
 Q(S_t, A_t) = Q(S_t, A_t) + \alpha (R_{t+1} + \sum_{a'} \pi(a'|S_{t+1}) Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t))
 $$
 
 즉, action 샘플 방향으로만 업데이트하지 말고, 가능한 모든 액션 방향을 고려하자는 것이다.
+
 $$
 Q(S_{t+1}, A_{t+1}) \rightarrow \sum_{a'} \pi(a'|S_{t+1})Q(S_{t+1}, A_{t+1})
 $$
+
 Action value를 업데이트할때, 다음 state의 action value를 고려해야 하는데, Sarsa에서는 다음 state에서 episode에서 취한 action만을 이용한다. 즉, 다른 액션을 통한 action value는 이용하지 않는다.
 
 Expected Sarsa에서는 episode에서 취한 action도 고려하면서 아예 policy에 따른 기댓값으로 action value를 계산한다.
@@ -207,9 +225,11 @@ Expected Sarsa에서는 큰 step size $\alpha$를 사용하기 쉽다. Sarsa에�
 **Expected Sarsa는 Sarsa와 다르게 on-policy와 off-policy learning 둘 다에 해당한다.**
 
 Expected Sarsa의 식은 다음과 같다.
+
 $$
 Q(S_t, A_t) = Q(S_t, A_t) + \alpha (R_{t+1} + \gamma \cdot \sum_{a'} \pi(a'|S_{t+1})Q(S_{t+1}, a') - Q(S_t, A_t))
 $$
+
 이때, 미래의 action value를 계산할 때, target policy에 대한 기댓값을 계산하게 되는데, 이는, 액션 $a'$이 behavior policy에서 나온 것이라도 동일하다. 즉, 자연스럽게 위 value function은 target policy를 따르는 기댓값을 이용하게 되며, importance sampling 없이 off-policy learning을 달성한다.
 
 **Expected Sarsa는 Q-learning의 일반화 버전이다.**

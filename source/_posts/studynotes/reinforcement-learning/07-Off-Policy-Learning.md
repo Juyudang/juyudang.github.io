@@ -53,17 +53,21 @@ Off-policy의 장점은, target policy를 stochastic하게 둘 필요가 없이 
 따라서, policy evaluation을 할 때, $b$에서 샘플링한 샘플로 $\pi$에 대한 기댓값을 추정하도록 해야 한다.
 
 **Importance sampling**이란, Monte Carlo estimation을 할 때, **다른 분포**에서 샘플링한 샘플을 이용해서 분포의 기댓값을 추정하는 것을 말한다. 분포 $b$를 따르는 random variable $X$와 그 샘플 $x$에 대해, 분포 $b$에 대한 $X$의 기댓값은 다음처럼 계산할 수 있다.
+
 $$
-x_i \sim b
+x_i \sim b
 $$
+
 $$
 E_b[X] \approx \sum_{i=1}^n x_i \cdot b(x_i)
 $$
 
 그리고, 여기서 약간의 수정을 가해서 다른 분포 $\pi$에 대한 $X$의 기댓값을 계산하도록 할 수 있다.
+
 $$
 E_{\pi}[X] = \sum_X X \cdot \pi(X)
 $$
+
 $$
 = \sum_X X \cdot \pi(X) \cdot \frac{b(X)}{b(X)}
 $$
@@ -81,9 +85,11 @@ $$
 $$
 
 따라서,
+
 $$
 E_{\pi}[X] \approx \frac{1}{n} \sum_{i=1}^n x_i \cdot \rho(x_i)
 $$
+
 이때, $\rho(x)$를 importance sampling ratio라고 하며, 한 샘플에 대해, 두 분포간의 확률 비율을 말한다.
 
 Policy iteration에서, 특정 시점 $t$에서의 policy $\pi_t$가 있고, 그 policy $\pi_t$를 이용해 value function을 계산해야 하는데, 이 과정에서 Monte Carlo estimation이 사용된다. 여기서, behavior policy를 통해 얻은 샘플들을 이용해서 $\pi_t$에 대한 기댓값을 계산하게 된다.
@@ -93,9 +99,11 @@ Policy iteration에서, 특정 시점 $t$에서의 policy $\pi_t$가 있고, 그
 ## Implementation of Off-Policy Learning
 
 Behavior policy로 episode를 만들고, 각 타임에서의 state와 action을 얻고, 다음 식을 통해 value-function을 Monte Carlo estimation하게 되면, policy $b$에 대한 기댓값 추정이 된다.
+
 $$
 G_{t} \leftarrow \gamma \cdot G_{t+1} + R_t
 $$
+
 $$
 G_t \text{ appends to } Returns(S_t)
 $$
@@ -105,9 +113,11 @@ V(S_t) \leftarrow \text{mean}(Returns(S_t))
 $$
 
 여기서, $R_t$는 environment dynamic distribution으로부터 나왔으니, importance sampling에서 예외로 하고, $G_{t+1}$은 behavior policy $b$에 대한 value 기댓값일 것이다. 따라서, $G_{t+1}$에 importance ratio를 곱해주어야 한다.
+
 $$
 G_t \leftarrow \gamma \cdot W \cdot  G_{t+1} + R_{t}
 $$
+
 $$
 G_t \text{ appends to } Returns(S_t)
 $$
@@ -117,9 +127,11 @@ V(S_t) \leftarrow \text{means}(Returns(S_t))
 $$
 
 그럼 이제 importance ratio를 계산해야 하는데, $G_{t+1}$은 바로 다음 시점 $t+1$로부터, policy $b$에 대한 기댓값이므로, importance ratio는 $t+1$시점부터 episode의 끝 $T$까지 분포 $b$로부터 $\pi$로 바꿔주는 역할을 해 주어야 한다. 즉, $\rho_t$ 대신, $\rho_{t+1:T}$를 계산해야 한다는 의미이다.
+
 $$
 \rho_{t+1:T} = \prod_{i=t+1}^T \frac{\pi(A_i|S_i)p(S_{i+1},R_{i+1}|S_i,A_i)}{b(A_i|S_i)p(S_{i+1}, R_{i+1}|S_i, A_i)}
 $$
+
 $$
 = \prod_{i=t+1}^T \frac{\pi(A_i|S_i)}{b(A_i|S_i)}
 $$
@@ -131,9 +143,11 @@ $$
 
 
 그리고 이것은 보다시피 incremental implementation이 가능하다.
+
 $$
 \rho_{T:T} = \rho_T
 $$
+
 $$
 \rho_{T-1:T} = \rho_{T-1}\rho_T  =  \rho_{T-1} \cdot \rho_{T:T}
 $$
