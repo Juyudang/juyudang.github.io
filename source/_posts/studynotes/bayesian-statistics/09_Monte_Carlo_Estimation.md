@@ -33,9 +33,11 @@ $h(\theta)$의 기댓값 $E[h(\theta)]$를 추정하고 싶다. 그러면, $\the
 ### Monte Carlo Error
 
 CLT(Central Limit Theorem)에 의해 파라미터 $\theta$에 대해 모은 샘플들은 $\mathbb{N}(E[\theta],\frac{Var[\theta]}{m})$를 따른다. $Var[\theta]$는 $\theta$의 분산으로, 다음으로 대체한다.
+
 $$
 Var[\theta] = \frac{1}{m}\sum_i (\bar{\theta} - \theta_i)^2
 $$
+
 그리고, $\frac{Var[\theta]}{m}$값을 **monte carlo error**라고 한다. Monte carlo estimation 값($E[\theta]$의 추정값인 $\bar{\theta}$)이 진짜 $E[\theta]$로부터 어느정도로 오차가 있을지에 대한 term이라고 볼 수 있다.
 
 
