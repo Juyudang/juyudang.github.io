@@ -29,8 +29,8 @@
 - [12. Prior Sensitivity Analysis](/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis)
 - [13. Hierarchical Models](/studynotes/bayesian-statistics/13_Hierarchical_models)
 - [14. Predictive Simulation](/studynotes/bayesian-statistics/14_Predictive_Simulation)
-- [Appendix 01. Maximize a Posterior (MAP)](APPENDIX-1-MAP)
-- [Appendix 02. Empirical Bayes (MAP)](APPENDIX-2-Empirical-Bayes)
+- [Appendix 01. Maximize a Posterior (MAP)](/studynotes/bayesian-statistics/APPENDIX-1-MAP)
+- [Appendix 02. Empirical Bayes (MAP)](/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes)
 
 ## Reinforcement Learning
 - [01. Introduction](/studynotes/reinforcement-learning/01_Introduction)
