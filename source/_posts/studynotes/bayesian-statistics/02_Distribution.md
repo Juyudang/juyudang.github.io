@@ -255,7 +255,7 @@ $$
 
 Student-t 분포, test용 분포라고도 한다. 
 
-CLT에서, 샘플 평균의 분포를 standarize시키면 standard normal distribution이 아니라, t-distribution이 나온다. 분산값인 $\sigma^2$가 샘플 분산인 $S^2$으로 대체되기 때문이다.
+CLT에서, 샘플 평균의 분포를 standardize시키면 standard normal distribution이 아니라, t-distribution이 나온다. 분산값인 $\sigma^2$가 샘플 분산인 $S^2$으로 대체되기 때문이다.
 $$
 S^2 = \frac{\sum_i (\bar{X}-X_i)^2}{n-1}
 $$
