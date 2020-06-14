@@ -41,21 +41,21 @@ state의 개수만큼 feature가 있고, feature는 각 state를 나타내는 in
 
 $$
 V(s_i) = \begin{pmatrix}
-0 \newline 
-\cdots \newline 
-0 \newline 
-1 \newline 
-0 \newline 
-\cdots \newline 
+0 \\ 
+\cdots \\ 
+0 \\ 
+1 \\ 
+0 \\ 
+\cdots \\ 
 0
 \end{pmatrix} \cdot
 \begin{pmatrix}
-w_1 \newline 
-\cdots \newline 
-w_{i-1} \newline 
-w_i \newline 
-w_{i+1} \newline 
-\cdots \newline 
+w_1 \\ 
+\cdots \\ 
+w_{i-1} \\ 
+w_i \\ 
+w_{i+1} \\ 
+\cdots \\ 
 w_{16}
 \end{pmatrix} = w_i
 $$
@@ -214,19 +214,19 @@ Tabular TD(0)는 linear TD의 한 종류인데, 다음처럼 feature가 생겼�
 
 $$
 w = \begin{pmatrix}
-w_0 \newline 
-w_1 \newline 
-w_2 \newline 
-w_3 \newline 
-\cdots \newline 
+w_0 \\ 
+w_1 \\ 
+w_2 \\ 
+w_3 \\ 
+\cdots \\ 
 w_d
 \end{pmatrix},
 x(s_i) = \begin{pmatrix}
-0 \newline 
-0 \newline 
-1 \newline 
-0 \newline 
-\cdots \newline 
+0 \\ 
+0 \\ 
+1 \\ 
+0 \\ 
+\cdots \\ 
 0
 \end{pmatrix},
 \hat{v}(s,w) = w \cdot x
