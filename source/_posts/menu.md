@@ -1,6 +1,6 @@
 # **Home**
 - [Home](/)
-- [블로그 개장](/Blog-Init)
+- [Commemoration](/Blog-Init)
 
 # **Study Notes**
 
