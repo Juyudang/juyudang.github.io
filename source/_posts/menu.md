@@ -1,5 +1,6 @@
 # **Home**
 - [Home](/)
+- [About Me](https://www.notion.so/wayexists/Lee-Jaeyoung-b21d5cf478d545b99ade627b8154963f)
 - [Commemoration](/Blog-Init)
 
 # **Study Notes**
