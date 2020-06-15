@@ -1,7 +1,7 @@
 ---
 title: 01. Introduction
 toc: true
-date: 2020-06-15 9:00:00
+date: 2020-06-15 10:00:00
 tags:
 	- StudyNotes
 	- ReinforcementLearning
