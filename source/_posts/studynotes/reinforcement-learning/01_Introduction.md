@@ -24,7 +24,7 @@ Reinforcement Learning이란, 환경(environment)가 있고, 그 environment 속
 
 Agent는 어떤 행위를 취하는 객체로, 자신에게 주어진 상태에서 액션을 취할 수 있고, 그 액션에 의해 environment가 영향을 받는다. 그에 따라 agent에게 주어지는 상태가 변화하고, environment로부터 reward 또는 피드백을 받게 된다. Reinforcement learning을 바탕으로 학습된 agent는 주어진 environment와 state를 바탕으로 최적의 액션을 취할 수 있다.
 
-![image-20200615082355478](D:/GoogleDrive/Notes/note-images/01_Introduction/image-20200615082355478.png)
+![image-20200615082355478](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200615082355478.png)
 
 Reinforcement learning은 현재 주어진 state에서 어떤 action을 취한다면, 어떤 reward를 얻을 것인지를 예측한다. 그리고 예측한 reward가 최대가 되는 action을 선택하게 된다.
 
