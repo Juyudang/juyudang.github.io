@@ -1,7 +1,7 @@
 ---
 title: 10. Prediction and Control with Function Approximation
 toc: true
-date: 2020-03-18 09:00:08
+date: 2020-06-15 07:20:08
 tags:
 	- StudyNotes
 	- ReinforcementLearning
@@ -21,6 +21,7 @@ categories:
 지금까지, state와 action이 discrete하며, (state, action) pair의 value가 deterministic한, tabular method를 보았다. 하지만, 이건 실생활에서 매우 한정적일 수 밖에 없다.
 
 Value function을 table로 표현하지 말고, function으로 추정하자는게 지금부터 다룰 내용이다.
+
 $$
 V(s) = f_W(s)
 $$
@@ -37,26 +38,28 @@ Tabular method는 linear function approximation의 한 방법이다.
 ![image-20200224100627139](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200224100627139.png)
 
 state의 개수만큼 feature가 있고, feature는 각 state를 나타내는 indicator가 된다. 그러면, 각 state의 value는 그 state의 weight가 된다.
+
 $$
 V(s_i) = \begin{pmatrix}
-0 \newline 
-\cdots \newline 
-0 \newline 
-1 \newline 
-0 \newline 
-\cdots \newline 
+0 \\ 
+\cdots \\ 
+0 \\ 
+1 \\ 
+0 \\ 
+\cdots \\ 
 0
 \end{pmatrix} \cdot
 \begin{pmatrix}
-w_1 \newline 
-\cdots \newline 
-w_{i-1} \newline 
-w_i \newline 
-w_{i+1} \newline 
-\cdots \newline 
+w_1 \\ 
+\cdots \\ 
+w_{i-1} \\ 
+w_i \\ 
+w_{i+1} \\ 
+\cdots \\ 
 w_{16}
 \end{pmatrix} = w_i
 $$
+
 즉, tabular method는 위와 같이 indicator feature를 이용해서 linear function으로 표현이 가능하다. 따라서, tabular method는 linear function approximation의 한 instance이다.
 
 
@@ -98,9 +101,11 @@ Function approximation을 하기 위해서는, target value와 얼만큼 가까�
 ### The Value Error Objective
 
 다음은 Mean squared error를 이용한 objective function이다.
+
 $$
 \text{VE} = \sum_s \mu(s)[V_{\pi}(s) - \hat{v}(s, W)]^2
 $$
+
 이때, 각 state마다 서로 다른 가중치 $\mu(s)$를 주어서, 상대적으로 중요한 state에게는 높은 가중치를, 덜 중요한 state에게는 낮은 가중치를 주도록 한다. Policy에 의해 자주 방문하는 state에 대해서는 높은 가중치를 줄 수도 있겠다.
 
 
@@ -110,27 +115,37 @@ $$
 Gradient descent를 Monte Carlo RL에 맞게 수정한 것. Stochastic gradient descent.
 
 Value error식은 때때로 state개수가 너무 많아서 계산이 불가능하다. 대신, gradient를 approximation한다. 원래 Gradient descent식은 다음과 같다. 이때, $x(s)$는 state $s$의 feature vector이다.
+
 $$
 W \leftarrow W + \alpha \sum_s \mu(s)[V_{\pi}(s) - \hat{v}(s,W)] \nabla \hat{v}(s, W)
 $$
+
 그런데, 이 식을 쓰지 말고, 다음처럼 gradient를 approximate해서 쓰자는 것이 된다.
+
 $$
 W \leftarrow W + \alpha [V_{\pi}(S_t) - \hat{v}(S_t, W)] \nabla \hat{v}(S_t, W)
 $$
+
 왜냐하면 다음이 성립하기 떄문. 즉, 위 gradient는 원래 gradient의 추정치라고 볼 수 있다.
+
 $$
 E[V_{\pi}(S_t) - \hat{v}(S_t,W)] = \sum_s \mu(s)[V_{\pi}(s) - \hat{v}(s,W)]
 $$
+
 이는, 샘플 하나 (state-action pair 1개)씩 보면서 한 번 업데이트하는 stochastic gradient descent 방식이다.
 
 하지만, 이 경우는 target value function인 $V_{\pi}(s)$를 알아야 한다. 얘네도 $G_t$를 이용해 approximation한다.
+
 $$
 W \leftarrow W + \alpha [G_t - \hat{v}(S_t,W)] \nabla \hat{v}(S_t,W)
 $$
+
 역시 다음을 추정한 것이다.
+
 $$
 E[V(S_t)] = E[G_t|S_t]
 $$
+
 다음은 pseudo code.
 
 ![image-20200225135449599](https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200225135449599.png)
@@ -146,16 +161,21 @@ State개수가 너무 많아서 모든 state를 따로 업데이트하기 힘들
 ## The Objective for TD
 
 On-policy learning인 Gradient Monte Carlo의 objective로 squared error를 사용했었다. 하지만, TD는 $G_t$가 다음의 특성을 가진다.
+
 $$
 v(S_t, W) = R_{t+1} + \gamma v(S_{t+1}, W)
 $$
+
 ($G_t = \hat{v}(S_t, A_t)$이다. ) 즉, 다음의 gradient 수식에서,
+
 $$
 (G_t - \hat{v}(S_{t}, W)) \nabla \hat{v}(S_{t}, W)
 $$
+
 $G_t$부분은 실제 value의 추정값이므로, TD learning에서는 $v(S_t,W)$와 대체해야 한다. 그런데, 이놈은 $v(S_{t+1}, W)$를 참조하고 있으며, 이 $v(S_{t+1}, W)$는 true value의 estimation이기 보단 현재의 value estimation이다. 따라서, biased된 추정값이며, $v(S_t, W)$를 미분해도 이 식이 $W$를 가지고 있으므로, Gradient Monte Carlo의 gradient 수식과 같게 나오지 않는다. 하지만, 그냥 $v(S_t, W)$는 상수처럼 간주해버리고 쓰게 되는데(즉, $W$에 대한 함수가 아니라고 간주), 이를 semi-gradient 방법이라고 부른다.
 
 최종적으로 $W$의 업데이트 식은 다음과 같이 쓴다.
+
 $$
 W \leftarrow W + \alpha(R_{t+1} + \gamma v(S_{t+1}, W) - \hat{v}(S_t,W)) \nabla \hat{v}(S_t, W)
 $$
@@ -191,28 +211,31 @@ Function approximation에서, TD와 Monte Carlo 방식의 차이점은 다음과
 Value function을 linear하게 모델링한 것을말하며, 간단하고 쉽지만, 잘 정제된 feature가 있다면, 매우 강력한 성능을 발휘한다.
 
 Tabular TD(0)는 linear TD의 한 종류인데, 다음처럼 feature가 생겼다고 가정한다면, 완벽히 linear TD이다.
+
 $$
 w = \begin{pmatrix}
-w_0 \newline 
-w_1 \newline 
-w_2 \newline 
-w_3 \newline 
-\cdots \newline 
+w_0 \\ 
+w_1 \\ 
+w_2 \\ 
+w_3 \\ 
+\cdots \\ 
 w_d
 \end{pmatrix},
 x(s_i) = \begin{pmatrix}
-0 \newline 
-0 \newline 
-1 \newline 
-0 \newline 
-\cdots \newline 
+0 \\ 
+0 \\ 
+1 \\ 
+0 \\ 
+\cdots \\ 
 0
 \end{pmatrix},
 \hat{v}(s,w) = w \cdot x
 $$
+
 feature는 어떤 state인지 나타내는 indicator이고, weight가 각각 상응하는 state들의 value가 되는 셈. Feature $x$를 어떤 aggregation인지를 나타낸다고 하면, aggregation tabular TD(0)역시 linear TD의 모양이 되므로, aggregation tabular TD(0)역시, linear TD의 한 종류이다.
 
 만약, squared error를 사용하는 linear TD라면, 다음 식으로 $w$가 업데이트된다.
+
 $$
 w \leftarrow w + \alpha (R_{t+1} + \gamma \hat{v}(S_{t+1}, w) - \hat{v}(S_t, w)) X(S_t)
 $$

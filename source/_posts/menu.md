@@ -1,6 +1,7 @@
 # **Home**
 - [Home](/)
-- [블로그 개장](/Blog-Init)
+- [About Me](https://www.notion.so/wayexists/Lee-Jaeyoung-b21d5cf478d545b99ade627b8154963f)
+- [Commemoration](/Blog-Init)
 
 # **Study Notes**
 
@@ -41,3 +42,6 @@
 - [06. Sample-based Reinforcement Learning](/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning)
 - [07. Off-Policy Learning](/studynotes/reinforcement-learning/07-Off-Policy-Learning)
 - [08. Temporal Difference Learning](/studynotes/reinforcement-learning/08-Temporal-Difference-Learning)
+- [09. Models and Planning](/studynotes/reinforcement-learning/09-Models-and-Planning)
+- [10. Prediction and Control with Function Approximation](/studynotes/reinforcement-learning/10-Prediction-and-Control-with-Function-Approximation)
+- [11. Feature Construction](/studynotes/reinforcement-learning/11-Feature-Construction)
