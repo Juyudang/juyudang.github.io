@@ -30,6 +30,7 @@
 - [12. Prior Sensitivity Analysis](/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis)
 - [13. Hierarchical Models](/studynotes/bayesian-statistics/13_Hierarchical_models)
 - [14. Predictive Simulation](/studynotes/bayesian-statistics/14_Predictive_Simulation)
+- [15. Definition of Mixture Models](/studynotes/bayesian-statistics/15-definition-of-mixture-models)
 - [Appendix 01. Maximize a Posterior (MAP)](/studynotes/bayesian-statistics/APPENDIX-1-MAP)
 - [Appendix 02. Empirical Bayes (MAP)](/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes)
 
