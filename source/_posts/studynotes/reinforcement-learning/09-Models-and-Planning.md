@@ -1,7 +1,7 @@
 ---
 title: 09. Models and Planning
 toc: true
-date: 2020-03-11 10:00:08
+date: 2020-06-15 07:00:08
 tags:
 	- StudyNotes
 	- ReinforcementLearning
@@ -87,6 +87,7 @@ Model은 sample model에 해당한다.
 2. Model로부터 다음 state를 샘플링하고(given current state, action), action 선택 전략에 따라 action을 뽑음
 
 3. Q-learning 알고리즘에 따라 value function을 업데이트
+   
    $$
    Q(S_t, A_t) = Q(S_t, A_t) + \alpha \cdot (R_{t+1} + \gamma \cdot \text{max} ~ Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t))
    $$
@@ -94,6 +95,7 @@ Model은 sample model에 해당한다.
 4. 2,3번 반복
 
 5. Value function이 수렴했으면, policy update
+   
    $$
    \pi_* = \underset{a}{ \text{max} } ~ Q(s,a)
    $$
@@ -147,7 +149,7 @@ Dyna-Q란, Dyna architecture에서 Q-learning을 채용한 알고리즘을 말�
 
 이때, $Model(S,A) \leftarrow R, S'$의 의미는, model에다가 $S$상태일때, $A$를 취하면 무조건 $R$의 리워드를 얻고 $S'$상태로 간다고 매핑해 두라는 의미이다. (Tabular Dyna-Q 알고리즘은 deterministic environment라고 가정한다. 물론, 알고리즘을 수정하면 non-deterministic하게도 할 수 있겠지)
 
-한번의 step을 할 때 마다 여러번(여기서는 $$n$$번)의 planning이 일어날 수 있다. Planning은 많이많이 해야 한다.
+한번의 step을 할 때 마다 여러번(여기서는 $n$번)의 planning이 일어날 수 있다. Planning은 많이많이 해야 한다.
 
 Planning은 랜덤으로 start state를 고르고 1 step만 간다.
 
@@ -196,9 +198,11 @@ Exploration을 모델에서 직접 할 수는 없고, policy 학습에 영향을
 ### Dyna-Q+ Algorithm
 
 Environment가 변할때를 반영하기 위해 Dyna-Q를 변형한 알고리즘이다. Dyna architecture에서 planning은 과거에 방문한 state만 업데이트하게 되는데, 문제는 environment가 변함으로써, 방문한 놈들의 reward, next state 분포가 변할 수 있다는 것. 따라서, 방문한 지 오래된 state에 대해서는 보너스 reward를 **모델에서** 할당한다. 그리고 그 보너스 reward를 value를 계산할 때 반영하게 된다.
+
 $$
 R \leftarrow R + \kappa \sqrt{\tau}
 $$
+
 이때, $\kappa$는 작은 상수이며, $\tau$는 방문한지 얼마나 됬는지에 대한 time step이다. 즉, 방문한 지 오래된 놈이면 reward를 증가시킨다.
 
 (Value에다가 더하지 말고, action에 따른 결과 reward에다가 더하자.)
