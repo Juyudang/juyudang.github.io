@@ -14,7 +14,7 @@ categories:
 
 # 15. Definition of Mixture Models
 
- 
+
 
 Normal distribution, poisson distribution, exponential distribution 등 여러가지 기본 distribution들로 모델링이 가능한 데이터가 있고, 그렇지 않은 데이터가 있다. 예를 들어, 남자와 여자의 키의 분포를 생각해보면, 여자의 키는 160근처에서 평균을 이루면서 normal distribution을 이루고, 남자의 분포는 175쯤에서 평균을 이루면서 normal distribution을 이룬다고 해 보자.
 
