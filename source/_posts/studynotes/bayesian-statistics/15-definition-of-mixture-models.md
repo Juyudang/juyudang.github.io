@@ -35,32 +35,39 @@ Mixutre model의 probability density(또는 probability mass) function $f(x)$는
 $$
 f(x) = \sum_{k=1}^K \omega_k g_k(x)
 $$
+
 이 mixture model에는 $K$개의 분포 $g_k(x)$를 합친 형태이며, 이 분포들을 $\omega_k$로 weighted sum한 형태이다.
 
 이때, 다음과 같은 제약조건이 붙는다.
+
 $$
 \sum_{k=1}^K \omega_k = 1
 $$
+
 모든 $g_k(x)$가 올바른 probability density라고 할때($\int_{-\infty}^{\infty} g_k(x) dx = 1$), 위 제약조건이 있으면 다음을 만족할 수 있게 된다.
 
 $$
 \int_{-\infty}^{\infty} f(x) dx = 1
 $$
+
 가장 간단한 예제 중 하나인 사람들의 키 분포를 예로 들어보자. 사람들은 남자와 여자 두 가지 성별로 그룹핑할 수 있으며, 남자의 키 분포를 다음과 같다고 가정해보자.
 
 $$
-g_{\text{male}}(x) = \frac{1}{\sigma\sqrt{2\pi}} \text{exp}\{ -\frac{(x - \mu_{\text{male}})^2}{2\sigma^2} \}
+g_{ \text{male} }(x) = \frac{1}{ \sigma \sqrt{2\pi} } \text{exp}\{ -\frac{(x - \mu_{\text{male}})^2}{2\sigma^2} \}
 $$
+
 그리고, 여자의 키 분포를 다음과 같다고 가정해보자.
 
 $$
 g_{\text{female}}(x) = \frac{1}{\sigma\sqrt{2\pi}} \text{exp}\{ -\frac{(x - \mu_{\text{female}})^2}{2\sigma^2} \}
 $$
+
 그럼, 사람들의 키 분포는 다음과 같이 표현할 수 있다.
 
 $$
 f_{\text{height}}(x) = \omega_{\text{male}}g_{\text{male}}(x) + \omega_{\text{female}}g_{\text{female}}(x)
 $$
+
 이 예제에서는 남, 여의 키 분포의 분산 $\sigma^2$이 같다고 가정했다. 그러나, $\sigma$도 다르게 둘 수도 있다.
 
 
@@ -74,6 +81,7 @@ Mixture model의 기댓값은 다음과 같이 정의될 수 있다.
 $$
 \mathbb{E}_f[X] = \int_{-{\infty}}^{\infty}xf(x) dx
 $$
+
 이때, $f(x)$를 mixture density로 치환해보면 다음과 같다.
 
 $$
@@ -81,6 +89,7 @@ $$
 = \sum_{k=1}^K \omega_k \int_{-\infty}^{\infty}x  g_k(x) dx \\
 = \sum_{k=1}^K \omega_k \mathbb{E}_g[X]
 $$
+
 즉, mixture density의 기댓값은 각 구성원 분포 기댓값의 weighted sum과 같다.
 
 
@@ -94,6 +103,7 @@ Mixture model의 분산은 다음과 같다.
 $$
 Var[X] = \int_{-\infty}^{\infty}(x - \mathbb{E}[X])^2 f(x) dx
 $$
+
 이때, 다시 $f(x)$를 mixture density 식으로 치환해보자.
 
 $$
