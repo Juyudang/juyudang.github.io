@@ -107,12 +107,12 @@ $$
 이때, 다시 $f(x)$를 mixture density 식으로 치환해보자.
 
 $$
-Var_f [X] = \int_{-\infty}^{\infty}(x - \mathbb{E}[X])^2 \sum_{k=1}^k\omega_k g_k(x) dx \\
-= \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} (x - \mathbb{E}[X])^2 g_k(x) dx \\
-= \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} (x^2 g_k(x) - 2x\mathbb{E}[X] g_k(x) + (\mathbb{E}[X])^2 g_k(x)) dx \\
-= \sum_{k=1}^k \omega_k \mathbb{E}[X^2] - 2\mathbb{E}[X]\sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} x g_k(x) + (\mathbb{E}[X])^2 \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} g_k(x) dx \\
-= \sum_{k=1}^k \omega_k \mathbb{E}[X^2] - 2 (\mathbb{E}[X])^2 + (\mathbb{E}[X])^2 \\
-= \sum_{k=1}^k \omega_k \mathbb{E}[X^2] -  (\mathbb{E}[X])^2 \\
+Var_f [X] = \int_{-\infty}^{\infty}(x - \mathbb{E}[X])^2 \sum_{k=1}^k\omega_k g_k(x) dx \newline
+= \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} (x - \mathbb{E}[X])^2 g_k(x) dx \newline
+= \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} (x^2 g_k(x) - 2x\mathbb{E}[X] g_k(x) + (\mathbb{E}[X])^2 g_k(x)) dx \newline
+= \sum_{k=1}^k \omega_k \mathbb{E}[X^2] - 2\mathbb{E}[X]\sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} x g_k(x) + (\mathbb{E}[X])^2 \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} g_k(x) dx \newline
+= \sum_{k=1}^k \omega_k \mathbb{E}[X^2] - 2 (\mathbb{E}[X])^2 + (\mathbb{E}[X])^2 \newline
+= \sum_{k=1}^k \omega_k \mathbb{E}[X^2] -  (\mathbb{E}[X])^2 \newline
 = \sum_{k=1}^k \omega_k [Var_{g_k}[X] + (\mathbb{E}_{g_k} [X])^2] - (\mathbb{E}[X])^2
 $$
 
