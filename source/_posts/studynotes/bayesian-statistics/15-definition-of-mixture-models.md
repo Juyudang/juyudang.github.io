@@ -79,13 +79,13 @@ $$
 Mixture model의 기댓값은 다음과 같이 정의될 수 있다.
 
 $$
-\mathbb{E}_f [X] = \int_{ -{\infty} }^{ \infty } x f(x) dx
+\mathbb{E}__f [X] = \int_{ -{\infty} }^{ \infty } x f(x) dx
 $$
 
 이때, $f(x)$를 mixture density로 치환해보면 다음과 같다.
 
 $$
-\mathbb{E}_f [X] = \int_{ -\infty }^{ \infty }x \sum_{k=1}^K \omega_k g_k(x) dx \\
+\mathbb{E}__f [X] = \int_{ -\infty }^{ \infty }x \sum_{k=1}^K \omega_k g_k(x) dx \\
 = \sum_{k=1}^K \omega_k \int_{ -\infty }^{ \infty }x  g_k(x) dx \\
 = \sum_{k=1}^K \omega_k \mathbb{E}_g [X]
 $$
