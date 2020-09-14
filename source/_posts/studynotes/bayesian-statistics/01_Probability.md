@@ -11,15 +11,12 @@ categories:
 ---
 
 
-# Probability
-
-
 
 통계학에서는 확률론을 기초로 한다. 확률론은 확률에 대한 이론을 다루며, 확률은 불확실성을 수치화(정량화)함으로써, 불확실성을 수학으로 다룰 수 있도록 도와준다.
 
 
 
-## Background
+# Background
 
 확률론을 하기 앞서서, 필요한 용어들을 먼저 정리할 필요가 있다.
 
@@ -55,7 +52,7 @@ categories:
 
 
 
-## Definition of Probability
+# Definition of Probability
 
 **확률은 불확실성을 정량화하는 도구이다.**
 
@@ -68,7 +65,7 @@ $$
 
 
 
-### Odds
+## Odds
 
 어떤 event a에 대한 odds는 $O(a) = \frac{P(a)}{P(a^C)}$라고 정의한다. 즉, 동전던지기에서 앞면이 나올 확률이 0.3이라면, 앞면이 나올 event에 대한 odds는 $O(X=h)=\frac{P(X=h)}{P(X \not = h)} = \frac{0.3}{0.7} = \frac{3}{7}$이다.
 
@@ -134,7 +131,7 @@ $$
 
 
 
-### Bayes' Rule
+## Bayes' Rule
 
 두 random variable $X,Y$가 있을 때, 다음을 Bayes' rule이라고 정의한다.
 
