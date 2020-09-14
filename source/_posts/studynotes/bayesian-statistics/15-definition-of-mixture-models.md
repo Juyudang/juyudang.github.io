@@ -79,13 +79,13 @@ $$
 Mixture model의 기댓값은 다음과 같이 정의될 수 있다.
 
 $$
-\mathbb{E}__f [X] = \int_{ -{\infty} }^{ \infty } x f(x) dx
+\mathbb{E}_{f} [X] = \int_{ -{\infty} }^{ \infty } x f(x) dx
 $$
 
 이때, $f(x)$를 mixture density로 치환해보면 다음과 같다.
 
 $$
-\mathbb{E}__f [X] = \int_{ -\infty }^{ \infty }x \sum_{k=1}^K \omega_k g_k(x) dx \\
+\mathbb{E}_{f} [X] = \int_{ -\infty }^{ \infty }x \sum_{k=1}^K \omega_k g_k(x) dx \\
 = \sum_{k=1}^K \omega_k \int_{ -\infty }^{ \infty }x  g_k(x) dx \\
 = \sum_{k=1}^K \omega_k \mathbb{E}_g [X]
 $$
@@ -107,13 +107,13 @@ $$
 이때, 다시 $f(x)$를 mixture density 식으로 치환해보자.
 
 $$
-Var_f [X] = \int_{-\infty}^{\infty}(x - \mathbb{E}_f [X])^2 \sum_{k=1}^k\omega_k g_k(x) dx \\
-= \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} (x - \mathbb{E}_f[X])^2 g_k(x) dx \\
-= \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} (x^2 g_k(x) - 2x\mathbb{E}_f [X] g_k(x) + (\mathbb{E}_f [X])^2 g_k(x)) dx \\
-= \sum_{k=1}^k \omega_k \mathbb{E}_g[X^2] - 2\mathbb{E}_f [X]\sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} x g_k(x) + (\mathbb{E}_f [X])^2 \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} g_k(x) dx \\
-= \sum_{k=1}^k \omega_k \mathbb{E}_g[X^2] - 2 (\mathbb{E}_f [X])^2 + (\mathbb{E}_f [X])^2 \\
-= \sum_{k=1}^k \omega_k \mathbb{E}_g[X^2] -  (\mathbb{E}_f [X])^2 \\
-= \sum_{k=1}^k \omega_k [Var_{g_k}[X] + (\mathbb{E}_{g_k} [X])^2] - (\mathbb{E}_f [X])^2
+Var_f [X] = \int_{-\infty}^{\infty}(x - \mathbb{E}_{f} [X])^2 \sum_{k=1}^k\omega_k g_k(x) dx \\
+= \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} (x - \mathbb{E}_{f} [X])^2 g_k(x) dx \\
+= \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} (x^2 g_k(x) - 2x\mathbb{E}_{f} [X] g_k(x) + (\mathbb{E}_{f} [X])^2 g_k(x)) dx \\
+= \sum_{k=1}^k \omega_k \mathbb{E}_{g} [X^2] - 2\mathbb{E}_{f} [X]\sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} x g_k(x) + (\mathbb{E}_{f} [X])^2 \sum_{k=1}^k \omega_k \int_{-\infty}^{\infty} g_k(x) dx \\
+= \sum_{k=1}^k \omega_k \mathbb{E}_{g} [X^2] - 2 (\mathbb{E}_{f} [X])^2 + (\mathbb{E}_{f} [X])^2 \\
+= \sum_{k=1}^k \omega_k \mathbb{E}_{g} [X^2] -  (\mathbb{E}_{f} [X])^2 \\
+= \sum_{k=1}^k \omega_k [Var_{g_k}[X] + (\mathbb{E}_{g_k} [X])^2] - (\mathbb{E}_{f} [X])^2
 $$
 
 
