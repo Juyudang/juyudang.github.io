@@ -103,7 +103,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: book
+theme: wikitten
 
 ## Plugins: https://hexo.io/plugins/
 ### JsonContent
