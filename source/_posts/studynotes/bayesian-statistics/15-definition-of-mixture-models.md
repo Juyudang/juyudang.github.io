@@ -53,13 +53,13 @@ $$
 가장 간단한 예제 중 하나인 사람들의 키 분포를 예로 들어보자. 사람들은 남자와 여자 두 가지 성별로 그룹핑할 수 있으며, 남자의 키 분포를 다음과 같다고 가정해보자.
 
 $$
-g_{ \text{male} }(x) = \frac{1}{ \sigma \sqrt{2\pi} } \text{exp}\{ -\frac{(x - \mu_{\text{male}})^2}{2\sigma^2} \}
+g_{ \text{male} }(x) = \frac{1}{ \sigma \sqrt{2 \pi } } \text{exp} \{ -\frac{(x - \mu_{ \text{male} })^2}{2 \sigma^2 } \}
 $$
 
 그리고, 여자의 키 분포를 다음과 같다고 가정해보자.
 
 $$
-g_{\text{female}}(x) = \frac{1}{\sigma\sqrt{2\pi}} \text{exp}\{ -\frac{(x - \mu_{\text{female}})^2}{2\sigma^2} \}
+g_{ \text{female} }(x) = \frac{1}{ \sigma \sqrt{ 2 \pi} } \text{exp}\{ -\frac{(x - \mu_{ \text{female} })^2}{2 \sigma^2 } \}
 $$
 
 그럼, 사람들의 키 분포는 다음과 같이 표현할 수 있다.
