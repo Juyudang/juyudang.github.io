@@ -3,9 +3,9 @@ title: Init Blog
 toc: true
 date: 2020-03-01 12:39:05
 tags: 
-    - Log
+    - Home
 categories: 
-    - Log
+    - Home
 ---
 
 ## Blog Init
