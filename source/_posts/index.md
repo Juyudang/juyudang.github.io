@@ -20,6 +20,7 @@ This is blog for my study notes.
 
 (Thanks to [@Taeuk](https://github.com/taeuk-gang) for helping creation of my blog)
 
+**모든 노트 재작성중...**
 
 
 ## Contents
