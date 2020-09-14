@@ -1,7 +1,7 @@
 ---
 title: 15. Definition of Mixture Models
 toc: true
-date: 2020-08-01 13:36:00
+date: 2020-08-01 15:26:00
 tags:
 	- StudyNotes
 	- BayesianStatistics
