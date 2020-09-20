@@ -10,7 +10,6 @@ categories:
     - Recommender Systems
 ---
 
-# PageRank Algorithm
 
 PageRank 알고리즘은 구글이 개발하고 사용중인 구글 검색엔진 알고리즘이다. 사용자가 검색어를 입력하면, 그 검색어에 해당하는 글들을 추천해서 띄워주는 추천 시스템이라고도 볼 수 있다. 본 문서에서는 PageRank 알고리즘에 대해서 정리보해보고자 한다.
 
