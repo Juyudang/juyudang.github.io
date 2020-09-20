@@ -54,12 +54,12 @@ $$p(i \rightarrow j) = p(i \rightarrow k) = p(i \rightarrow l) = \frac{1}{3}$$
 
 Markov chain에서는 상태를 이동하는 확률을 저장한 transition matrix를 정의할 수 있다.
 
-웹 페이지가 $i, j, k$ 3개밖에 없다고 가정해보자. 그리고, $i$ 페이지에는 $j$로 가는 링크가 있고, $j$ 페이지에는 $i, k$로 가는 링크가 있고, $k$페이지에는 다른 외부로가는 링크가 없다고 해 보자. 그럼, 세 개의 웹 페이지 $i, j, k$에 대해 transition matrix $A$는 다음처럼 정의할 수 있다.
+웹 페이지가 $i, j, k$ 3개밖에 없다고 가정해보자. 그리고, $i$ 페이지에는 $j$로 가는 링크가 있고, $j$ 페이지에는 $i, k$로 가는 링크가 있고, $k$페이지에는 페이지 $i$로 가는 링크가 있다고 해 보자. 그럼, 세 개의 웹 페이지 $i, j, k$에 대해 transition matrix $A$는 다음처럼 정의할 수 있다.
 
 $$A = \begin{pmatrix}
 0 & 1 & 0 \\
 \frac{1}{2} & 0 & \frac{1}{2} \\
-0 & 0 & 0
+1 & 0 & 0
 \end{pmatrix}$$
 
 첫 번째 행은 페이지 $i$에서 각각 $i, j, k$로 이동할 확률을 의미하며,
