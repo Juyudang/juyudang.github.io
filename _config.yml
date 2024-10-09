@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Jaeyoung's Blog
-subtitle: Jaeyoung's Blog
+title: Juyudang's Blog
+subtitle: Juyudang's Blog
 description: For Memory
 keywords: Math
-author: Lee Jaeyoung
+author: SM Baek
 language: ko
 timezone: Asia/Seoul
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://wayexists02.github.io
+url: https://juyudang.github.io
 root: /
 # permalink: :year/:month/:day/:title/
 permalink: :title/
@@ -176,5 +176,5 @@ sitemap:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/wayexists02/wayexists02.github.io
+  repo: https://github.com/Juyudang/juyudang.github.io
   branch: master

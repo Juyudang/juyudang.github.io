@@ -3,7 +3,7 @@
 ### 클론
 
 ```bash
-git clone -b writing https://github.com/Jaeyoung-blog/jaeyoung-blog.github.io
+git clone -b writing https://github.com/Juyudang/juyudang.github.io.git
 ```
 
 ### 설치
